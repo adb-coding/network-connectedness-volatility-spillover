@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix A — Chapter 2 – Volatility Connectedness and Network Topology in the Reinsurance Sector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./app-ch3.html" rel="next">
+<link href="./conclusion.html" rel="prev">
+<link href="./UNIVE_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-ch2.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-ch2.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Volatility Connectedness and Network Topology in the Reinsurance Sector</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/adb-coding/network-connectedness-volatility-spillover" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Thesis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Chapter 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-am-list" id="toc-sec-am-list" class="nav-link active" data-scroll-target="#sec-am-list"><span class="header-section-number">A.1</span> Reinsurance Companies Dataset</a></li>
+  <li><a href="#sec-stationarity" id="toc-sec-stationarity" class="nav-link" data-scroll-target="#sec-stationarity"><span class="header-section-number">A.2</span> Stationarity Test Results</a></li>
+  <li><a href="#sec-app-bvar-robustness" id="toc-sec-app-bvar-robustness" class="nav-link" data-scroll-target="#sec-app-bvar-robustness"><span class="header-section-number">A.3</span> BVAR Model Robustness Check</a></li>
+  <li><a href="#sec-app-mh" id="toc-sec-app-mh" class="nav-link" data-scroll-target="#sec-app-mh"><span class="header-section-number">A.4</span> Metropolis-Hastings Algorithm</a></li>
+  <li><a href="#sec-app-posterior_ci" id="toc-sec-app-posterior_ci" class="nav-link" data-scroll-target="#sec-app-posterior_ci"><span class="header-section-number">A.5</span> Posterior Credible Intervals for GFEVD Out-Strength</a></li>
+  <li><a href="#sec-final-model" id="toc-sec-final-model" class="nav-link" data-scroll-target="#sec-final-model"><span class="header-section-number">A.6</span> Final Model Specifications</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-ch2.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-ch2.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix A — Chapter 2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-am-list" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-am-list"><span class="header-section-number">A.1</span> Reinsurance Companies Dataset</h2>
+<p>List of companies considered the top reinsurers by A.M. Best for the year 2025, with their estimate of Gross written premiums (GWP), Net written premiums (NWP), reported in $ billions, and Combined Ratio expressed in percentage. The first section of the table reports the companies considered in the analysis, while the second section reports the companies that were discarded from the analysis and the reason for that.</p>
+<div class="cell">
+<div id="tbl-am_list_included" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-am_list_included-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.1: List of the Companies included in the Data set
+</figcaption>
+<div aria-describedby="tbl-am_list_included-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Company Name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Ticker</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Country</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mkt Cap</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">GWP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">NWP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">C.Ratio</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Ceded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Korean Reinsurance Co</td>
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: left;">South Korea</td>
+<td style="text-align: right;">1.34</td>
+<td style="text-align: right;">5.39</td>
+<td style="text-align: right;">4.27</td>
+<td style="text-align: right;">90.9</td>
+<td style="text-align: right;">20.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Taiping Reinsurance Co. Ltd.</td>
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: left;">Hong Kong</td>
+<td style="text-align: right;">6.92</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">91.5</td>
+<td style="text-align: right;">7.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China Reinsurance (Group) Corp</td>
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">8.53</td>
+<td style="text-align: right;">7.85</td>
+<td style="text-align: right;">6.78</td>
+<td style="text-align: right;">89.5</td>
+<td style="text-align: right;">13.68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Toa Reinsurance Co, Limited</td>
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">2.30</td>
+<td style="text-align: right;">1.84</td>
+<td style="text-align: right;">91.1</td>
+<td style="text-align: right;">20.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sompo International Holdings, Ltd.</td>
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">26.68</td>
+<td style="text-align: right;">26.83</td>
+<td style="text-align: right;">24.15</td>
+<td style="text-align: right;">83.7</td>
+<td style="text-align: right;">9.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MS&amp;AD Insurance Group Holdings, Inc.</td>
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">32.04</td>
+<td style="text-align: right;">35.34</td>
+<td style="text-align: right;">30.59</td>
+<td style="text-align: right;">99.4</td>
+<td style="text-align: right;">13.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tokio Marine &amp; Nichido Fire Insurance Co., Ltd.</td>
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">76.77</td>
+<td style="text-align: right;">36.30</td>
+<td style="text-align: right;">31.58</td>
+<td style="text-align: right;">96.1</td>
+<td style="text-align: right;">13.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arch Capital Group Ltd.</td>
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">33.25</td>
+<td style="text-align: right;">11.11</td>
+<td style="text-align: right;">7.75</td>
+<td style="text-align: right;">83.3</td>
+<td style="text-align: right;">30.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXIS Capital Holdings Limited</td>
+<td style="text-align: left;">AXS</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">7.34</td>
+<td style="text-align: right;">2.39</td>
+<td style="text-align: right;">1.51</td>
+<td style="text-align: right;">107.6</td>
+<td style="text-align: right;">36.96</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Berkshire Hathaway Inc.</td>
+<td style="text-align: left;">BRK-A</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">1070.25</td>
+<td style="text-align: right;">88.69</td>
+<td style="text-align: right;">86.43</td>
+<td style="text-align: right;">82.9</td>
+<td style="text-align: right;">2.55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chubb Limited</td>
+<td style="text-align: left;">CB</td>
+<td style="text-align: left;">Switzerland</td>
+<td style="text-align: right;">112.18</td>
+<td style="text-align: right;">62.00</td>
+<td style="text-align: right;">51.47</td>
+<td style="text-align: right;">85.8</td>
+<td style="text-align: right;">16.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AXA XL</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">74.46</td>
+<td style="text-align: right;">8.41</td>
+<td style="text-align: right;">6.62</td>
+<td style="text-align: right;">79.8</td>
+<td style="text-align: right;">21.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Everest Group, Ltd.</td>
+<td style="text-align: left;">EG</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">14.72</td>
+<td style="text-align: right;">12.94</td>
+<td style="text-align: right;">11.97</td>
+<td style="text-align: right;">89.6</td>
+<td style="text-align: right;">7.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Allied World Assurance Co Holdings, Ltd.</td>
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: left;">Canada</td>
+<td style="text-align: right;">38.91</td>
+<td style="text-align: right;">7.20</td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">88.7</td>
+<td style="text-align: right;">29.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Assicurazioni Generali SpA</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: left;">Italy</td>
+<td style="text-align: right;">43.37</td>
+<td style="text-align: right;">81.84</td>
+<td style="text-align: right;">78.49</td>
+<td style="text-align: right;">107.1</td>
+<td style="text-align: right;">4.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hannover Rück SE</td>
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: right;">26.60</td>
+<td style="text-align: right;">22.68</td>
+<td style="text-align: right;">19.80</td>
+<td style="text-align: right;">86.6</td>
+<td style="text-align: right;">12.68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hiscox Ltd</td>
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">3.43</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">65.7</td>
+<td style="text-align: right;">56.92</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAPFRE RE, Compañía de Reaseguros S.A.</td>
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: left;">Spain</td>
+<td style="text-align: right;">10.77</td>
+<td style="text-align: right;">6.72</td>
+<td style="text-align: right;">4.18</td>
+<td style="text-align: right;">94.6</td>
+<td style="text-align: right;">37.79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Markel Corp</td>
+<td style="text-align: left;">MKL</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">24.30</td>
+<td style="text-align: right;">1.15</td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">100.5</td>
+<td style="text-align: right;">9.68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Munich Reinsurance Company</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: right;">62.00</td>
+<td style="text-align: right;">34.42</td>
+<td style="text-align: right;">33.30</td>
+<td style="text-align: right;">93.5</td>
+<td style="text-align: right;">3.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE Insurance Group Limited</td>
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: left;">Australia</td>
+<td style="text-align: right;">47.59</td>
+<td style="text-align: right;">22.40</td>
+<td style="text-align: right;">18.42</td>
+<td style="text-align: right;">83.0</td>
+<td style="text-align: right;">17.73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reinsurance Group of America Inc.</td>
+<td style="text-align: left;">RGA</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">12.81</td>
+<td style="text-align: right;">18.49</td>
+<td style="text-align: right;">17.84</td>
+<td style="text-align: right;">104.0</td>
+<td style="text-align: right;">3.51</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RenaissanceRe Holdings Ltd.</td>
+<td style="text-align: left;">RNR</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">12.04</td>
+<td style="text-align: right;">11.73</td>
+<td style="text-align: right;">9.95</td>
+<td style="text-align: right;">83.3</td>
+<td style="text-align: right;">15.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SCOR S.E.</td>
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">4.63</td>
+<td style="text-align: right;">17.25</td>
+<td style="text-align: right;">13.86</td>
+<td style="text-align: right;">86.3</td>
+<td style="text-align: right;">19.63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SiriusPoint Ltd.</td>
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">2.09</td>
+<td style="text-align: right;">1.34</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">88.1</td>
+<td style="text-align: right;">17.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Swiss Re Ltd.</td>
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">Switzerland</td>
+<td style="text-align: right;">54.45</td>
+<td style="text-align: right;">44.86</td>
+<td style="text-align: right;">37.32</td>
+<td style="text-align: right;">89.9</td>
+<td style="text-align: right;">16.80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W.R. Berkley Corp</td>
+<td style="text-align: left;">WRB</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">28.89</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">1.42</td>
+<td style="text-align: right;">84.1</td>
+<td style="text-align: right;">8.16</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-am_list_excluded" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-am_list_excluded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.2: List of the Companies excluded from the Data set but that were cited in the A.M. Best top 50 reinsurer’s list
+</figcaption>
+<div aria-describedby="tbl-am_list_excluded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Company Name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Ticker</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">GWP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Revenue</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">C.Ratio</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Lloyd's</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">23.54</td>
+<td style="text-align: right;">58.88</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: left;">bank ticker</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Canada Life Re</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">3.43</td>
+<td style="text-align: right;">14.54</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ark Insurance Holdings Ltd.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1.38</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PartnerRe Ltd.</td>
+<td style="text-align: left;">PREJF</td>
+<td style="text-align: right;">9.35</td>
+<td style="text-align: right;">9.40</td>
+<td style="text-align: right;">0.86</td>
+<td style="text-align: left;">shorter period</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">General Insurance Corporation of India</td>
+<td style="text-align: left;">GICRE.NS</td>
+<td style="text-align: right;">4.90</td>
+<td style="text-align: right;">10.38</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: left;">shorter period</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Odyssey Group Holdings, Inc.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">3.82</td>
+<td style="text-align: right;">6.39</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R+V Versicherung AG</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">3.55</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Liberty Mutual</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">3.05</td>
+<td style="text-align: right;">30.65</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pacific LifeCorp</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">2.84</td>
+<td style="text-align: right;">10.15</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">American Agricultural Insurance Company</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">2.35</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Convex Group Limited</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">2.33</td>
+<td style="text-align: right;">3.67</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deutsche Rückversicherung AG</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">2.17</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aspen Insurance Holdings Limited</td>
+<td style="text-align: left;">AHL-PD</td>
+<td style="text-align: right;">1.89</td>
+<td style="text-align: right;">3.37</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: left;">shorter period</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ascot Group Ltd.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.75</td>
+<td style="text-align: right;">2.45</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Core Specialty Insurance Holdings, Inc.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.58</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DEVK Gruppe</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.44</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Arundo Re</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.39</td>
+<td style="text-align: right;">0.86</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Somers Re Ltd.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">1.31</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">African Reinsurance Corporation</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">1.16</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Qianhai Reinsurance Co., Ltd.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.19</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peak Reinsurance Company Ltd.</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">1.16</td>
+<td style="text-align: right;">1.43</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: left;">not listed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hamilton Insurance Group, Ltd.</td>
+<td style="text-align: left;">HG</td>
+<td style="text-align: right;">1.15</td>
+<td style="text-align: right;">2.33</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: left;">shorter period</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IRB - Brasil Resseguros S.A.</td>
+<td style="text-align: left;">IRBR3.SA</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: left;">shorter period</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-stationarity" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-stationarity"><span class="header-section-number">A.2</span> Stationarity Test Results</h2>
+<p>Results of the stationarity test performed over the volatility series of the 27 reinsurance companies.</p>
+<div class="cell">
+<div id="tbl-stationarity" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stationarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.3: Augmented Dickey-Fuller and KPSS stationarity tests on log-volatility series
+</figcaption>
+<div aria-describedby="tbl-stationarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Ticker</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ADF $t$-stat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$p$-value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">KPSS $t$-stat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$p$-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">-6.419</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.271</td>
+<td style="text-align: right;">0.1000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">-6.218</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.707</td>
+<td style="text-align: right;">0.0129</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">-5.654</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">10.908</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: right;">-6.193</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">3.765</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">-5.803</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.129</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">-5.030</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.821</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">-5.188</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">2.141</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: right;">-5.090</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">2.727</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: right;">-5.839</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.405</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">-6.065</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.609</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">-5.123</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">3.501</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">-5.774</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.157</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">-6.482</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.417</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: right;">-6.328</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">2.060</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">-5.489</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.882</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">-5.273</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.708</td>
+<td style="text-align: right;">0.0128</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">-5.608</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.051</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">-5.090</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.424</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">-5.601</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">3.254</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">-5.081</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.245</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">-6.511</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.669</td>
+<td style="text-align: right;">0.0164</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: right;">-4.167</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">3.972</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">-6.079</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">7.492</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">-5.918</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.618</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">-5.325</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.108</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">-6.072</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">1.364</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">-6.158</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">4.783</td>
+<td style="text-align: right;">0.0100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-app-bvar-robustness" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-app-bvar-robustness"><span class="header-section-number">A.3</span> BVAR Model Robustness Check</h2>
+<p>The parameters used for the BVAR model later applied over the log-volatility series in <a href="chapter2.html" class="quarto-xref"><span>Chapter 2</span></a> were chosen comparing multiple models’ diagnostic measures such the Geweke diagnostic, the Gelman-Rubin, the Effective Sample Size (ESS), and the Mean Squared Error difference (<span class="math inline">\(\Delta\)</span>MSE) between the VAR and BVAR model, to select parameters that ensure higher predictive performance for the Bayesian model compared to the frequentist static VAR one, as specified in <a href="chapter2.html#sec-model_selection" class="quarto-xref"><span>Section 2.3.2</span></a>. Below <a href="#tbl-model_comparison" class="quarto-xref">Table&nbsp;<span>A.4</span></a> reports the model tested, with their parameter specification (<span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\alpha\)</span>, Metropolis Hastings parameters), the acceptance rate results, and the log Likelihood of the estimation. All models were estimated over <span class="math inline">\(15,000\)</span> draws and a burning phase of <span class="math inline">\(5,000\)</span> draws.</p>
+<p>The model selected to later perform all analysis and estimations is <em>model28</em>. The final BVAR model was performed over <span class="math inline">\(15,000\)</span> draws and a burning phase of <span class="math inline">\(5,000\)</span> draws. The convergence of the draws is visible from the <a href="#fig-model-convergence" class="quarto-xref">Figure&nbsp;<span>A.1</span></a>, reported below, for the <span class="math inline">\(\lambda\)</span> parameters and the log Likelihood. The fuzzyness of the trace of both parameters, and the high spike in the density of the ml and the unimodal distribution of the lambda curve, along with the acceptance rate of <span class="math inline">\(25.9\%\)</span> and the Geweke and ESS results indicate a satisfactory model estimation.</p>
+<div class="cell">
+<div id="tbl-model_comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.4: Diagnostics and different parameters for the BVAR models tested
+</figcaption>
+<div aria-describedby="tbl-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Model ID</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Lag</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$\Lambda$</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$\alpha$</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">MH scale</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">MH change</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Acc Rate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Log Like</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ESS</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Geweke</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$RMSE_{BVAR}$</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$RMSE_{VAR}$</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$\Delta$RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">model1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">93540.18</td>
+<td style="text-align: right;">162.16</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">94357.62</td>
+<td style="text-align: right;">152.69</td>
+<td style="text-align: right;">1.23</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">94467.20</td>
+<td style="text-align: right;">143.15</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">94693.64</td>
+<td style="text-align: right;">193.20</td>
+<td style="text-align: right;">-0.16</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">94884.42</td>
+<td style="text-align: right;">140.51</td>
+<td style="text-align: right;">-1.22</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">94951.63</td>
+<td style="text-align: right;">147.51</td>
+<td style="text-align: right;">-1.42</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">93540.58</td>
+<td style="text-align: right;">175.05</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">94365.98</td>
+<td style="text-align: right;">110.29</td>
+<td style="text-align: right;">2.45</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model9</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">94490.06</td>
+<td style="text-align: right;">167.24</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model10</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">94674.69</td>
+<td style="text-align: right;">109.50</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model11</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">94821.38</td>
+<td style="text-align: right;">181.51</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model12</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">94886.62</td>
+<td style="text-align: right;">161.77</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">93541.22</td>
+<td style="text-align: right;">108.34</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model14</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">94357.74</td>
+<td style="text-align: right;">158.36</td>
+<td style="text-align: right;">-1.33</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model15</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">94471.39</td>
+<td style="text-align: right;">151.49</td>
+<td style="text-align: right;">-0.87</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model16</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">94701.34</td>
+<td style="text-align: right;">200.99</td>
+<td style="text-align: right;">-0.50</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model17</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">94878.65</td>
+<td style="text-align: right;">215.50</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model18</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">94942.09</td>
+<td style="text-align: right;">158.65</td>
+<td style="text-align: right;">-2.21</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">93540.26</td>
+<td style="text-align: right;">184.93</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">94369.46</td>
+<td style="text-align: right;">99.13</td>
+<td style="text-align: right;">-0.41</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model21</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">94490.18</td>
+<td style="text-align: right;">184.07</td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model22</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">94673.73</td>
+<td style="text-align: right;">173.87</td>
+<td style="text-align: right;">-0.85</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model23</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">94821.49</td>
+<td style="text-align: right;">158.22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model24</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">94879.44</td>
+<td style="text-align: right;">231.12</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model25</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">93543.98</td>
+<td style="text-align: right;">249.64</td>
+<td style="text-align: right;">-0.68</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model26</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">94361.03</td>
+<td style="text-align: right;">164.29</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model27</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">94474.73</td>
+<td style="text-align: right;">163.33</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model28</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">94696.20</td>
+<td style="text-align: right;">187.63</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model29</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">94884.93</td>
+<td style="text-align: right;">169.52</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model30</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">94954.10</td>
+<td style="text-align: right;">182.91</td>
+<td style="text-align: right;">-3.06</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model31</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">93542.72</td>
+<td style="text-align: right;">130.38</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model32</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">94364.18</td>
+<td style="text-align: right;">122.44</td>
+<td style="text-align: right;">-0.77</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model33</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">94491.01</td>
+<td style="text-align: right;">162.87</td>
+<td style="text-align: right;">-0.11</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model34</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">94670.54</td>
+<td style="text-align: right;">206.06</td>
+<td style="text-align: right;">-1.28</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model35</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">94821.11</td>
+<td style="text-align: right;">164.98</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model36</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">94880.20</td>
+<td style="text-align: right;">186.87</td>
+<td style="text-align: right;">-1.16</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model37</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">93547.54</td>
+<td style="text-align: right;">173.38</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model38</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">94362.50</td>
+<td style="text-align: right;">172.06</td>
+<td style="text-align: right;">-0.75</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model39</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">94475.96</td>
+<td style="text-align: right;">217.19</td>
+<td style="text-align: right;">-0.49</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model40</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">94704.22</td>
+<td style="text-align: right;">188.01</td>
+<td style="text-align: right;">-0.33</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model41</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">94880.54</td>
+<td style="text-align: right;">195.77</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model42</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">94955.66</td>
+<td style="text-align: right;">178.22</td>
+<td style="text-align: right;">-0.07</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model43</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">93546.73</td>
+<td style="text-align: right;">187.22</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model44</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">94369.56</td>
+<td style="text-align: right;">84.12</td>
+<td style="text-align: right;">-0.10</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">-0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model45</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">94487.05</td>
+<td style="text-align: right;">174.03</td>
+<td style="text-align: right;">-1.76</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model46</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">94675.78</td>
+<td style="text-align: right;">205.77</td>
+<td style="text-align: right;">3.03</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">model47</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">94822.64</td>
+<td style="text-align: right;">108.53</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">model48</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">94889.64</td>
+<td style="text-align: right;">193.84</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div id="fig-model-convergence" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="..\Data\ch2\model28.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.1: Convergence of the BVAR model with the parameters specified of model28
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-app-mh" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="sec-app-mh"><span class="header-section-number">A.4</span> Metropolis-Hastings Algorithm</h2>
+<p>The Metropolis-Hastings (MH) algorithms proceeds following these steps:</p>
+<ul>
+<li><p><strong>Proposal distribution</strong>: for each iteration <span class="math inline">\(i = 1,\dots,N\)</span>, given the current state <span class="math inline">\(\gamma^{(i)}\)</span>, a possible candidate <span class="math inline">\(\gamma^* \sim q(\gamma^*|\gamma^{(t)})\)</span>is proposed. The <code>BVAR</code> package utilizes an adaptive random-walk Metropolis proposal of the form: <span class="math display">\[
+      \gamma^* = \gamma^{(i)}+\epsilon, \qquad \epsilon \sim \mathcal{N}(0, c \cdot H^{-1})
+  \]</span> where <span class="math inline">\(H\)</span> is the Hessian of the log marginal likelihood evaluated at the posterior mode, and <span class="math inline">\(c\)</span> is a scaling factor controlling the proposal scale (in our implementation: <code>scale_hess = 0.01</code>).</p></li>
+<li><p><strong>Acceptance probability</strong>: the candidate <span class="math inline">\(\gamma^*\)</span> is accepted with probability <span class="math display">\[
+      \alpha_{MH} = min \Biggl\{ 1,\frac{p(y|\gamma^*)p(\gamma^*)}{p(y|\gamma^{(i)})p(\gamma^{(i)})}\cdot\frac{q(\gamma^{(i)}|\gamma^*)}{q(\gamma^*|\gamma^{(i)})}\Biggl\}
+  \]</span> Since the proposal is symmetric, the ratio of proposal density equals unity. The marginal likelihood <span class="math inline">\(p(y|\gamma)\)</span>, as in <a href="chapter2.html#eq-marg_likelihood" class="quarto-xref">Equation&nbsp;<span>2.4</span></a>, corresponds to the closed-form Normal-Inverse-Wishart expression implied by the conjugate prior, involving the determinant of the posterior covariance matrix and the associated normalization constants.</p></li>
+<li><p><strong>Adaptive tuning</strong>: to achieve efficient mixing, the algorithm uses adaptive scaling during the burn-in phase (<code>adjust_acc = TRUE</code>). The algorithm monitors the acceptance rate <span class="math inline">\(\alpha_{MH}\)</span> and dynamically adjust the scaling factor <span class="math inline">\(c\)</span>:</p>
+<ul>
+<li>if the acceptance rate falls below a lower bound <span class="math inline">\(\alpha_{low}\)</span>, the scale factor <span class="math inline">\(c\)</span> is decreased to <span class="math inline">\(c^* = c(1-\Delta)\)</span>;</li>
+<li>if the acceptance rate exceeds an upper bound <span class="math inline">\(\alpha_{upp}\)</span>, the scale factor is increased to <span class="math inline">\(c^*=c(1+\Delta)\)</span> Adaptation is applied during the initial fraction of the burn-in phase so that the chain stabilizes before posterior sampling begins.</li>
+</ul>
+<p>In our implementation, the target acceptance interval is <span class="math inline">\([0.25, 0.40]\)</span>, and the update magnitude is controlled by <code>acc_change = 0.01</code>.</p></li>
+<li><p><strong>Gibbs Sampling</strong>: conditional on the new accepted hyperparameters <span class="math inline">\(\gamma^{(i+1)}\)</span>, the VAR coefficients <span class="math inline">\(\theta\)</span> are sampled via a standard Gibbs update from their conjugate Normal-Inverse-Wishart posterior: <span class="math display">\[
+      \theta|\gamma,\Sigma,y \sim \mathcal{N}(\bar{\beta},\bar{\Omega}), \qquad \Sigma|\gamma,y \sim \mathcal{IW}(\cdot)
+  \]</span> which, under the NIW prior admits closed-form solution.</p></li>
+</ul>
+</section>
+<section id="sec-app-posterior_ci" class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="sec-app-posterior_ci"><span class="header-section-number">A.5</span> Posterior Credible Intervals for GFEVD Out-Strength</h2>
+<p><a href="#tbl-posterior_strength_ci" class="quarto-xref">Table&nbsp;<span>A.5</span></a> reports the lower and upper intervals obtained from the GFEVD.</p>
+<div class="cell">
+<div id="tbl-posterior_strength_ci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-posterior_strength_ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.5: Out-strength for all 27 reinsurers with 90% posterior credible interval derived from MCMC draws of the GFEVD matrix. Values scaled to sum to 100 per row. Sorted by posterior median out-strength
+</figcaption>
+<div aria-describedby="tbl-posterior_strength_ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Firm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">72.91</td>
+<td style="text-align: right;">12.54</td>
+<td style="text-align: right;">114.41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">83.76</td>
+<td style="text-align: right;">29.78</td>
+<td style="text-align: right;">128.62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">79.86</td>
+<td style="text-align: right;">26.21</td>
+<td style="text-align: right;">130.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: right;">56.87</td>
+<td style="text-align: right;">21.17</td>
+<td style="text-align: right;">103.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">78.69</td>
+<td style="text-align: right;">37.43</td>
+<td style="text-align: right;">122.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">83.70</td>
+<td style="text-align: right;">44.48</td>
+<td style="text-align: right;">116.82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">76.09</td>
+<td style="text-align: right;">28.63</td>
+<td style="text-align: right;">136.28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: right;">82.89</td>
+<td style="text-align: right;">52.60</td>
+<td style="text-align: right;">110.33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: right;">77.92</td>
+<td style="text-align: right;">47.27</td>
+<td style="text-align: right;">107.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK-A</td>
+<td style="text-align: right;">66.50</td>
+<td style="text-align: right;">38.72</td>
+<td style="text-align: right;">97.13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">86.03</td>
+<td style="text-align: right;">55.42</td>
+<td style="text-align: right;">111.88</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">82.66</td>
+<td style="text-align: right;">56.41</td>
+<td style="text-align: right;">111.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">84.53</td>
+<td style="text-align: right;">52.19</td>
+<td style="text-align: right;">110.88</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: right;">76.15</td>
+<td style="text-align: right;">44.48</td>
+<td style="text-align: right;">105.93</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">88.00</td>
+<td style="text-align: right;">69.54</td>
+<td style="text-align: right;">104.74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">78.15</td>
+<td style="text-align: right;">41.81</td>
+<td style="text-align: right;">131.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">34.03</td>
+<td style="text-align: right;">15.25</td>
+<td style="text-align: right;">77.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">84.75</td>
+<td style="text-align: right;">63.80</td>
+<td style="text-align: right;">104.94</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">90.53</td>
+<td style="text-align: right;">70.60</td>
+<td style="text-align: right;">108.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">88.48</td>
+<td style="text-align: right;">69.55</td>
+<td style="text-align: right;">106.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">49.55</td>
+<td style="text-align: right;">21.01</td>
+<td style="text-align: right;">105.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: right;">88.53</td>
+<td style="text-align: right;">69.25</td>
+<td style="text-align: right;">105.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">71.46</td>
+<td style="text-align: right;">27.65</td>
+<td style="text-align: right;">117.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">73.01</td>
+<td style="text-align: right;">44.82</td>
+<td style="text-align: right;">96.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">73.43</td>
+<td style="text-align: right;">47.98</td>
+<td style="text-align: right;">102.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">78.92</td>
+<td style="text-align: right;">52.20</td>
+<td style="text-align: right;">112.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">90.51</td>
+<td style="text-align: right;">69.62</td>
+<td style="text-align: right;">108.40</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-final-model" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="sec-final-model"><span class="header-section-number">A.6</span> Final Model Specifications</h2>
+<p>The final BVAR model used, as specified in <a href="chapter2.html" class="quarto-xref"><span>Chapter 2</span></a>, is listed below, as well with the source code used to implement it in <code>R</code> with the package <code>BVAR</code> developed by <span class="citation" data-cites="bvarpackage2021">Kuschnig and Vashold (<a href="references.html#ref-bvarpackage2021" role="doc-biblioref">2021</a>)</span>. The model parameters are set as follow:</p>
+<ul>
+<li>Minnesota prior:
+<ul>
+<li><span class="math inline">\(\lambda \sim N(0.2, 0.4), \quad \lambda \in [0.0001, 5]\)</span></li>
+<li><span class="math inline">\(\alpha \sim N(2, 0.25), \quad \alpha \in [0.01, 3]\)</span></li>
+<li><span class="math inline">\(\psi \sim\)</span> Gamma(scale=0.004, shape=0.004) and mode, minimum, and maximum are set automatically by the package</li>
+</ul></li>
+<li>SOC prior:
+<ul>
+<li><span class="math inline">\(SOC \sim N(1,1), \quad SOC \in[0.0001, 50]\)</span></li>
+</ul></li>
+<li>SUR prior:
+<ul>
+<li><span class="math inline">\(SUR \sim N(1,1), \quad SUR \in[0.0001, 50]\)</span></li>
+</ul></li>
+<li>MCMC Metropolis-Hasting:
+<ul>
+<li>scaling factor <span class="math inline">\(c\)</span> = 0.01</li>
+<li>adaptive acceptance rate target <span class="math inline">\(\alpha_{MH} \in [0.25, 0.40]\)</span>, with incremental acceptance change <span class="math inline">\(\Delta = 0.01\)</span></li>
+<li>burn-in adaptation phase is set to 50% of the whole burn-in 5000 draws, while the total draws for the MCMC algorithm are 15000.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BVAR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(coda)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minnesota prior</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>minnesota_priors <span class="ot">&lt;-</span> <span class="fu">bv_minnesota</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="fu">bv_lambda</span>(<span class="at">mode=</span><span class="fl">0.2</span>, <span class="at">sd=</span><span class="fl">0.4</span>, <span class="at">min=</span><span class="fl">0.0001</span>, <span class="at">max=</span><span class="dv">5</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha  =</span> <span class="fu">bv_alpha</span>(<span class="at">mode=</span><span class="dv">2</span>, <span class="at">sd=</span><span class="fl">0.25</span>, <span class="at">min=</span><span class="fl">0.01</span>, <span class="at">max=</span><span class="dv">3</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">psi    =</span> <span class="fu">bv_psi</span>(<span class="at">scale=</span><span class="fl">0.004</span>, <span class="at">shape=</span><span class="fl">0.004</span>, <span class="at">mode=</span><span class="st">"auto"</span>, <span class="at">min=</span><span class="st">"auto"</span>, <span class="at">max=</span><span class="st">"auto"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>add_soc <span class="ot">&lt;-</span> <span class="cf">function</span>(Y, lags, par) {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  soc <span class="ot">&lt;-</span> <span class="cf">if</span>(lags <span class="sc">==</span> <span class="dv">1</span>) {<span class="fu">diag</span>(Y[<span class="dv">1</span>, ]) <span class="sc">/</span> par} <span class="cf">else</span> {<span class="fu">diag</span>(<span class="fu">colMeans</span>(Y[<span class="dv">1</span><span class="sc">:</span>lags, ])) <span class="sc">/</span> par}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="st">"Y"</span> <span class="ot">=</span> soc, <span class="st">"X"</span> <span class="ot">=</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(Y)), <span class="fu">matrix</span>(<span class="fu">rep</span>(soc, lags), <span class="at">nrow =</span> <span class="fu">ncol</span>(Y))))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>add_sur <span class="ot">&lt;-</span> <span class="cf">function</span>(Y, lags, par) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  sur <span class="ot">&lt;-</span> <span class="cf">if</span>(lags <span class="sc">==</span> <span class="dv">1</span>) {Y[<span class="dv">1</span>, ] <span class="sc">/</span> par} <span class="cf">else</span> {<span class="fu">colMeans</span>(Y[<span class="dv">1</span><span class="sc">:</span>lags, ]) <span class="sc">/</span> par}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="st">"Y"</span> <span class="ot">=</span> sur, <span class="st">"X"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> par, <span class="fu">rep</span>(sur, lags)))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>soc <span class="ot">&lt;-</span> <span class="fu">bv_dummy</span>(<span class="at">mode=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">min=</span><span class="fl">0.0001</span>, <span class="at">max=</span><span class="dv">50</span>, <span class="at">fun=</span>add_soc)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>sur <span class="ot">&lt;-</span> <span class="fu">bv_dummy</span>(<span class="at">mode=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">min=</span><span class="fl">0.0001</span>, <span class="at">max=</span><span class="dv">50</span>, <span class="at">fun=</span>add_sur)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>metropolis_hastings <span class="ot">&lt;-</span> <span class="fu">bv_metropolis</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale_hess=</span><span class="fl">0.01</span>, <span class="at">adjust_acc=</span><span class="cn">TRUE</span>, <span class="at">adjust_burn=</span><span class="fl">0.5</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">acc_lower=</span><span class="fl">0.25</span>, <span class="at">acc_upper=</span><span class="fl">0.40</span>, <span class="at">acc_change=</span><span class="fl">0.01</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>priors <span class="ot">&lt;-</span> <span class="fu">bv_priors</span>(<span class="at">hyper=</span><span class="fu">c</span>(<span class="st">"lambda"</span>), <span class="at">mn=</span>minnesota_priors, <span class="at">soc=</span>soc, <span class="at">sur=</span>sur)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">bvar</span>(vol, <span class="at">lags=</span><span class="dv">4</span>, <span class="at">n_draw=</span><span class="dv">15000</span>, <span class="at">n_burn=</span><span class="dv">5000</span>, <span class="at">n_thin=</span><span class="dv">1</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>              <span class="at">priors=</span>priors, <span class="at">mh=</span>metropolis_hastings, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Parallel Gelman-Rubin (1992) diagnostic</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>n_cores <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(n_cores)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>runs <span class="ot">&lt;-</span> <span class="fu">par_bvar</span>(cl, <span class="at">data=</span>vol, <span class="at">lags=</span><span class="dv">4</span>, <span class="at">n_draw=</span><span class="dv">15000</span>, <span class="at">n_burn=</span><span class="dv">5000</span>, <span class="at">n_thin=</span><span class="dv">1</span>, <span class="at">priors=</span>priors)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">gelman.diag</span>(<span class="fu">as.mcmc</span>(runs, <span class="at">vars =</span> <span class="st">"lambda"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To further investigate the validity of the model and the proper convergence and exploration of the parameter space, we used the previously implemented test diagnostics:</p>
+<ul>
+<li>The ESS held a value of 1707.48, far more than the threshold value of 1000 believed to be sufficient for stable estimates and good convergence <span class="citation" data-cites="burkner2017">(<a href="references.html#ref-burkner2017" role="doc-biblioref">Bürkner 2017</a>)</span>.</li>
+<li>The Geweke diagnostic showed again the presence of convergence and proper mixing, with Z-score value of <span class="math inline">\(-0.159\)</span>.</li>
+<li>Gelman-Rubin diagnostic <span class="citation" data-cites="gelman_rubin1992">(<a href="references.html#ref-gelman_rubin1992" role="doc-biblioref">Gelman and Rubin 1992</a>)</span> was performed over 4 parallel MCMC chains, with a potential scale reduction factor <span class="math inline">\(\hat{R}\)</span> of 1, indicating matching between-chain and within-chain variance, exhibiting convergence of chains.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-burkner2017" class="csl-entry" role="listitem">
+Bürkner, Paul-Christian. 2017. <span>“Brms: An r Package for Bayesian Multilevel Models Using Stan.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+</div>
+<div id="ref-gelman_rubin1992" class="csl-entry" role="listitem">
+Gelman, Andrew, and Donald B. Rubin. 1992. <span>“<span class="nocase">Inference from Iterative Simulation Using Multiple Sequences</span>.”</span> <em>Statistical Science</em> 7 (4): 457–72. <a href="https://doi.org/10.1214/ss/1177011136">https://doi.org/10.1214/ss/1177011136</a>.
+</div>
+<div id="ref-bvarpackage2021" class="csl-entry" role="listitem">
+Kuschnig, Nikolas, and Lukas Vashold. 2021. <span>“<span>BVAR</span>: <span>B</span>ayesian Vector Autoregressions with Hierarchical Prior Selection in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 100 (14): 1–27. <a href="https://doi.org/10.18637/jss.v100.i14">https://doi.org/10.18637/jss.v100.i14</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./app-ch3.html" class="pagination-link" aria-label="Chapter 3">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

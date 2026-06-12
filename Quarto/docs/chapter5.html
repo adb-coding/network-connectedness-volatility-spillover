@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrea De Bortoli">
+
+<title>5&nbsp; Systemic Importance – Volatility Connectedness and Network Topology in the Reinsurance Sector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./conclusion.html" rel="next">
+<link href="./chapter4.html" rel="prev">
+<link href="./UNIVE_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Volatility Connectedness and Network Topology in the Reinsurance Sector</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/adb-coding/network-connectedness-volatility-spillover" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Thesis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Chapter 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation"><span class="header-section-number">5.1</span> Introduction and Motivation</a></li>
+  <li><a href="#systemic-risk-measures-a-framework" id="toc-systemic-risk-measures-a-framework" class="nav-link" data-scroll-target="#systemic-risk-measures-a-framework"><span class="header-section-number">5.2</span> Systemic Risk Measures: a Framework</a></li>
+  <li><a href="#sec-covar" id="toc-sec-covar" class="nav-link" data-scroll-target="#sec-covar"><span class="header-section-number">5.3</span> Conditional Value at Risk</a>
+  <ul class="collapse">
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">5.3.1</span> Methodology</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">5.3.2</span> Results</a></li>
+  </ul></li>
+  <li><a href="#marginal-expected-shortfall" id="toc-marginal-expected-shortfall" class="nav-link" data-scroll-target="#marginal-expected-shortfall"><span class="header-section-number">5.4</span> Marginal Expected Shortfall</a>
+  <ul class="collapse">
+  <li><a href="#methodology-1" id="toc-methodology-1" class="nav-link" data-scroll-target="#methodology-1"><span class="header-section-number">5.4.1</span> Methodology</a></li>
+  <li><a href="#results-1" id="toc-results-1" class="nav-link" data-scroll-target="#results-1"><span class="header-section-number">5.4.2</span> Results</a></li>
+  </ul></li>
+  <li><a href="#srisk" id="toc-srisk" class="nav-link" data-scroll-target="#srisk"><span class="header-section-number">5.5</span> SRISK</a></li>
+  <li><a href="#descriptive-shock-propagation-scenario" id="toc-descriptive-shock-propagation-scenario" class="nav-link" data-scroll-target="#descriptive-shock-propagation-scenario"><span class="header-section-number">5.6</span> Descriptive Shock Propagation Scenario</a>
+  <ul class="collapse">
+  <li><a href="#methodology-2" id="toc-methodology-2" class="nav-link" data-scroll-target="#methodology-2"><span class="header-section-number">5.6.1</span> Methodology</a></li>
+  <li><a href="#results-2" id="toc-results-2" class="nav-link" data-scroll-target="#results-2"><span class="header-section-number">5.6.2</span> Results</a></li>
+  </ul></li>
+  <li><a href="#sec-cross" id="toc-sec-cross" class="nav-link" data-scroll-target="#sec-cross"><span class="header-section-number">5.7</span> Cross-Validation</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5.8</span> Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chapter5" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andrea De Bortoli </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-and-motivation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction-and-motivation"><span class="header-section-number">5.1</span> Introduction and Motivation</h2>
+<p>In previous chapters we focused primarily on connectedness measures and topological analysis of how volatility propagates across reinsurers, both in a static and dynamic state. However, systemic risk emerges not only from interconnectedness of the system, but also from correlated leverage exposure. To better assess these two components of risk, we opted to utilize different measures widely used by financial regulators to assess the vulnerability of financial institutions to market downturns and observe the response of the market and systemically important institutions to shock scenarios that simulate extreme tail losses.</p>
+</section>
+<section id="systemic-risk-measures-a-framework" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="systemic-risk-measures-a-framework"><span class="header-section-number">5.2</span> Systemic Risk Measures: a Framework</h2>
+<p>The network and connectedness analysis of the preceding chapters characterize how volatility disturbances propagate across the reinsurance system: which firms transmit, which absorb, and how the topology of those linkages evolves over time. What they cannot reveal is the magnitude of the economic damage a firm’s distress inflicts on the broader financial system, nor the degree to which individual reinsurers would themselves be undercapitalized under a severe and prolonged market decline. The analysis can be divided in two complementary dimensions of systemic risk.</p>
+<p>The first dimension addresses <em>systemic contribution</em>: the marginal increase in system-wide tail risk attributable to a specific institution entering distress. The Conditional Value at Risk (<span class="math inline">\(\Delta\)</span>CoVaR), introduced by <span class="citation" data-cites="adrian2016">Adrian and Brunnermeier (<a href="references.html#ref-adrian2016" role="doc-biblioref">2016</a>)</span>, captures this by measuring the change in the system’s Value at Risk when a firm transitions from its median state to its distress state. A firm with a large <span class="math inline">\(|\Delta\text{CoVaR}|\)</span> amplifies system-wide tail risk when it fails; one with a small value remains relatively contained, even if it is highly connected. This outward perspective, from the firm towards the system, is complemented by an inward one: the Marginal Expected Shortfall (MES) of <span class="citation" data-cites="acharya2010">V. Acharya et al. (<a href="references.html#ref-acharya2010" role="doc-biblioref">2010</a>)</span>, which quantifies the expected loss a firm sustains on the days the market itself is in its worst tail. MES identifies institutions that are most vulnerable when the system is already under stress, and thus most likely to require recapitalization at precisely the moment it is most costly.</p>
+<p>The second dimension concerns <em>capital adequacy under stress</em>. Building on the MES framework and the Capital Shortfall Approach of <span class="citation" data-cites="acharya2012">V. Acharya, Engle, and Richardson (<a href="references.html#ref-acharya2012" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="brownlees2016">Brownlees and Engle (<a href="references.html#ref-brownlees2016" role="doc-biblioref">2016</a>)</span> developed the SRISK measure, which integrates the firm’s market-based loss sensitivity with its balance-sheet leverage and regulatory capital requirements. SRISK reports the expected capital shortfall conditional on a severe market decline sustained over several months. Unlike MES, which is a return-based measure, SRISK is expressed in currency units and is therefore directly comparable across firms of different size and geographical location.</p>
+<p>Together, <span class="math inline">\(\Delta\)</span>CoVaR, MES, and SRISK provide three complementary lenses on systemic importance: contribution to tail risk, vulnerability under market stress, and expected capital shortfall. To these market-based measures we add a fourth, structural perspective through the Generalized Impulse Response Functions (GIRF) derived from the BVAR model estimated in Chapter 2. Rather than conditioning on market returns, the GIRF framework traces how a one-standard-deviation shock to a specific firm’s volatility propagates through the network over a defined horizon, yielding the Systemic Impact Index (SII) as a summary of each firm’s total contagion capacity.</p>
+<p>These four measures map different economic directions: the <span class="math inline">\(\Delta\)</span>CoVaR runs from the firm to the system, capturing the systemic contribution of each firm; MES and LRMES run from the system to the firm, capturing the vulnerability of each firm compared to the whole system; SRISK reads the balance sheet data and express capital adequacy in currency units; the SII runs from the firm into the network, summarizing contagion capacity.</p>
+<p>The relevance of this framework extends beyond academic analysis. Regulators have increasingly incorporated market-based systemic risk indicators into their supervisory toolkits: the European Insurance and Occupational Pensions Authority (EIOPA) specifies a stress-testing methodology that combines single risk-factor shocks with CoVaR measures and the Conditional Expected Shortfall (CoES) to provide a standardized assessment of institutional resilience (<span class="citation" data-cites="eiopa2019methodological">EIOPA (<a href="references.html#ref-eiopa2019methodological" role="doc-biblioref">2019</a>)</span>). In the reinsurance literature specifically, <span class="citation" data-cites="regele2022">Regele (<a href="references.html#ref-regele2022" role="doc-biblioref">2022</a>)</span> apply <span class="math inline">\(\Delta\)</span>CoVaR to quantify spillovers from distressed insurers to the global banking sector, while <span class="citation" data-cites="clemente2020">Clemente and Cornaro (<a href="references.html#ref-clemente2020" role="doc-biblioref">2020</a>)</span> link graph-theoretic centrality measures to MES, demonstrating the same network-to-risk correspondence this chapter seeks to validate in the reinsurance context.</p>
+</section>
+<section id="sec-covar" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-covar"><span class="header-section-number">5.3</span> Conditional Value at Risk</h2>
+<section id="methodology" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="methodology"><span class="header-section-number">5.3.1</span> Methodology</h3>
+<p>CoVaR measures the Value at Risk of the financial system conditional on an institution being in distress, while the <span class="math inline">\(\Delta\)</span>CoVaR isolates each institution’s marginal contribution to systemic risk, allowing identification of each reinsurer’s marginal contribution to the entire system’s risk when it enters distress.</p>
+<p>Mathematically, the CoVaR measure of firm <span class="math inline">\(q\)</span> can be expressed as:</p>
+<p><span id="eq-covar"><span class="math display">\[    
+CoVaR^{sys|i}_{q} = VaR_q(r^{sys}| r^i = VaR_q(r^i))
+\tag{5.1}\]</span></span></p>
+<p>where <span class="math inline">\(r^{sys}\)</span> represents the system returns conditional on <span class="math inline">\(r^i\)</span>, the returns of the firm in distress, and the market state variables <span class="math inline">\(M_t\)</span>. The <span class="math inline">\(\Delta\)</span>CoVaR is then computed as</p>
+<p><span id="eq-delta-covar"><span class="math display">\[
+\Delta CoVaR_q^{sys|i}=CoVaR_q^{sys|dis}-CoVaR_q^{sys|med}
+\tag{5.2}\]</span></span></p>
+<p>Firms with higher <span class="math inline">\(\Delta\)</span>CoVaR are those whose distress destabilizes the system, while firms with low <span class="math inline">\(\Delta\)</span>CoVaR cause less material distress to the system, even if their net strength and connectedness measures are high.</p>
+<p>For the empirical analysis, firms returns were tested against the MSCI World Index ETF (Ticker: IWDA.AS) to test the distress effects of reinsurance companies the broader market. The choice of the system proxy is consequential of <span class="math inline">\(\Delta\)</span>CoVaR. The MSCI World Index represents the aggregate global equity market, much larger than the actual reinsurance sector. Measuring each reinsurer’s contribution to tail risk therefore produces conservative <span class="math inline">\(|\Delta\text{CoVaR}|\)</span> estimates: a firm central to thee reinsurance network but small relative to global equity markets will register low values against the MSCI even if its distress is effective in the reinsurance sector.</p>
+<p>The macro state vector comprised 6 economic variables:</p>
+<ul>
+<li>The volatility index (VIX) retrieved from Federal Reserve Economic Data (FRED) with daily frequencies over the sample period considered, to account for log-volatility daily changes</li>
+<li>The 10 years and 3 months Treasury Bond rates spread, to account for long-term and short-term differences in the risk free rates during the sample period, with data retrieved from the FRED database with daily frequency</li>
+<li>The credit spread between bonds classified at “baa” level against the 10 years treasury bond risk free rate, to account for variations in the cost of risky credit. The data was gathered from the FRED database with daily frequency</li>
+<li>The short term 3 month risk free rate, retrieved using daily data from the FRED database</li>
+<li>The daily market returns using the MSCI World Index as the market proxy</li>
+<li>The real estate returns, calculated against the Vanguard Real Estate ETF (VNQ), to account for illiquid assets</li>
+</ul>
+<p>The returns were fitted on the <span class="math inline">\(0.5\)</span> and <span class="math inline">\(0.05\)</span> quantiles, to capture the median state and the tail distress scenario of the return distribution.</p>
+</section>
+<section id="results" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="results"><span class="header-section-number">5.3.2</span> Results</h3>
+<p>The results of the <span class="math inline">\(\Delta\)</span>CoVaR analysis show high absolute values for European companies, as it can be seen in <a href="#fig-covar_barplot" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>. The significance of the estimation was tested using Huber sandwich (NID) standard errors, with 22 of the 27 firms retaining statistically significant <span class="math inline">\(\hat{\beta}_i\)</span> at 5% significance level. The full <span class="math inline">\(\Delta\)</span>CoVaR values with their significance level is reported in <a href="app-ch5.html#tbl-covar_sig" class="quarto-xref">Table&nbsp;<span>D.4</span></a> in the Appendix <a href="app-ch5.html#sec-app-covar" class="quarto-xref"><span>Section D.2</span></a>. European companies appear to contribute more to the destabilization of the system, as their distress scenario would worsen the tail risk of the entire reinsurance system. This finding is consistent with the results of <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a>, where European companies were identified as the main source of variance contribution to the system, and AXA XL and Munich Re were the firms with the highest net strength values.</p>
+<p>The <span class="math inline">\(\Delta\)</span>CoVaR analysis reveals a scenario that resembles the one found in <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> static analysis for the first companies, but with a divergent picture for the remaining ones, with bottom positions occupied primarily by American companies. The relatively low absolute values can point to stable and contained effects of the reinsurance companies over both the adjacent and related market, and more remote and disconnected environments.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-covar_barplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-covar_barplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-covar_barplot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-covar_barplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: CoVaR absolute values for each company in the sample
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-delta_covar_linechart" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> reports the evolution of the aggregated average <span class="math inline">\(\Delta\)</span>CoVaR values of all the reinsurance companies during the whole sample, with bands representing the upper and lower 5th quantile values for comparison with the MSCI World Index. The vertical dashed lines contextualize the measure against the events considered in Chapter <a href="chapter4.html" class="quarto-xref"><span>Chapter 4</span></a>. The values remain similar through the whole sample, with later measures having a smaller range (quantile values are closer) compared to the measures at the start of the period. The most notable decline is in correspondence with the COVID pandemic.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-delta_covar_linechart" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-delta_covar_linechart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-delta_covar_linechart-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-delta_covar_linechart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: Delta CoVaR evolution over time with MSCI benchmark bands at 5th and 95th quantiles
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As a robustness check, the <span class="math inline">\(\Delta\)</span>CoVaR analysis was replicated using the iShares U.S. insurance Sector ETF (IAK) as an alternative system proxy, measuring each reinsurer’s contribution to US insurance sector tail risk rather than the global equity market. The two results yield a Spearman rank correlation of <span class="math inline">\(\rho = -0.433\)</span>, confirming that they capture almost inverse dynamics of systemic risk. Under the IAK specification, American reinsurers occupy the top position, displacing the European firms that dominate the MSCI-based ranking, with American companies’ distress amplified within the US insurance sector through domestic co-movement. However, it is important to note that Chubb, Arch Capital Group, and WRB Berkley Corp.&nbsp;(the top 3 companies in the replicated CoVaR analysis) are also contained in the IAK ETF, amplifying their effects over the considered sector. Also given this limitation, the MSCI-based proxy remains the primary analysis, as it measures spillover potential into the broader financial system. This near-inverse ranking offers a key result. Against the global market, the European reinsurers act as cross-sector contagion vectors, whereas against the US insurance sector American firms dominate throughout within-sector co-vulnerability. The two specifications answer different questions, and the divergence underscores that the label systemic is incomplete without specifying the reference system agisnt which it is measured.</p>
+</section>
+</section>
+<section id="marginal-expected-shortfall" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="marginal-expected-shortfall"><span class="header-section-number">5.4</span> Marginal Expected Shortfall</h2>
+<section id="methodology-1" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="methodology-1"><span class="header-section-number">5.4.1</span> Methodology</h3>
+<p>Marginal Expected Shortfall quantifies the expected firm return conditional on extreme negative market returns that exceed the left-tail 5% threshold. It is driven by three main factors: the market beta <span class="math inline">\(\beta\)</span>, the correlation between the market returns and the firm returns, and the volatility of the firm returns.</p>
+<p><span id="eq-mes"><span class="math display">\[
+MES_i = E[r_t^i | r_t^{mkt} &lt; VaR_{0.05}(r^{mkt})]
+\tag{5.3}\]</span></span></p>
+<p>As market conditions vary significantly and rapidly, static MES provides limited informational value in a dynamic setting. To grasp the dynamic behavior of the market and its risk, we estimated the dynamic <span class="math inline">\({MES}\)</span> through a GJR-GARCH DCC model (<span class="citation" data-cites="engle2002">Engle (<a href="references.html#ref-engle2002" role="doc-biblioref">2002</a>)</span> to compute the dynamic conditional correlation of the market and the returns of the firm in a distress scenario. We assume that the standardized firm return <span class="math inline">\(z_{i,t}\)</span> can be decomposed into a component driven by the market innovation <span class="math inline">\(z_{m,t}\)</span> and an idiosyncratic innovation <span class="math inline">\(\xi_{i,t}\)</span>, such that <span class="math inline">\(z_{i,t} = \rho_{i,t} z_{m,t} + \sqrt{1-\rho_{i,t}^2} \xi_{i,t}\)</span>.</p>
+<p><span class="math display">\[ \widehat{\text{MES}}_i = \sigma_{i,t} \left( \rho_{i,mkt,t} \cdot E[Z_{mkt} \mid Z_{mkt} &lt; C] + \sqrt{(1-\rho_{i,mkt,t} ^2)} \cdot E[\xi_i \mid Z_{mkt} &lt; C] \right)\]</span></p>
+<p>where <span class="math inline">\(C\)</span> is the threshold corresponding to the market’s 5% quantile. In this framework, the first expectation captures the systematic tail component, while the second expectation captures any residual tail dependence not accounted for by the DCC correlation.</p>
+<p>The GJR-DCC framework uses a two-stage quasi-maximum likelihood estimation procedure to exploit the model’s hierarchical structure. It proceeds in two stages: in the first one, for each asset the GJR-GARCH parameters are estimated by maximizing the univariate quasi-log-likelihood, yielding the conditional volatility series and the standardized residuals.</p>
+<p>In the second stage, the standardized residuals from the previous step are used to estimate the DCC parameters by maximizing the correlation component of the quasi-log-likelihood.</p>
+<p>The use of a GJR-DCC model allows all three MES drivers to vary, producing estimations that react to changing market conditions. Following <span class="citation" data-cites="acharya2017">V. V. Acharya et al. (<a href="references.html#ref-acharya2017" role="doc-biblioref">2016</a>)</span>, this decomposition separates firm’s expected returns on bad market days into the systematic component and the idiosyncratic tail component. Mathematically, the first step GJR-GARCH (1,1) variance estimation can be expressed as: <span id="eq-garch"><span class="math display">\[
+    \sigma^2_{i,t} = \omega + (\alpha + \gamma \times I_{\epsilon_{t-1}&lt;0}) \times \epsilon^2_{t-1} + \beta^{GJR} \times \sigma^2_{t-1}
+\tag{5.4}\]</span></span></p>
+<p>where <span class="math inline">\(\omega\)</span> is the baseline long-run variance component, <span class="math inline">\(\alpha\)</span> captures the intensity of the reaction to all shocks, while <span class="math inline">\(\gamma\)</span> captures the additional volatility generated by negative shocks, and <span class="math inline">\(\beta^{GJR}\)</span> captures the persistence of volatility clustering in the volatility of tomorrow. The coefficient values are reported in <a href="app-ch5.html#tbl-gjr_params" class="quarto-xref">Table&nbsp;<span>D.5</span></a> in the Appendix <a href="app-ch5.html#sec-app-gjr-params" class="quarto-xref"><span>Section D.3</span></a></p>
+<p>This first step volatility estimation allows to capture the asymmetry that financial firms exhibit to positive and negative shocks, reflecting their sensitivity to market stress. To account for fat tails typically exhibited by financial return distributions, the innovations of the GJR-GARCH model were estimated using a <em>Student-t</em> distribution. This allows the model to treat extreme outliers as part of the natural distribution, preventing the underestimation of volatility that would occur under Normal distribution.</p>
+<p>he second step of the DCC Q-matrix evolution is described as: <span id="eq-dcc"><span class="math display">\[
+Q_t = (1 -a -b)\bar{Q} + a(z_{t-1}  z'_{t-1}) + bQ_{t-1}
+\tag{5.5}\]</span></span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> represent the sensitivity and persistence of the correlation. If the sum of the two terms is close to 1, the correlation shocks are highly persistent throughout the whole sample, and during high stress periods the higher correlation <span class="math inline">\(Q_t\)</span> will persist for a longer period. To ensure numerical stability and convergence, the DCC model was fitted using a <em>Multivariate Normal</em> distribution. This approach follows the Quasi-Maximum Likelihood framework, which maintains statistical consistency for the correlation parameters even when the underlying innovations are non-normal. An alternative specification using a multivariate Student-<span class="math inline">\(t\)</span> distribution was attempted but resulted in numerical inabilities that prevented stable convergence. The use of a Normal distribution rather than a Student-<span class="math inline">\(t\)</span> implies that the model does not account for as much tail dependence, meaning that extreme co-movement during market crisis are understated. The resulting MES and LRMES estimates for the crisis periods should therefore be interpreted as conservative, with true losses during simultaneous reinsurer distress potentially exceeding those reported.</p>
+<p>Since the static MES captures only single-day dynamics, to include long-lasting crisis periods the Long Run Marginal Expected Shortfall (LRMES) was introduced, extending the MES concept to multi-month horizon without the limitations of the single-day sensitivity. It can be expressed mathematically as <span id="eq-LRMES"><span class="math display">\[
+LRMES \approx 1- \exp\!\bigl(\log(1-d)\times \beta_{i,t}\bigr)
+\tag{5.6}\]</span></span></p>
+<p>where <span class="math inline">\(d\)</span> is the fraction of market decline and <span class="math inline">\(\beta\)</span> is the time-varying market beta of firm <span class="math inline">\(i\)</span>. It is estimated from the GJR-GARCH DCC model as <span class="math inline">\(\beta_{i,t} = \rho_{i,t} \times \frac{\sigma_{i,t}}{\sigma_{m,t}}\)</span>, where <span class="math inline">\(\sigma_{i,t}\)</span> and <span class="math inline">\(\sigma_{m,t}\)</span> are the GJR-GARCH conditional volatilities and <span class="math inline">\(\rho_{i,t}\)</span> is the DCC conditional correlation. The time-varying beta is evaluated at each balance-sheet date using the DCC-estimated <span class="math inline">\(\beta_{i,t}\)</span>, but it is treated as constant over the 126-day horizon within the closed-form approximation shown in <a href="#eq-LRMES" class="quarto-xref">Equation&nbsp;<span>5.6</span></a>.</p>
+<p>The combination of the GJR-GARCH with the DCC model allows to capture the evolution of volatility and correlations over time, encoding the typical behavior of financial markets, such as volatility clusters, asymmetrical impact of bad news, and correlation spikes during crises.</p>
+<p>However, some important approximations are worth noting. The closed-form approximation assumes log-normally distributed returns and that daily shocks are independent across time. It also implies constant proportional leverage over the horizon, as the formula does not account for endogenous balance-sheet adjustments. The use of the same time-varying beta formula for all reinsurers introduces moreover a Time-zone bias: Asian companies reflect the previous day’s US closure, creating potential spurious intraday correlations. These limitations might result in an underestimation of true crisis losses and for a more detailed and regulatory framework they should be addressed in careful and precise manner.</p>
+</section>
+<section id="results-1" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="results-1"><span class="header-section-number">5.4.2</span> Results</h3>
+<div class="cell">
+<div id="tbl-mes" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: MES values averaged over the whole observations. The values are reported in ascending order: first values (greater absolute values) mean higher expected losses in bad market days
+</figcaption>
+<div aria-describedby="tbl-mes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>More informative is the temporal evolution of the MES through the sample period. <a href="#fig-mes_lineplot" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> provides a graphical representation of the average MES value of the reinsurance companies, with dispersion around the 5% and 95% quantiles. In particular, the highest losses are in correspondence with the COVID-19 pandemic, with average expected losses greater than 10%. The widening dispersion accompanying the MES declines suggests that it is not uniform across the firms, indicating that losses may be concentrated in a subset of companies, not spreading further. This concentration is consistent with the asset-side idiosyncratic split identified in <a href="chapter4.html" class="quarto-xref"><span>Chapter 4</span></a>, where the sector as a whole is more resilient than its most-exposed members, whose losses deepen disproportionally as the market enters its tail. Other events, even related to the reinsurance sector, do not seem to cause spikes in the system average MES, showing a greater resilience of the sector to market declines. Notable spikes are at the end of the sample period, coinciding with the “Liberation day” tariffs, and one in the second half of 2016, not coinciding with any detected event.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-mes_lineplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mes_lineplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-mes_lineplot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mes_lineplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: Aggregate average Marginal Expected Shortfall evolution over the sample period
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-mes-1" class="quarto-xref">Figure&nbsp;<span>5.4 (a)</span></a> shows the 5 companies with the highest average MES values, meaning that these are the companies that on average expect greater losses given that the market is in its worst days. Reinsurance Group of America, represented by the green line, is consistently above other companies, with sharper and more frequent declines, possibly indicating greater sensitivity to market downturns.</p>
+<p>High correlation was noted especially between Generali and AXA (<span class="math inline">\(\rho &gt; 0.8\)</span>), indicating greater co-movements and similar loss responses by these reinsurers. It is worth noting that all three companies operate also in other financial sectors, as Generali and AXA undertake also primary insurance services, possibly explaining the higher correlation in the expected loss. This reminds that the reinsurance companies comprise heterogeneous business models, and that the most MES exposed firms tend to be the most multi-line and asset-heavy companies, reinforcing the reading of the systemic risk drive by asset-side channels.</p>
+<p><a href="#fig-mes-2" class="quarto-xref">Figure&nbsp;<span>5.4 (b)</span></a> instead reports the average values of the aggregated MES by continent. Clearly, European companies account for higher expected losses, confirming the pattern already seen in Chapter 3 and 4. American companies highly correlate with European ones (<span class="math inline">\(\rho \approx 0.90\)</span>), while Asian reinsurers tend to correlate less with European and American markets (<span class="math inline">\(\rho \approx 0.56\)</span> and <span class="math inline">\(\rho \approx 0.46\)</span> respectively). From the line chart, it is possible to see the tendency of Asian firms to recover more rapidly from market losses: the declines are more contained (smaller absolute value) and rapidly return closer to zero, indicating that the expected losses of these firms are smaller and they last for a more limited period. Economically, Asian reinsurers appear more insulated from global market trails, partly due to the domestic orientation and a distinct underwriting cycle, and partly through the time-zone artifact that may inflate their measured correlation, but in either reading, the pattern reinforces their peripheral role in the system.</p>
+<div id="fig-mes" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-mes" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-mes-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mes-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-mes-1.png" class="img-fluid figure-img" data-ref-parent="fig-mes" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mes-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Aggregate average Marginal Expected Shortfall evolution over the sample period
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-mes" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-mes-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mes-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-mes-2.png" class="img-fluid figure-img" data-ref-parent="fig-mes" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mes-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Aggregate MES based on the continent of the reinsurer
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-mes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4
+</figcaption>
+</figure>
+</div>
+<p>As done in <a href="#sec-covar" class="quarto-xref"><span>Section 5.3</span></a>, the MES specification was tested against the US insurance sector proxy (IAK), and here as well the geographic pattern inverts: American firms record the largest expectd losses on days when the US insurance sector is in its left tail, while European and Asian firms rank lower. The cross-specification Spearman rank correlation is <span class="math inline">\(\rho = 0.156\)</span>, reflecting the different answer of the MES in the MSCI and IAK based systems. The MSCI results is consistent with the greater integration into international capital markets and larger equity float. The IAK result, despite the high global interconnectedness and the low community separation detected (recall the low modularity score, <span class="math inline">\(r = 0.162\)</span>), still show domestic market influence. <span class="quarto-unresolved-ref">?tbl-proxy_msci_iak</span> compares the ranks of the first companies for the IAK and MSCI based analysis for the <span class="math inline">\(\Delta\)</span>CoVaR and MES values.</p>
+</section>
+</section>
+<section id="srisk" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="srisk"><span class="header-section-number">5.5</span> SRISK</h2>
+<p>SRISK extends the MES frameworks by incorporating leverage considerations and capital requirements theory. This measure combines market-based risk measures with balance sheet data, based on the core idea of Capital Shortfall Approach introduced by <span class="citation" data-cites="acharya2012">V. Acharya, Engle, and Richardson (<a href="references.html#ref-acharya2012" role="doc-biblioref">2012</a>)</span>, in which a new method was proposed to estimate the capital required by a financial institution to survive another financial crisis.</p>
+<p>The SRISK assesses the capital structure of reinsurance companies in stress scenarios, combining leverage, market sensitivity (LRMES) and regulatory capital requirements. It accounts for the fact that, in a crisis scenario, a firm’s ability to raise funds is typically hampered by adverse market conditions. Mathematically, it is defined as follows: <span class="math display">\[SRISK_{i,t} = k \times \text{DEBT}_{i,t} - (1-k)\times \text{EQUITY}_{i,t} \times (1-\text{LRMES}_{i,t})\]</span> where <span class="math inline">\(k\)</span> is the capital prudential ratio that determines the minimum equity that a firm must hold as a fraction of total assets. Following the benchmark prudential ratios adopted in the systemic risk literature (<span class="citation" data-cites="brownlees2016">Brownlees and Engle (<a href="references.html#ref-brownlees2016" role="doc-biblioref">2016</a>)</span>), a capital ratio of <span class="math inline">\(k=8\%\)</span> is applied uniformly for all reinsurers.</p>
+<p>The <span class="math inline">\(\text{DEBT}\)</span> values represent the financial leverage and were extracted from the balance sheet data available on Yahoo Finance for the financial years 2024, 2023, and 2022, under the line item ‘Total Debt’. The <span class="math inline">\(EQUITY\)</span> was then calculated by extracting the ‘Ordinary Shares Number’ for each fiscal year and multiplying it by the closing price at the date at which the balance sheet was published. To account for different currency valuation, the exchange rate between the currency and the USD was extracted using Yahoo Finance data, in order to compute the SRISK measure in USD. As some companies have different fiscal year-end dates, the price and exchange rate were calculated at the indicated closing date on the balance sheet, but the overall calculation was carried out considering the end of the year as the standard closing date for the fiscal year. In addition, different accounting standards were not considered. However, this limitation is acceptable for the purpose of assessing the framework and is left for more detailed future studies.</p>
+<p>Under the data we extracted, no firm records positive SRISK under any of the severity scenarios tested (small, medium, and large severity, with <span class="math inline">\(d = 0.20, 0.40, 0.60\)</span> respectively) or fiscal year. Aggregate capital shortfall equals zero across all specifications. This result reflects a structural feature of reinsurance balance sheets: firms fund operations primarily through float, not financial debt, making financial leverage modest relative to market capitalization. SRISK was designed for bank like leverage structures where financial debt is much greater than equity. Applied to reinsurance companies, the measure confirms capital adequacy rather than identifying shortfall. This result complements the ones reported early: European reinsurers are important contagion vectors, with high <span class="math inline">\(\Delta\)</span>CoVaR and MES values, but not as leveraged counterparties facing capital shortfall. Since reinsurers are funded primarily by insurance float, which is operational and long-duration, so a leverage-based shortfall measure mechanically returns zero. This implies that being a transmitter of systemic risk and being a fragile, under-capitalized counterparty are distinct, and that the European core identified in the previous chapters exxhibits the first without the second.</p>
+<p>Two qualifications sharpen rather than overturn this reading. The balance-sheet sample spans only three fiscal years (2022–24), a moderate-connectedness window, so capital-adequacy risk during the high-TCI regimes of Chapter <a href="chapter4.html" class="quarto-xref"><span>Chapter 4</span></a> is plausibly understated: zero shortfall now does not guarantee zero shortfall in a high-regime crisis. Moreover, the uniform <span class="math inline">\(k=8\%\)</span> prudential ratio is a banking benchmark, whereas insurance capital regimes such as Solvency II operate differently; part of the zero-shortfall result thus reflects a model–instrument mismatch, which strengthens rather than weakens the conclusion that SRISK is not the natural capital tool for float-funded insurers.</p>
+</section>
+<section id="descriptive-shock-propagation-scenario" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="descriptive-shock-propagation-scenario"><span class="header-section-number">5.6</span> Descriptive Shock Propagation Scenario</h2>
+<p>The second part of systemic risk assessment focused on the stress testing through the use of counterfactual shock scenarios. The BVAR model estimated in Chapter <a href="chapter2.html" class="quarto-xref"><span>Chapter 2</span></a> is used to estimate a Generalized Impulse Response Function (GIRF) in which one standard deviation shock is applied to firm <span class="math inline">\(k\)</span>’s volatility equation, tracing propagation through the network via IRF over a h-step horizon.</p>
+<section id="methodology-2" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="methodology-2"><span class="header-section-number">5.6.1</span> Methodology</h3>
+<p>Building on the BVAR model estimated in Chapter 2 and applied in the static and dynamic analyses of Chapters 3 and 4, we extend the same framework to a stress testing exercise through Generalized Impulse Response Functions (GIRF). Following <span class="citation" data-cites="pesaranshin1998">Pesaran and Shin (<a href="references.html#ref-pesaranshin1998" role="doc-biblioref">1998</a>)</span>}, we adopt the GIRF framework rather than orthogonalized IRFs to preserve invariance to the ordering of variables in the system and provide consistency with the Generalized Forecast Error Variance Decomposition approach used throughout this work, as GIRFs are not structural, but rather ordering-invariant, reduced-form conditional forecasts with no causal identification strategy. Under this framework, a shock to firm <span class="math inline">\(i\)</span> is not assumed to leave contemporaneous innovations in other equations at zero but instead, the expected response of the full system is conditioned on the observed covariance structure. Formally, denote the <span class="math inline">\(h\)</span>-step moving-average coefficient matrices <span class="math inline">\(\Phi_h\)</span>, derived from the posterior-median lag matrices <span class="math inline">\(A_k\)</span> via the recursion: <span class="math display">\[\Phi_0 = I_N, \qquad \Phi_h = \sum_{k=1}^{\min(h,p)} \Phi_{h-k} A_k, \quad h = 1, 2, \ldots, H\]</span> The generalized impulse response to a one-standard-deviation shock originating in firm <span class="math inline">\(i\)</span> is then: <span id="eq-GIRF"><span class="math display">\[
+\text{GIRF}_i(h) = \Phi_h \cdot \frac{\boldsymbol{\Sigma}\mathbf{e}_i}{\sqrt{\sigma_{ii}}}
+\tag{5.7}\]</span></span> where <span class="math inline">\(\boldsymbol{\Sigma}\)</span> is the posterior-median residual covariance matrix, <span class="math inline">\(\mathbf{e}_i\)</span> is the <span class="math inline">\(i\)</span>-th unit selection vector, and <span class="math inline">\(\sigma_{ii}\)</span> is the <span class="math inline">\(i\)</span>-th diagonal element of <span class="math inline">\(\boldsymbol{\Sigma}\)</span>. The term <span class="math inline">\(\boldsymbol{\Sigma}\mathbf{e}_i/\sqrt{\sigma_{ii}}\)</span> constitutes the generalized impulse vector: it scales the shock to one standard deviation of firm <span class="math inline">\(i\)</span>’s innovation while propagating the contemporaneous cross-equation correlations implied by <span class="math inline">\(\boldsymbol{\Sigma}\)</span>, rather than suppressing them as orthogonalized methods do. Both <span class="math inline">\(A_k\)</span> and <span class="math inline">\(\boldsymbol{\Sigma}\)</span> are taken at their posterior median, providing a tractable point estimate consistent with the plug-in GFEVD computed in Chapter 2.</p>
+<p>A forecast horizon of <span class="math inline">\(H = 50\)</span> trading days is selected, capturing the short-term propagation window over which volatility shocks are most persistent. To aggregate the full cross-firm propagation capacity of each firm into a single measure, we define the Systemic Impact Index (SII): <span id="eq-SII"><span class="math display">\[
+\text{SII}_i = \sum_{j \neq i} \left| \sum_{h=1}^{H} \text{GIRF}_{i \to j}(h) \right|
+\tag{5.8}\]</span></span> where <span class="math inline">\(\text{GIRF}_{i \to j}(h)\)</span> denotes the <span class="math inline">\(j\)</span>-th element of <span class="math inline">\(\text{GIRF}_i(h)\)</span>. The inner sum accumulates the response of firm <span class="math inline">\(j\)</span> throughout the horizon; the absolute value prevents positive and negative responses from canceling; the outer sum aggregates across all <span class="math inline">\(N-1\)</span> receiving firms. A firm with high SII transmits large cumulative volatility disturbances to the rest of the network following an idiosyncratic shock, regardless of direction.</p>
+</section>
+<section id="results-2" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="results-2"><span class="header-section-number">5.6.2</span> Results</h3>
+<p>The results obtained from the application of the BVAR model impulse response highlighted the predominant contribution by European reinsurers, as Munich Re, Generali, AXA XL, and Hannover Rück, with Reinsurance Group of America being the only non-European to appear in the top 5 SII ranked companies. <a href="#tbl-sii" class="quarto-xref">Table&nbsp;<span>5.2</span></a> reports the SII values for each reinsurer. The average SII values for European companies is <span class="math inline">\(22.01\)</span>, while for American companies this decreases to <span class="math inline">\(16.94\)</span>, and decreases even further for the Asian companies, with <span class="math inline">\(9.83\)</span>, as the bottom positions are occupied by them. This reflects the findings that have been highlighted throughout the entire work, with European firms contributing to volatility disturbance, primarily across the center of the network, but due to the relatively close and tight topology and dynamics of the network, also peripheral firms are affected, even if with a lower degree. <a href="#fig-sii_heatmap_top" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> and <a href="#fig-sii_heatmap_low" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> shows the different propagation effects to the log-volatility for Munich Re and Taiping Reinsurance Co, respectively, the first and last companies in the SII ranking. The color scale applied for the two heatmap is the same, making the comparison between the two visually honest. As the dark red bar shows, the propagation of Munich Re lasts for longer period, while the effects of Chinese company tend to become null or even negative with further observations. Interestingly, the effects of Munich Re are more prominent across other European companies, like AXA, Mapfre, or Swiss Re, while the effects of the Chinese companies, although shorter in time, tend to span across multiple reinsurers with the same degree. This structure highlights asymmetric risk propagation across the system, with risk flowing primarily from Europe to the other closer European companies, and to the other reinsurers with lower effects, but with more persistent effects, while Asian firms tend to act primarily as shock absorbers, as their effect is limited in terms of duration.</p>
+<p>Geographical similarity was observed especially between European reinsurers and between Japanese reinsurers, as visible in <a href="#fig-sii_japanese_heatmap1" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>, <a href="#fig-sii_japanese_heatmap2" class="quarto-xref">Figure&nbsp;<span>5.8</span></a>, and <a href="#fig-sii_japanese_heatmap3" class="quarto-xref">Figure&nbsp;<span>5.9</span></a> showing a stronger volatility disturbance, both in terms of duration and absolute value, while this behavior was not observed for American companies. This result recalls the observation of the pairwise connections in <a href="chapter3.html#tbl-top_pairwise_connection" class="quarto-xref">Table&nbsp;<span>3.1</span></a>, where the explanation of Japanese reinsurers’ volatility was derived primarily from other domestic companies.</p>
+<div class="cell">
+<div id="tbl-sii" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.2: Systemic Impact Index rank
+</figcaption>
+<div aria-describedby="tbl-sii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ticker</th>
+<th style="text-align: right;">SII</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">25.381795</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">23.887869</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: right;">23.763357</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">23.394265</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">22.839457</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">22.753888</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">22.723070</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">22.434621</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">21.287102</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">20.949194</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">18.427158</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">18.120624</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: right;">16.757767</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: right;">16.551351</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">16.253195</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">15.607024</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: right;">13.652598</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">12.713158</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">12.280094</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">11.683739</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">11.181956</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">10.098868</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">10.058311</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">9.331017</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">7.619117</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: right;">6.462345</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">5.170789</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sii_heatmap_top" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sii_heatmap_top-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-sii_heatmap_top-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sii_heatmap_top-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: GIRF of the first firm of the SII ranking, Munich Re. The color scale applied for the two heatmap is the same, making the comparison between the two visually honest
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sii_heatmap_low" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sii_heatmap_low-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-sii_heatmap_low-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sii_heatmap_low-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: GIRF of the last firm of the SII ranking, Taiping reiusnrace. The color scale applied for the two heatmap is the same, making the comparison between the two visually honest
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sii_japanese_heatmap1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sii_japanese_heatmap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-sii_japanese_heatmap1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sii_japanese_heatmap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7: Japanese companies showing high volatility disturbance between each other - Sompo International Holdings, Ltd.&nbsp;(8630.T)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sii_japanese_heatmap2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sii_japanese_heatmap2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-sii_japanese_heatmap2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sii_japanese_heatmap2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: Japanese companies showing high volatility disturbance between each other - MS&amp;AD Insurance Group Holding, Ltd.&nbsp;(8725.T)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sii_japanese_heatmap3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sii_japanese_heatmap3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-sii_japanese_heatmap3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sii_japanese_heatmap3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.9: Japanese companies showing high volatility disturbance between each other - Tokio Marine &amp; Nichido Fire Insurance Co., Ltd.&nbsp;(8766.T)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-cross" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="sec-cross"><span class="header-section-number">5.7</span> Cross-Validation</h2>
+<p>To ensure the robustness of our findings, we conduct a cross validation between the metrics of Chapter <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> and the systemic risk indicators of this chapter. Recalling the methodology used in the static analysis, the Net-strength and Out-strength values were used as primary indicators of volatility disturbance of the system. <span class="quarto-unresolved-ref">?fig-net-risk</span> provides a representation of the correlation between the Net strength values and the indicators used to assess the overall systemic risk of the reinsurance network considered. The correlation used to compare the different metrics was the Spearman’s rank correlation. The Net-strength exhibits a negative rank-correlation with <span class="math inline">\(\Delta\)</span>CoVaR (<span class="math inline">\(\rho = -0.56\)</span>) and with the average MES values (<span class="math inline">\(\rho = -0.38\)</span>), both significant at the 5% confidence level. Similar correlation was observed in absolute terms for the Net strength and the SII, at <span class="math inline">\(\rho = 0.53\)</span>. The presence of significant correlation confirms that the reinsurers identified as primary explainer of log-volatility drift are also those whose distress generates the most significant marginal increase in the system’s tail risk and are typically predicting the dynamic contagion potential during stress events. The negative sign of the <span class="math inline">\(\Delta\)</span>CoVaR and MES correlations is directionally consistent: high positive Net-strength (net variance transmitter) corresponds to large negative <span class="math inline">\(\Delta\)</span>CoVaR and MES (large increase in tail risk under distress), so the negative sign reflects agreement, not opposition, between the two frameworks.</p>
+<div class="cell">
+<div id="tbl-cross_corr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cross_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.3: Spearman rank correlation between Chapter 3 centrality measures and Chapter 5 systemic risk indicators
+</figcaption>
+<div aria-describedby="tbl-cross_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-net-risk-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-net-risk-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-net-risk-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-net-risk-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.10: Scatter plot for the comparison of topological Net-strength measure against the systemic risk indicators of chapter 5
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-net-risk-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-net-risk-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-net-risk-2.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-net-risk-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.11: Scatter plot for the comparison of topological Net-strength measure against the systemic risk indicators of chapter 5
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-net-risk-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-net-risk-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter5_files/figure-html/fig-net-risk-3.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-net-risk-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.12: Scatter plot for the comparison of topological Net-strength measure against the systemic risk indicators of chapter 5
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We further assess the topological results of the static analysis against the systemic risk measures introduced in this chapter by examining the Out-strength and Eigenvector centrality relationships.</p>
+<p>The correlation was tested also between the Out-strength and the <span class="math inline">\(\Delta\)</span>CoVaR. Out-strength captures the directional component of a firm’s influence without netting against received variance (In-strength) . Despite removing the effects of the log-volatility variance received from the others, the correlation with <span class="math inline">\(\Delta\)</span>CoVaR is interestingly lower (<span class="math inline">\(\rho = -0.32\)</span>, <span class="math inline">\(p&lt; 0.05\)</span>), indicating that the Net-strength serves as a stronger indicator for identifying companies that generate the highest increase in tail risk. This shows that netting matters: a firm’s net directional role identifies systemic contributors more sharply than gross transmission alone, since a firm that both transits and receives heavily is less systemically distinctive than a clean net exporter. The balance of flows is the better systemic signal.</p>
+<p>We also examine the alignment between Eigenvector centrality and the Systemic Impact Index. Note that both are derived from the same BVAR model: eigenvector centrality is the principal left eigenvector of the GFEVD matrix, while the SII is the sum of abbslute cumulative GIRFs, where GIRFs are constructed from the same lag matrices and covariance <span class="math inline">\(\Sigma\)</span> that generated the GFEVD. The observed Spearman rank correlation (<span class="math inline">\(\rho = 0.66\)</span>, <a href="chapter3.html#fig-eigen_net_scatterplot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>) thus reflects internal model consistency rather than independent empirical validation, confirming that the BVAR-based network representation is self coherent, but is not providing out-of-sample evidence that the GFEVD centrality corresponds to real-world systemic importance. The independent cross-validation evidence consists of the <span class="math inline">\(\Delta\)</span>CoVaR and MES reported above.</p>
+</section>
+<section id="conclusion" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5.8</span> Conclusion</h2>
+<p>This chapter examined the systemic importance of global reinsurers through four complementary lenses: the marginal contribution to market tail risk (<span class="math inline">\(\Delta\)</span>CoVaR), vulnerability under extreme market stress (MES and LRMES), expected capital shortfall in prolonged downturns (SRISK), and contagion capacity through the network (SII). Together, these measures extend the purely topological picture developed in Chapters 3 and 4 by introducing magnitude: not merely <em>who is connected</em>, but <em>how severely distress in one firm damages the system</em> and <em>whether the sector holds sufficient capital to absorb it</em>.</p>
+<p>The <span class="math inline">\(\Delta\)</span>CoVaR and MES analyzes converge on a consistent ranking: European reinsurers generate the largest marginal increases in system-wide tail risk and sustain the deepest expected losses when markets are in distress. This finding directly validates the network centrality results of Chapter 3, where the same firms occupied dominant positions in Out-strength and Eigenvector centrality. The cross-validation in <a href="#sec-cross" class="quarto-xref"><span>Section 5.7</span></a> formalizes this correspondence: Net-strength is significantly rank-correlated with both <span class="math inline">\(\Delta\)</span>CoVaR (<span class="math inline">\(\rho = -0.56\)</span>) and MES (<span class="math inline">\(\rho = -0.38\)</span>), confirming that reinsurers identified as primary variance contributors through the GFEVD are also those whose distress generates the most material increase in tail risk.</p>
+<p>Regarding SRISK, no firm in the sample record positive SRISK under any severity scenario or fiscal year examined. Aggregated capital shortfall equals zero across all specifications. This confirms that the sector’s financial leverage is structurally modest relative to its market capitalization, and that the European contagion vectors identified through <span class="math inline">\(\Delta\)</span>CoVaR and MES are not simultaneously exposed to capital shortfall risk under standard metrics. This separation aligns with the international shift from the entity-based G-SII designation toward the activities-based Holistic Framework of the IAIS. The systemic concern raised by reinsurers is one of interconnectedness and asset-side spillover, not of bank-style solvency risk under conventional leverage metrics.</p>
+<p>The BVAR-based stress testing reinforces the asymmetric structure of the network. Munich Re and the other European hubs generate persistent, broad-spectrum volatility disturbances that decay slowly, whereas Asian firms produce shorter-lived and more localized impulse responses. Japanese firms exhibit strong intra-cluster propagation, consistent with the domestic pairwise connections identified in Chapter 3. Asian firms, by contrast, appear to absorb rather than transmit global shocks.</p>
+<p>Several limitations qualify these findings. The SRISK analysis covers only three fiscal years, and the balance-sheet sample coincides with a period of moderate TCI; capital adequacy risks during high-connectedness regimes identified in Chapter <a href="chapter4.html" class="quarto-xref"><span>Chapter 4</span></a> are likely understated. The closed-form LRMES approximation assumes constant proportional leverage and log-normal returns, and the time-zone bias introduced by Asian companies’ lagged price discovery may inflate their measured correlation with European markets. Finally, the GIRF framework is a reduced-form, ordering-invariant exercise: the propagation patterns it reveals reflect statistical co-movement, not structural transmission mechanisms.</p>
+<p>Taken together, the evidence in this chapter supports a two-tier characterization of the global reinsurance system. A small group of European incumbents sits at the intersection of high topological centrality, elevated systemic contribution, and strong dynamic contagion potential. A second group, composed primarily by Asian reinsurers, occupies the network periphery and contributes little to tail-risk amplification, with capital structures that remain resilient under standard financial leverage benchmarks. This structure suggests that macro prudential oversight of reinsurance should prioritize European core for contagion monitoring, while balance sheet surveillance across the sector should track the ratio of financial debt to market capitalization over the economic cycle, particularly during high-connectedness regimes where the current zero-shortfall finding may not hold. This chapter therefore provides a decoupling of the debate regarding the systemic properties of the reinsurance sector: global reinsurers are systemically important as interconnected, asset-side transmitters, but not as bank-like leveraged institutions prone to capital shortfall.</p>
+<hr>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-acharya2017" class="csl-entry" role="listitem">
+Acharya, Viral V., Lasse H. Pedersen, Thomas Philippon, and Matthew Richardson. 2016. <span>“Measuring Systemic Risk.”</span> <em>The Review of Financial Studies</em> 30 (1): 2–47. <a href="https://doi.org/10.1093/rfs/hhw088">https://doi.org/10.1093/rfs/hhw088</a>.
+</div>
+<div id="ref-acharya2012" class="csl-entry" role="listitem">
+Acharya, Viral, Robert Engle, and Matthew Richardson. 2012. <span>“Capital Shortfall: A New Approach to Ranking and Regulating Systemic Risks.”</span> <em>American Economic Review</em> 102 (3): 59–64. <a href="https://doi.org/10.1257/aer.102.3.59">https://doi.org/10.1257/aer.102.3.59</a>.
+</div>
+<div id="ref-acharya2010" class="csl-entry" role="listitem">
+Acharya, Viral, Lasse Pedersen, Thomas Philippon, and Matthew Richardson. 2010. <span>“Measuring Systemic Risk.”</span> <em>Federal Reserve Bank of Cleveland, Working Paper</em>, January. <a href="https://doi.org/10.2139/ssrn.1573171">https://doi.org/10.2139/ssrn.1573171</a>.
+</div>
+<div id="ref-adrian2016" class="csl-entry" role="listitem">
+Adrian, Tobias, and Markus K. Brunnermeier. 2016. <span>“CoVaR.”</span> <em>American Economic Review</em> 106 (7): 1705–41. <a href="https://doi.org/10.1257/aer.20120555">https://doi.org/10.1257/aer.20120555</a>.
+</div>
+<div id="ref-brownlees2016" class="csl-entry" role="listitem">
+Brownlees, Christian, and Robert F. Engle. 2016. <span>“SRISK: A Conditional Capital Shortfall Measure of Systemic Risk.”</span> <em>The Review of Financial Studies</em> 30 (1): 48–79. <a href="https://doi.org/10.1093/rfs/hhw060">https://doi.org/10.1093/rfs/hhw060</a>.
+</div>
+<div id="ref-clemente2020" class="csl-entry" role="listitem">
+Clemente, Gian Paolo, and Alessandra Cornaro. 2020. <span>“Assessing Systemic Risk in the Insurance Sector via Network Theory.”</span> <a href="https://arxiv.org/abs/2011.11394">https://arxiv.org/abs/2011.11394</a>.
+</div>
+<div id="ref-eiopa2019methodological" class="csl-entry" role="listitem">
+EIOPA. 2019. <span>“Discussion Paper on Methodological Principles of Insurance Stress Testing.”</span> EIOPA. <a href="https://www.eiopa.europa.eu/publications/methodological-principles-insurance-stress-testing_en">https://www.eiopa.europa.eu/publications/methodological-principles-insurance-stress-testing_en</a>.
+</div>
+<div id="ref-engle2002" class="csl-entry" role="listitem">
+Engle, Robert. 2002. <span>“Dynamic Conditional Correlation: A Simple Class of Multivariate Generalized Autoregressive Conditional Heteroskedasticity Models.”</span> <em>Journal of Business &amp; Economic Statistics</em> 20 (3): 339–50. <a href="http://www.jstor.org/stable/1392121">http://www.jstor.org/stable/1392121</a>.
+</div>
+<div id="ref-pesaranshin1998" class="csl-entry" role="listitem">
+Pesaran, H.Hashem, and Yongcheol Shin. 1998. <span>“Generalized Impulse Response Analysis in Linear Multivariate Models.”</span> <em>Economics Letters</em> 58 (1): 17–29. https://doi.org/<a href="https://doi.org/10.1016/S0165-1765(97)00214-0">https://doi.org/10.1016/S0165-1765(97)00214-0</a>.
+</div>
+<div id="ref-regele2022" class="csl-entry" role="listitem">
+Regele, Fabian. 2022. <span>“Insurance Business Diversification and Systemic Risk.”</span> <em>Journal of Insurance Regulation</em>, Journal of insurance regulation, no. 41: 16–17. https://doi.org/<a href="https://doi.org/10.52227/25441.2022">https://doi.org/10.52227/25441.2022</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter4.html" class="pagination-link" aria-label="Dynamic Network Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

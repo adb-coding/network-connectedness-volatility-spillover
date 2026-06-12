@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrea De Bortoli">
+
+<title>4&nbsp; Dynamic Network Analysis – Volatility Connectedness and Network Topology in the Reinsurance Sector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter5.html" rel="next">
+<link href="./chapter3.html" rel="prev">
+<link href="./UNIVE_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Volatility Connectedness and Network Topology in the Reinsurance Sector</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/adb-coding/network-connectedness-volatility-spillover" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Thesis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Chapter 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">4.2</span> Methodology</a></li>
+  <li><a href="#network-evolution" id="toc-network-evolution" class="nav-link" data-scroll-target="#network-evolution"><span class="header-section-number">4.3</span> Network Evolution</a>
+  <ul class="collapse">
+  <li><a href="#total-connectedness-evolution" id="toc-total-connectedness-evolution" class="nav-link" data-scroll-target="#total-connectedness-evolution"><span class="header-section-number">4.3.1</span> Total Connectedness Evolution</a></li>
+  <li><a href="#network-topology-evolution" id="toc-network-topology-evolution" class="nav-link" data-scroll-target="#network-topology-evolution"><span class="header-section-number">4.3.2</span> Network Topology Evolution</a></li>
+  <li><a href="#network-stability-and-community-evolution" id="toc-network-stability-and-community-evolution" class="nav-link" data-scroll-target="#network-stability-and-community-evolution"><span class="header-section-number">4.3.3</span> Network Stability and Community Evolution</a></li>
+  <li><a href="#modularity" id="toc-modularity" class="nav-link" data-scroll-target="#modularity"><span class="header-section-number">4.3.4</span> Modularity</a></li>
+  </ul></li>
+  <li><a href="#firm-level-dynamics" id="toc-firm-level-dynamics" class="nav-link" data-scroll-target="#firm-level-dynamics"><span class="header-section-number">4.4</span> Firm Level Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#sec-directional-connectedness" id="toc-sec-directional-connectedness" class="nav-link" data-scroll-target="#sec-directional-connectedness"><span class="header-section-number">4.4.1</span> Directional Connectedness</a></li>
+  <li><a href="#centrality" id="toc-centrality" class="nav-link" data-scroll-target="#centrality"><span class="header-section-number">4.4.2</span> Centrality</a></li>
+  <li><a href="#sec-SIFI-stability" id="toc-sec-SIFI-stability" class="nav-link" data-scroll-target="#sec-SIFI-stability"><span class="header-section-number">4.4.3</span> SIFI Stability</a></li>
+  </ul></li>
+  <li><a href="#event-analysis" id="toc-event-analysis" class="nav-link" data-scroll-target="#event-analysis"><span class="header-section-number">4.5</span> Event Analysis</a>
+  <ul class="collapse">
+  <li><a href="#deep-dive-analysis" id="toc-deep-dive-analysis" class="nav-link" data-scroll-target="#deep-dive-analysis"><span class="header-section-number">4.5.1</span> Deep-Dive Analysis</a></li>
+  <li><a href="#cross-event-net-delta-correlation" id="toc-cross-event-net-delta-correlation" class="nav-link" data-scroll-target="#cross-event-net-delta-correlation"><span class="header-section-number">4.5.2</span> Cross-Event Net Delta Correlation</a></li>
+  </ul></li>
+  <li><a href="#early-warning-and-structural-instability" id="toc-early-warning-and-structural-instability" class="nav-link" data-scroll-target="#early-warning-and-structural-instability"><span class="header-section-number">4.6</span> Early Warning and Structural Instability</a>
+  <ul class="collapse">
+  <li><a href="#early-warning-signal---vix-analysis" id="toc-early-warning-signal---vix-analysis" class="nav-link" data-scroll-target="#early-warning-signal---vix-analysis"><span class="header-section-number">4.6.1</span> Early Warning Signal - VIX Analysis</a></li>
+  <li><a href="#structural-break-test" id="toc-structural-break-test" class="nav-link" data-scroll-target="#structural-break-test"><span class="header-section-number">4.6.2</span> Structural Break Test</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4.7</span> Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chapter4" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andrea De Bortoli </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
+<p>In <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> we provided a static analysis of the network obtained applying a BVAR model over the entire dataset of the log-volatility of reinsurance companies. Although these data produce a solid and satisfying base for statistical validity, static network analysis have limitations with regard to the dynamics developments of the relations and components of the network. To better assess such elements, we performed a dynamic network analysis (DNA), that allows us to observe changes over the entire time period, making the identification of systemically important reinsurers and the dynamics of the whole system more insightful and robust. This chapter displays the methodology used to perform the DNA, the evolution of the network topology and the firm level dynamics over the 10 year period, with a later focus on the effect of significant various events over the system’s tendencies.</p>
+</section>
+<section id="methodology" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="methodology"><span class="header-section-number">4.2</span> Methodology</h2>
+<p>The data used to perform the subsequent analysis is the same as presented in <a href="chapter2.html" class="quarto-xref"><span>Chapter 2</span></a>, consisting of 27 reinsurance companies with log volatility data for the period starting at 2015-11-27 and ending at 2025-05-30, for a total of 1993 observations per company. This data set was divided into 349 windows, each containing 250 observations. Each window took a 5 step size between the previous one. The window size corresponds roughly to a full trading year (in our case, it amounts to more than one year, due to the constraint of gathering companies’ prices from different markets), while the step size corresponds to a weekly delay. The choice of this window length fixes the economic memory of each estimate. The network at any date reflects approximately the last twelve months of co-movement, long enough to yield a stable estimate yet short enough to register a regime change within a smaller period. This design captures sustained shifts in interdependence rather than transient single-week contagion. The fragmented data set was subjected to the same BVAR model shown in <a href="chapter2.html" class="quarto-xref"><span>Chapter 2</span></a> to obtain the GFEVD matrix to estimate the network. However, due to technical limitations and computational requirements, the burn-in phase and the total draws used to estimate the BVAR model for each window have been reduced, respectively, to <span class="math inline">\(9,000\)</span> and <span class="math inline">\(3,000\)</span> draws, compared to the <span class="math inline">\(15,000\)</span> and <span class="math inline">\(5,000\)</span> original draws used to estimate the static network. The reduced number of draws shorten the estimation time for the whole process, but remain sufficient to ensure reliable point estimates. In order to ensure the stability of the model, the convergence of the MCMC chains has been tested every 20 windows using the Gelman-Rubin diagnostic. Across the 349 windows, the Potential Scale Reduction Factor (PSRF) for both hyperparameters and the marginal likelihood remained below <span class="math inline">\(1.02\)</span>, significantly better than the standard <span class="math inline">\(1.10\)</span> threshold, indicating robust convergence of the MCMC chains, letting the regime switching dynamics documented below to be attributed to genuine features of the market, rather than to instability of the sampler.</p>
+<p>The parameters and priors used for the BVAR model estimation remain unchanged, as well as the forecast horizon of 10 days used to estimate the GFEVD matrix.</p>
+<p>As a result, each matrix represents the edges between reinsurers and the fully weighted connected graph for each window. The total connectedness value <span class="math inline">\(C^H\)</span> was computed along with the “From” and “To” values (corresponding to the row sums and column sums of the matrix). After analyzing the distribution of the fully connected graphs created using the connectedness matrix <span class="math inline">\(C\)</span>, the <span class="math inline">\(50^{th}\)</span> percentile threshold was applied to allow comparison with the analysis presented in <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a>.</p>
+<p>In the next section, we present the analysis of the topology evolution and the firm level dynamics during the period analyzed.</p>
+</section>
+<section id="network-evolution" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="network-evolution"><span class="header-section-number">4.3</span> Network Evolution</h2>
+<section id="total-connectedness-evolution" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="total-connectedness-evolution"><span class="header-section-number">4.3.1</span> Total Connectedness Evolution</h3>
+<p><a href="#fig-tci" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> shows the evolution of Total Connectedness Index (TCI) over time. We use this metric as a primary identifier for significant changes and to assess the overall connectedness of the system. Compared to the static value obtained in the previous chapter (<span class="math inline">\(74.28\)</span>), the average value over the whole 349 windows analyzed is <span class="math inline">\(68.2\)</span>, with a maximum value of <span class="math inline">\(88.75\)</span> and a minimum of <span class="math inline">\(56\)</span>. To better assess the distribution of the connectedness values obtained, the distribution was divided into three regimes: - Low regime for values below the <span class="math inline">\(25^{th}\)</span> percentile of the distribution - Normal regime, for values between the <span class="math inline">\(25^{th}\)</span> and <span class="math inline">\(75^{th}\)</span> percentiles - High regime, for values greater than the <span class="math inline">\(75^{th}\)</span> percentile</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-tci" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-tci-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Total connectedness value for every rolling window computed over the whole period
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The higher standard deviation of the high regime values, as reported in <a href="#tbl-density_tci" class="quarto-xref">Table&nbsp;<span>4.1</span></a>, compared to the normal and low regimes, suggests that the presence of outliers typically originates for values higher than the normal mean. The TCI distribution is shown in <a href="#fig-density_tci" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>. Clearly, the distribution is bimodal, showing a marked regime change and two peak values in the normal and high regimes. The reinsurance market does not revert towards its mean value, but bimodality suggests that the system alternates between two distinct regimes: one standard equilibrium and one with higher connectivity. Following this classification, the result of the static analysis would be categorized as a high connected network, as its TC value is above the threshold quantile. This indicates that the static analysis might have been inflated by periods with higher connectivity, and that the reinsurance market might not possess a single equilibrium level of integration, but rather two states between which it switches. This is interesting for a supervisor standpoint of view, re framing the question from how connected the system is at a given moment to which regime the system currently is and if it is transitioning from one state to another.</p>
+<div class="cell">
+<div id="tbl-density_tci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-density_tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: Regime classification of the TCI values recorded for the 349 windows estimated
+</figcaption>
+<div aria-describedby="tbl-density_tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Regime</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Windows</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean TCI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SD TCI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Normal</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">66.50</td>
+<td style="text-align: right;">2.91</td>
+<td style="text-align: right;">50.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">High</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">80.04</td>
+<td style="text-align: right;">2.91</td>
+<td style="text-align: right;">24.93</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Low</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">59.81</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">24.93</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-density_tci" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-density_tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-density_tci-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-density_tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Density plot of the TCI values, separated by regime. The red dashed line represents the mean of the regime class
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The pairwise edge distribution of the static network has been compared with the distributions obtained from each computed network. The results showed similar values for the mean of the distributions, while the standard deviation of the dynamically computed networks appeared to be slightly higher, with a value of 2.62 compared to the 2.6 of the static network. The evolution of the mean and the standard deviation for the networks are shown in <a href="#fig-mean_sd_rolling" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. The highest standard deviation are in conjunction with lower TCI values, indicating that a less connected network results in a wider range of pairwise connection, as shown by the negative Pearson’s correlation (<span class="math inline">\(\rho=-0.41\)</span>) between the two metrics.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-mean_sd_rolling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mean_sd_rolling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-mean_sd_rolling-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean_sd_rolling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: Values of the mean and standard deviation for each of the 349 windows computed
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Regarding the strongest pairwise connections between reinsurers, a similar pattern between static and dynamic analysis was found. The Japanese reinsurers tend to maintain stronger effects and influence within their domestic market, and above the average value of the system. The persistence of this block in more than half of the windows identifies it as a structural rather than episodic feature, showing a tightly interconnected cluster that co-moves internally without exporting substantial variance to the global system. <a href="#tbl-strongest_pair_conn" class="quarto-xref">Table&nbsp;<span>4.2</span></a> reports the pairwise connections that appeared more frequently in the top 15 connections of the system. Similarly to the stationary analysis, the strongest pairwise edges are between Japanese companies, with this behavior appearing for more than half of the windows analyzed. This finding extends the assumption that the Japanese market has stronger bounds and has major variance contribution within its market rather than on the whole global market.</p>
+<div class="cell">
+<div id="tbl-strongest_pair_conn" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-strongest_pair_conn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.2: Frequency and average values of the strongest 15 pairwise connections between reinsurers collected from all the 349 windows
+</figcaption>
+<div aria-describedby="tbl-strongest_pair_conn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">From</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">To</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frequency</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq. pct</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Avg. Sterngth</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Max Strength</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">264</td>
+<td style="text-align: right;">75.64</td>
+<td style="text-align: right;">16.09</td>
+<td style="text-align: right;">25.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">262</td>
+<td style="text-align: right;">75.07</td>
+<td style="text-align: right;">12.91</td>
+<td style="text-align: right;">20.98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">235</td>
+<td style="text-align: right;">67.34</td>
+<td style="text-align: right;">15.67</td>
+<td style="text-align: right;">21.79</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">199</td>
+<td style="text-align: right;">57.02</td>
+<td style="text-align: right;">15.20</td>
+<td style="text-align: right;">22.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">51.29</td>
+<td style="text-align: right;">13.03</td>
+<td style="text-align: right;">19.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">49.57</td>
+<td style="text-align: right;">15.58</td>
+<td style="text-align: right;">25.52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">40.11</td>
+<td style="text-align: right;">10.72</td>
+<td style="text-align: right;">15.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">32.66</td>
+<td style="text-align: right;">12.38</td>
+<td style="text-align: right;">18.84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">24.64</td>
+<td style="text-align: right;">10.23</td>
+<td style="text-align: right;">14.52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">24.36</td>
+<td style="text-align: right;">9.38</td>
+<td style="text-align: right;">11.66</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">24.36</td>
+<td style="text-align: right;">9.67</td>
+<td style="text-align: right;">11.62</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">23.21</td>
+<td style="text-align: right;">17.32</td>
+<td style="text-align: right;">26.58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EG</td>
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">20.92</td>
+<td style="text-align: right;">12.13</td>
+<td style="text-align: right;">14.68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">20.92</td>
+<td style="text-align: right;">10.55</td>
+<td style="text-align: right;">13.40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">20.34</td>
+<td style="text-align: right;">9.96</td>
+<td style="text-align: right;">12.61</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="network-topology-evolution" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="network-topology-evolution"><span class="header-section-number">4.3.2</span> Network Topology Evolution</h3>
+<p>The static analysis in <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> revealed a disassortative, globally integrated network. However, one might ask whether this behavior is maintained throughout stable and crisis periods, or if different scenarios reshape the network’s architecture.</p>
+<p>The <span class="math inline">\(50^{th}\)</span> percentile threshold is applied independently within each rolling window, producing a constant network density of <span class="math inline">\(0.50\)</span> by construction. Changes in topology metrics thus do not reflect network densification, bur rather the redistribution of edge weights among the retained connections, and the changes in which specific edges exceed the threshold between windows.</p>
+<p>The results of our analysis show that during periods of elevated volatility and high connectedness regime, the reinsurance network contracts significantly. The average path length drops from its time series average of <span class="math inline">\(0.39\)</span> to a minimum of <span class="math inline">\(0.29\)</span> during mid 2021 high TCI period, meaning that variance explanation propagates through fewer nodes and shorter paths, with a strong negative correlation with the TCI (<span class="math inline">\(\rho = -0.723\)</span>, <span class="math inline">\(p &lt; 0.001\)</span>). This means that during a crisis variance reaches the whole system through fewer intermediaries and shorter routes, so that contagion accelerates when its speed is most dangerous.</p>
+<p>The diameter instead shows weaker correlation with the TCI (<span class="math inline">\(\rho = -0.368\)</span>), meaning that TCI changes primarily affect the average network distance, without proportionally shrinking the longest path. During high regime periods, firms get closer, while the most peripheral ones remain relatively distant, being less affected by the higher variance explanation of core firms. As <a href="#fig-topology_plots" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> shows, the diameter also exhibits higher volatility compared to the APL, reflecting less independence from the TCI regime status.</p>
+<p>Notably, the topology response to TCI changes are not exactly symmetrical. An asymmetric regression of APL changes on positive and negative TCI increments yields coefficients of <span class="math inline">\(-0.003\)</span> (<span class="math inline">\(p&lt;0.001\)</span>) for TCI increases and <span class="math inline">\(-0.007\)</span> (<span class="math inline">\(p&lt;0.001\)</span>) for TCI decreases. The ratio of <span class="math inline">\(2.33\)</span> between the two coefficients shows that the average path length reacts roughly 2.2<span class="math inline">\(\times\)</span> more strongly to declines in connectedness that to increases, meaning that the network dissolute more rapidly when stress decrease than it compacts when stress increase The relationship between connectedness and topological compactness is therefore nonlinear and asymmetric, with the network loosening abruptly once a stress episodes passes.</p>
+<p>The rolling assortativity provides further insights. While the static analysis yielded a disassortative coefficient (<span class="math inline">\(r= -0.116\)</span>), the rolling window average is slightly positive (<span class="math inline">\(\hat{r}=0.078\)</span>). The positive correlation with the TCI (<span class="math inline">\(\rho = 0.326\)</span>) suggests that during high connectedness periods, the network shifts toward assortativity, with hub firms being more connected to other hubs rather than to peripheral nodes. This structural shift means that the hub-spoke topology is not permanent but tends to emerge during lower connectedness regimes. As connectedness rises, the large hubs couple directly to one another rather than feeding peripheral recipients,, so the systemically important firms cease to diversify against each other and begin to move as a single block, The hub-and-spoke resilience documented in <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> is this a normal times property that dissolves under stress, when the network adopts its most dangerous systemic configuration.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-topology_plots" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-topology_plots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-topology_plots-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-topology_plots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Values of the Diameter and of the Average Path Length (APL) in comparison with the TCI. The Diameter shows greater standard deviation, while the APL clearly show opposite responses to the TCI changes
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="network-stability-and-community-evolution" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="network-stability-and-community-evolution"><span class="header-section-number">4.3.3</span> Network Stability and Community Evolution</h3>
+<p>We tested network stability and community evolution performing the Jaccard stability analysis for consecutive TC values, and community evolution analyzing the modularity measure for the various rolling windows.</p>
+<section id="jaccard-stability" class="level4" data-number="4.3.3.1">
+<h4 data-number="4.3.3.1" class="anchored" data-anchor-id="jaccard-stability"><span class="header-section-number">4.3.3.1</span> Jaccard Stability</h4>
+<p>To quantify the similarity of the connections between consecutive networks we used the Jaccard similarity measure. Mathematically, the index is defined as the ratio between the intersection size and the union size, with values ranging from 0 for sets with no elements in common, and 1 for identical sets. <span class="math display">\[
+\text{Jaccard} = \frac{A \cap B}{A \cup B}
+\]</span> The observed mean Jaccard similarity score is <span class="math inline">\(0.88\)</span> (<span class="math inline">\(\sigma = 0.06\)</span>), with a right skewed distribution. While this high baseline suggests strong continuity, it must be interpreted in the context of the rolling window methodology applied: with a step size of 5 and a window of 250 observations, consecutive windows share <span class="math inline">\(98\%\)</span> of the underlying data.</p>
+<p>Consequently, the various “dips” in the Jaccard similarity observed in <a href="#fig-jaccard_similarity" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> are highly significant. These sharp declines often coincide with rapid spikes or falls in the TCI, signaling periods of topological changes. The weak positive correlation between the Jaccard stability and the TCI (<span class="math inline">\(\rho = 0.178\)</span>, <span class="math inline">\(p &lt; 0.001\)</span>) suggests that the level of connectedness does not intrinsically determine stability, but rather that stability is compromised during the transition between regimes. This supports the hypothesis that while a “stable core” of reinsurer relations exists during the normal market condition, systemic shocks force a rapid realignment of reinsurers’ roles. The transition windows are therefore the moments of maximum structural fragility, since it is during these episodes that the identity of transmitters and receivers is in flux</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-jaccard_similarity" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jaccard_similarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-jaccard_similarity-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jaccard_similarity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: Jaccard similarity score (top panel) and TCI (bottom plot) for comparison of their relationship
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="modularity" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="modularity"><span class="header-section-number">4.3.4</span> Modularity</h3>
+<p>To assess the presence of cluster structures, we computed the modularity evolution and the number of communities detected for each rolling window. The clustering method used to estimate the modularity and the communities was the Louvain algorithm (<span class="citation" data-cites="Blondel_2008">Blondel et al. (<a href="references.html#ref-Blondel_2008" role="doc-biblioref">2008</a>)</span>). The average modularity score was <span class="math inline">\(0.179\)</span> (<span class="math inline">\(\sigma = 0.039\)</span>), with values ranging from a minimum of <span class="math inline">\(0.055\)</span> to a maximum of <span class="math inline">\(0.265\)</span>. The communities detected fluctuated between 2 and 5, with <span class="math inline">\(96.5\%\)</span> of the observation between 3 or 4 clusters. The networks where 5 communities were observed result in lower interconnectedness values, as a less clustered core structure identifies more nodes that could be treated as communities.</p>
+<p>However, the low absolute values of modularity (remaining below the <span class="math inline">\(0.3\)</span> threshold typically associated with strong community structure as described by <span class="citation" data-cites="Newman2006">Newman (<a href="references.html#ref-Newman2006" role="doc-biblioref">2006</a>)</span>) indicate that the division in communities remains relatively minor, with the communities identified remaining tightly connected to the core, showing that the reinsurance market maintains a high degree of global interaction throughout the entire period. Furthermore, modularity presents a strong negative correlation with TCI (<span class="math inline">\(\rho = -0.698\)</span>, <span class="math inline">\(p&lt;0.001\)</span>), as visualized in <a href="#fig-modularity" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>. This relationship shows that during periods of high systemic stress, an increase in total connectedness values reduces the distinction of regional or functional clusters, with variance influence propagating across the entire network without being contained in specific community boundaries.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-modularity" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-modularity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-modularity-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modularity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.6: Evolution of the modularity (upper plot) and of the number of communities detected (middle plot) during the period analyzed. The TCI (bottom plot) is reported as well to better assess the community creation in relation with the system’s connectedness
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="firm-level-dynamics" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="firm-level-dynamics"><span class="header-section-number">4.4</span> Firm Level Dynamics</h2>
+<p>Firm level analysis is performed to assess changing dynamics at node level, identifying reinsurers that consistently act as variance distributors and those who are variance receivers, and address the evolution of the main components of the network during different time periods. To grasp the changing environment, the Net strength (calculated as the difference between the out strength and in strength for each node) was used as proxy measure. We calculated the Net values for each rolling window, to spot the net variance contributors and the variance receiver nodes. We aggregated each region’s reinsurer to identify patterns related to specific areas to later move to the recognition of systemically important institutions that act as the main source of variance contribution over time.</p>
+<section id="sec-directional-connectedness" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="sec-directional-connectedness"><span class="header-section-number">4.4.1</span> Directional Connectedness</h3>
+<p><a href="#fig-directional_heatmap" class="quarto-xref">Figure&nbsp;<span>4.7</span></a> represents the values of net strength for each company across the 349 rolling windows. Firstly, some companies maintained persistently a negative net balance throughout the whole period, like Chinese reinsurers China Re (1508.HK) and Taiping Re (0966.HK), remaining net variance receiver in every window, consistent with their peripheral role identified in the static analysis, suggesting a limited spillover capacity due to their market position rather than an ephemeral phenomenon. Secondly, one sharp positive spikes are visible for the London’s company Hiscox Ltd (HSX.L) in the late 2021 and early 2022. The value can be associated with high spikes in the volatility value likely due to a high-profile dispute regarding “Business Interruption” claims with the UK Financial Conduct Authority. The spike in volatility elevated the British reinsurer to a strong variance contributor, as its spillover effect strongly affected the network. Third, the COVID-19 pandemic and the subsequent market crash in March 2020, and throughout the following year, reveals a clear separation of net roles. As the TCI entered the high connectedness regime, the contrast between net explainer (red) and net receiver (blue) sharpened, suggesting that lasting high connectedness periods could amplify the existing directional structure rather than raising all firms’ role uniformly, as strong contributors become stronger, while receivers absorb more variance. Finally, the most recent windows (2024-2025) exhibit a notable shift: Japanese companies show an increase in net values, while European firms show the opposite trend for the other companies, especially the strong net contributors European companies, to lower net values. These firm-level patterns aggregate into clear regional dynamics.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-directional_heatmap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-directional_heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-directional_heatmap-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-directional_heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.7: Heatmap representation of reinsurer’s net values evolution over the windows anaylzed
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Regarding the aggregated regional net values, the trend remained constant for almost the entire sample.Asian companies remained in negative territory until the second half of 2023, reaching minimum peaks in July 2017 and April 2021. European companies on the other end remained net variance contributors until the second half of 2023, where the trend reverted in conjunction with the Asian role takeover. The European peak strength was achieved in July 2017, and presented high positive values after the pandemic burst, in 2020, for nearly 2 years, where a progressive decline began. American based companies presented a changing trend, with less extreme values compared to both the European and Asian markets, with movements typically ranging between the Asian and European values. The highest strength was reached in July 2021, where the market showed the highest similarity to the European one. As of the Australian market, the only representative for this continent was the company QBE.AX, which remained neutral (values around 0) for the entirety of the sample, without any notable increase or decrease.</p>
+<p>From this analysis, represented graphically in <a href="#fig-regional_net" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>, a strong negative correlation between the Asian and the European markets (<span class="math inline">\(\rho = -0.74\)</span>, <span class="math inline">\(p&lt;0.001\)</span>) can be noted. These findings remain consistent with the results of <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a>, where the European market explained variance movements, especially for the Asian market. However, the magnitude of the strength varied significantly during the sample period, showing a reverting trend in the last years of the sample.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-regional_net" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regional_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-regional_net-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regional_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.8: Net values aggregated by region in which the reinsurer has registered office
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="centrality" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="centrality"><span class="header-section-number">4.4.2</span> Centrality</h3>
+<p>Eigenvector centrality, PageRank, and betweenness centrality were computed for each of the 349 rolling windows to assess the core-periphery structure across the various market regimes. A notable finding emerges: Chubb (CB) and Mapfre (MAP.MC) rank among the top eigenvector and betweenness nodes, despite not being identified as central nodes in the static analysis. Both firms show consistently elevated eigenvector values throughout the sample (mean eigenvector of <span class="math inline">\(0.218\)</span> for CB and <span class="math inline">\(0.210\)</span> for MAP.MC), with relatively low standard deviation (<span class="math inline">\(0.035\)</span> and <span class="math inline">\(0.060\)</span>), showing a persistent structural position that was not captured by the full sample BVAR model.</p>
+<p>To better grasp the dynamics of centrality, firms were classified into two groups based on their eigenvector centrality distribution: the five firms with the highest mean eigenvector centrality in the <em>persistent hubs</em>, while the five firms with the highest standard deviation as the <em>reactive firms</em>. <a href="#tbl-centrality_classification" class="quarto-xref">Table&nbsp;<span>4.3</span></a> summarizes both groups.</p>
+<div class="cell">
+<div id="tbl-centrality_classification" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-centrality_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.3: Firms classified by eigenvector centrality dynamics. Persistent hubs show high mean centrality with low standard deviation; reactive firms exhibit high variability, indicating centrality shifts during the sample period
+</figcaption>
+<div aria-describedby="tbl-centrality_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Category</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Firm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean Eigen</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SD eigen</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Continent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">21.82</td>
+<td style="text-align: right;">3.46</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">21.31</td>
+<td style="text-align: right;">4.54</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">21.08</td>
+<td style="text-align: right;">6.01</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">20.95</td>
+<td style="text-align: right;">4.81</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">20.73</td>
+<td style="text-align: right;">4.16</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reactive</td>
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">16.69</td>
+<td style="text-align: right;">7.67</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Reactive</td>
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">15.04</td>
+<td style="text-align: right;">7.43</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reactive</td>
+<td style="text-align: left;">X003690.KS</td>
+<td style="text-align: right;">12.83</td>
+<td style="text-align: right;">7.86</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Reactive</td>
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">11.67</td>
+<td style="text-align: right;">8.04</td>
+<td style="text-align: left;">Australia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reactive</td>
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">10.14</td>
+<td style="text-align: right;">7.36</td>
+<td style="text-align: left;">America</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>It is worth noting the geographic composition of the two groups: persistent hubs are predominantly European (Chubb, Munich Re, Mapfre Reasseguros, Generali), with Markel Co as the only non-European member,consistent with the European core documented in <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a>. Reactive firms, by contrast, are geographically dispersed — spanning Bermuda (SiriusPoint), the UK (Hiscox), Australia (QBE), US (Berkshire Hathaway), and South Korea (Korean Re). These firms occupy peripheral network positions during normal conditions but experience significant centrality shifts during stress episodes, transitioning from the periphery to the temporary core. This distinction carries the prudential message of the dynamic analysis. The rolling analysis reveals that hidden systemic risk does exist in a time-varying form, since reactive firms that appear peripher in the full sample of <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> become transmitters precisely during high connectedness regimes. A static SIFI screen would miss these conditionally systemic institutions. The two groups also differ in how their centrality metric co-move. For reactive firms, eigenvector and PageRank are highly correlated (<span class="math inline">\(\rho= 0.631\)</span>), meaning that when these firms become influential they also become variance receivers. For persistent hubs instead, the correlation is lower (<span class="math inline">\(\rho = 0.217\)</span>), indicating a difference between the influence and absorption phases, maintaining a more specialized structural role. Persistent hubs tend to behave as disciplined intermediaries that separate their phase of influence from their phase of absorption, whereas reactive firms are swept up as crisis absorber at the same moment when they transmit it.</p>
+<p>Finally, comparing this classification with the later SIFI stability in the next section shows that central firms and net transmitters capture different dimensions of systemic importance. No company appears among both the persistent eigenvector companies and the chronic top-5 transmitters. This divergence suggests that the spillover magnitude may overlook firms that are structurally central to the network architecture, without necessarily dominating directional variance flows.</p>
+</section>
+<section id="sec-SIFI-stability" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="sec-SIFI-stability"><span class="header-section-number">4.4.3</span> SIFI Stability</h3>
+<p>To identify a systemically important institution for the reinsurance market, we classified the companies that consistently appeared as the strongest net values.</p>
+<p>The companies that appeared consistently as the variance explainer of others’ movements are reported in <a href="#tbl-persistance_top5" class="quarto-xref">Table&nbsp;<span>4.4</span></a>. The first 5 companies (CS.PA, BRK.A, HNR1.DE, SREN.SW, EG), net strength evolution are represented graphically in fig-top5_transmitter. Berkshire Hathaway (red line) is the most volatile firm in the group, as it fluctuates between being a net variance explainer and a variance receiver. AXA XL and Swiss Re exhibit the most consistent behavior, remaining in the positive territory for almost the whole sample. Their lines remain relatively stable, suggesting a consistent role in the industry. The German Hannover Re shows a significant regime shift, as it starts as a net variance contributor in 2017-2018, but experiences a downward trend in its net role, at the onset of COVID-19, a notable reversal for a firm that dominated variance contribution in the initial years. Everest Group instead showed the inverse trend, as it started as a variance receiver and transitioned to a variance contributor in late 2018 and early 2019.</p>
+<div class="cell">
+<div id="tbl-persistance_top5" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-persistance_top5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.4: Number of times that the reinsurer appeared in the top 5 net values
+</figcaption>
+<div aria-describedby="tbl-persistance_top5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Company</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Top 5 appearances</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Top 5 pct.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">215</td>
+<td style="text-align: right;">61.605</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">153</td>
+<td style="text-align: right;">43.840</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">153</td>
+<td style="text-align: right;">43.840</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">33.238</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">31.519</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-top5_transmitter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-top5_transmitter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-top5_transmitter-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top5_transmitter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.9: Net Evolution of the first 5 companies identified
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="event-analysis" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="event-analysis"><span class="header-section-number">4.5</span> Event Analysis</h2>
+<p>This section focuses on the analysis of events that had an impact both on the reinsurance market directly, like natural disasters, and other major geopolitical and financial events that might have affected the reinsurance industry indirectly, to assess the impact over the estimated connectedness of the system and the response of the network dynamics to these events.</p>
+<section id="event-selection" class="level4" data-number="4.5.0.1">
+<h4 data-number="4.5.0.1" class="anchored" data-anchor-id="event-selection"><span class="header-section-number">4.5.0.1</span> Event Selection</h4>
+<p>The events reported are gathered through web searches and annual reports over the main events sustained by the reinsurance companies analyzed. The cases considered are the major occurrences of the last decade, considering both the events related directly to the reinsurance market and those affecting the financial and economic world as a whole in terms of magnitude of social and economic impact. The events analyzed are 13 and span through five categories. Seven are natural catastrophes ranging from the HIM hurricanes trio of 2017 ($92B insured losses) to the 2025 Los Angeles wildfires ($45B), testing liability-side propagation through underwriting claims. Three financial events - the 2018 Q4 equity sell-off, the 2023 SVB collapse, and the 2025 US trading tariffs - shock-test the asset-side propagation through investment portfolio revaluation. The 2022 Ukraine conflict represents a geopolitical event with mainly asset-side contagion channels, while the 2024 CrowdStrike outage represents an emerging cyber risk. The COVID-19 pandemic uniquely combined both channels, with simultaneous equity market collapse and widespread insurance claims. <a href="#tbl-events" class="quarto-xref">Table&nbsp;<span>4.5</span></a> reports the full event list with estimated insured losses and shock channel specification, while <a href="#fig-event_tci" class="quarto-xref">Figure&nbsp;<span>4.10</span></a> overlays the event dates onto the TCI time series, allowing visual identification of the system’s connectedness response to each shock.</p>
+<div class="cell">
+<div id="tbl-events" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-events-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.5: Events considered in the event analysis. The estimated insured losses are expressed in billion $
+</figcaption>
+<div aria-describedby="tbl-events-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimated Insured Loss</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Loss Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2017-09-01</td>
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2018-11-15</td>
+<td style="text-align: left;">CA Wildfires</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2018-12-24</td>
+<td style="text-align: left;">Equity Crash</td>
+<td style="text-align: left;">Financial</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Asset-side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020-03-16</td>
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">Pandemic</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">Both</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2021-02-15</td>
+<td style="text-align: left;">Winter Storm Uri</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-02-24</td>
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">Geopolitical</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Asset-side</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-09-28</td>
+<td style="text-align: left;">Hurricane Ian</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023-03-10</td>
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: left;">Financial</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Asset-side</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-07-19</td>
+<td style="text-align: left;">CrowdStrike</td>
+<td style="text-align: left;">Cyber</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-10-05</td>
+<td style="text-align: left;">Helene Milton Hurricane</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-10-29</td>
+<td style="text-align: left;">Spanish Floods</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025-01-07</td>
+<td style="text-align: left;">LA Wildfires</td>
+<td style="text-align: left;">NatCat</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">Liability-side</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2025-04-02</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: left;">Financial</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Asset-side</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-event_tci" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-event_tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-event_tci-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-event_tci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.10: Total connectedness index and major events considered
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="event-impact-ranking" class="level4" data-number="4.5.0.2">
+<h4 data-number="4.5.0.2" class="anchored" data-anchor-id="event-impact-ranking"><span class="header-section-number">4.5.0.2</span> Event Impact Ranking</h4>
+<p>To assess the impact that each event yields on the network dynamics, we observed the Total connectedness evolution around the time of the event. The TC mean of the previous 20 windows and the peak total connectedness measure for the next 10 windows were computed (a 50-day time period), and compared to identify the events that created the highest change in the TCI. These findings are reported in <a href="#tbl-event_impact" class="quarto-xref">Table&nbsp;<span>4.6</span></a>, and are classified by their impact on the TC response. To formally assess whether the observed event response are distinguishable from random fluctuations, we conducted three statistical tests. First, a Monte Carlo permutation test drawing 10,000 random 11 event clusters from the 349 window pool yields <span class="math inline">\(p = 0.108\)</span> for the mean <span class="math inline">\(\Delta TCI\)</span> across the pooled event set. Second, a Kruskal-Wallis test across the three loss-type groups returns <span class="math inline">\(H = 2.13\)</span> (<span class="math inline">\(df=2\)</span>, <span class="math inline">\(p = 0.344\)</span>). Third, a one-side Wilcoxon rank sum test comparing asset-side versus liability-side <span class="math inline">\(\Delta TCI\)</span> values yields <span class="math inline">\(W = 22\)</span>, <span class="math inline">\(p=0.184\)</span>. None of these test is significant, reflecting the fundamental constraint of having only a 13-event sample. The event analysis is therefore exploratory: the patterns described below constitute descriptive evidence for hypothesis generation rather than confirmed causal claims. Nevertheless, descriptive evidence reveals a consistent pattern: the two events producing the highest TCI increases - the Trump tariff shock of April 2025, accounting for a <span class="math inline">\(\Delta TCI=26.74\)</span> and the highest TCI peak for the whole sample (<span class="math inline">\(88.75\)</span>), and the COVID-19 market crash of March 2020, for a <span class="math inline">\(\Delta TCI = 16.37\)</span> - both involved asset-side transmission through simultaneous investment portfolio revaluation. By contrast, the largest pure liability-side event, the HIM hurricane trio, with estimated insured losses of $92 billion, produced a negative TCI change, consistent with the idiosyncratic rather than systemic risk propagation.</p>
+<p>Together, these patterns point to the chapter’s central economic conclusion: the reinsurance sector’s systemic risk originates on the asset side, through its role as a large holder of correlated financial assets, rather than on the liability side of catastrophe underwriting. The reduction of interconnectedness value in the most sever catastrophe loss is not a paradox, but rather an evidence of the risk-pooling model working as designed, since large insured losses are absorbed idiosyncratically by the exposed firms and do not become contagious. This aligns with the FSB and IAIS view that traditional underwriting activities does not pose systemic risk, but this is rather created from financial-market activities.</p>
+<p>One notable exception is the Los Angeles wildfires in January 2025 (<span class="math inline">\(\Delta TCI = 21.89)\)</span>, classified as a liability-side. However, the post-event window for this event coincides with the turmoil related to the market uncertainty following the January 20 American presidential inauguration, suggesting that the measured TCI increase reflects the asset-side pressure rather than a pure underwriting loss response. It is also worth noting that the LA wildfires and the Trump tariffs events do not have a full subsequent window, given their recent nature, not allowing to verify the complete subsequent response of the system to these events.</p>
+<div class="cell">
+<div id="tbl-event_impact" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-event_impact-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.6: Impact of each event on the total connectedness stability
+</figcaption>
+<div aria-describedby="tbl-event_impact-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Loss Type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">TCI pre</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">TCI post peak</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Change</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pct. Change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: left;">Asset-side</td>
+<td style="text-align: right;">62.01</td>
+<td style="text-align: right;">88.75</td>
+<td style="text-align: right;">26.74</td>
+<td style="text-align: right;">43.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LA Wildfires</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">62.46</td>
+<td style="text-align: right;">84.35</td>
+<td style="text-align: right;">21.89</td>
+<td style="text-align: right;">35.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">Both</td>
+<td style="text-align: right;">64.16</td>
+<td style="text-align: right;">80.53</td>
+<td style="text-align: right;">16.37</td>
+<td style="text-align: right;">25.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">Asset-side</td>
+<td style="text-align: right;">66.89</td>
+<td style="text-align: right;">73.42</td>
+<td style="text-align: right;">6.53</td>
+<td style="text-align: right;">9.77</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Winter Storm Uri</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">78.75</td>
+<td style="text-align: right;">83.68</td>
+<td style="text-align: right;">4.92</td>
+<td style="text-align: right;">6.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spanish Floods</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">61.77</td>
+<td style="text-align: right;">65.42</td>
+<td style="text-align: right;">3.65</td>
+<td style="text-align: right;">5.91</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Helene Milton Hurricane</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">61.85</td>
+<td style="text-align: right;">65.42</td>
+<td style="text-align: right;">3.57</td>
+<td style="text-align: right;">5.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: left;">Asset-side</td>
+<td style="text-align: right;">67.85</td>
+<td style="text-align: right;">70.54</td>
+<td style="text-align: right;">2.68</td>
+<td style="text-align: right;">3.95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CrowdStrike</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">62.75</td>
+<td style="text-align: right;">64.78</td>
+<td style="text-align: right;">2.02</td>
+<td style="text-align: right;">3.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Equity Crash</td>
+<td style="text-align: left;">Asset-side</td>
+<td style="text-align: right;">60.60</td>
+<td style="text-align: right;">60.88</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.46</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CA Wildfires</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">61.19</td>
+<td style="text-align: right;">61.17</td>
+<td style="text-align: right;">-0.02</td>
+<td style="text-align: right;">-0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hurricane Ian</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">70.28</td>
+<td style="text-align: right;">70.22</td>
+<td style="text-align: right;">-0.07</td>
+<td style="text-align: right;">-0.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">Liability-side</td>
+<td style="text-align: right;">80.06</td>
+<td style="text-align: right;">72.70</td>
+<td style="text-align: right;">-7.36</td>
+<td style="text-align: right;">-9.19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="deep-dive-analysis" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="deep-dive-analysis"><span class="header-section-number">4.5.1</span> Deep-Dive Analysis</h3>
+<p>Five events are selected to perform a deeper analysis on the system’s connectedness dynamics, each representing a distinct shock archetype:</p>
+<ul>
+<li>HIM hurricanes (2017): the largest liability-side shock in the sample ($92B), testing whether catastrophe claims propagate systemically or remain idiosyncratic;</li>
+<li>COVID-19 (2020): a simultaneous asset-side and liability-side shock, combining a global equity market crash with widespread business interruption and event cancellation claims;</li>
+<li>Ukraine conflict (2022): a geopolitical shock transmitting primarily through the asset-side via energy price volatility, sanctions-related asset write-downs, and sovereign risk repricing;</li>
+<li>SVB collapse (2023): a financial sector shock testing contagion from banking sector credit risk to the reinsurer investment portfolios;</li>
+<li>Trump “Liberation Day” tariffs (2025): a pure asset-side shock, producing the highest TCI in the sample, included despite the limited post-event window.</li>
+</ul>
+<p>These five events were selected to represent distinct shock archetypes, enabling a comparative analysis of how different transmission channels affect connectedness dynamics. For each event, the short-run TCI reaction is analyzed by identifying the peak value within the subsequent 40 rolling windows. The pre-crisis mean is computed over the 20 windows preceding the event; the post-crisis mean is computed over windows 20 through 40 following the event, excluding the acute phase to assess whether the shock induced a persistent regime change.</p>
+<p>The HIM hurricanes generated the highest negative response to the TC (<span class="math inline">\(\Delta TCI = -7.36\)</span>), as the event occurred during an already-declining trend. The connectedness level before the event was on a high regime state, with an already mean reverting trend, as the peak was registered 8 windows prior to the event. However the massive NatCat event and the estimated loss of 92$B did not stop the declining trend. This supports the idea that liability-side losses are absorbed asymmetrically by the system, as only exposed firms are hit by the shock, which reduces the co-movement rather than increasing it. This suggests that liability-side shocks may remain idiosyncratic rather than systemic. The COVID-19 pandemic, the second highest <span class="math inline">\(\Delta TCI\)</span> change among the selected events, showed a steady increase after the initial surge following the event, with a post-crisis mean 23% above the pre-crisis level, computed for windows 20 to 40. This event caused a regime change, moving a low connected system to a high connected one, with the peak registered at the 40<span class="math inline">\(^{th}\)</span> window, meaning that the increase persisted during the entire period, with only brief temporary dips in the TCI within the overall upward trend. The equity market crash that spanned multiple stock exchanges and hit multiple sectors shows that the reaction of the system was symmetric and timed, as all reinsurers are affected by the event simultaneously. This resulted in a more connected network. A similar reaction is visible from another asset-side event, the Trump Tariffs of April 2025. Despite the right-censoring of the post-event window, the acute response was fully captured, resulting in the highest TCI change between the peak and the pre-event crisis, with a <span class="math inline">\(43.12\%\)</span> increase. Although the post-crisis mean cannot be computed, due to the missing windows, the volatility shocks caused by the market crash and equity market uncertainty induced co-movement among reinsurance companies, increasing the connectedness of the system.</p>
+<p>The outbreak of the Russian-Ukrainian conflict instead caused a delayed response that reached its peak value after 8 rolling windows, while just 5 were needed for the SVB collapse. Moreover, the two events had an equal response subsequent to the peak TCI value, as both the financial crisis of 2023 and the Ukraine war of 2022 recovered just after one rolling window, with the bank sector turmoil causing a reduction from the pre crisis level by <span class="math inline">\(\Delta TCI = 2.68\)</span>, while the geopolitical event left the TCI almost unchanged (<span class="math inline">\(\Delta TCI = 7\)</span>), not producing significant regime changes. This restricted effect on TCI shows that the contagion to the reinsurance market was contained. Instead, for the Ukrainian case, the system responded more slowly, stabilizing the post crisis mean after 16 windows. Despite the initial similar reaction, the geopolitical importance of the conflict and the relative instability it introduced meant that its effect was more persistent over time.</p>
+<div id="fig-event_study" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-event_study-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-event_study" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-event_study-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-event_study-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-event_study-1.png" class="img-fluid figure-img" data-ref-parent="fig-event_study" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-event_study-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Harvey-Irma-Maria hurricanes
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-event_study" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-event_study-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-event_study-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-event_study-2.png" class="img-fluid figure-img" data-ref-parent="fig-event_study" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-event_study-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) COVID-19 pandemic
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-event_study" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-event_study-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-event_study-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-event_study-3.png" class="img-fluid figure-img" data-ref-parent="fig-event_study" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-event_study-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Russian-Ukraine conflict
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-event_study" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-event_study-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-event_study-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-event_study-4.png" class="img-fluid figure-img" data-ref-parent="fig-event_study" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-event_study-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Silicon Valley Bank and subsequent Swiss Credit collapse
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-event_study" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-event_study-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-event_study-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-event_study-5.png" class="img-fluid figure-img" data-ref-parent="fig-event_study" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-event_study-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(e) Trump’s “Liberation day” tariffs
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-event_study-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.11: TCI plot for the 20 windows prior to the event and the 40 windows subsequent
+</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div id="tbl-studied_events_impact" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-studied_events_impact-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.7: Comparison of pre and post event TCI values
+</figcaption>
+<div aria-describedby="tbl-studied_events_impact-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">HIM Hurricanes</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">COVID-19</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Ukraine War</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">SVB Collapse</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Trump Tariffs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Pre crisis mean</td>
+<td style="text-align: center;">80.06</td>
+<td style="text-align: center;">64.16</td>
+<td style="text-align: center;">66.89</td>
+<td style="text-align: center;">67.85</td>
+<td style="text-align: center;">62.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peak TCI value</td>
+<td style="text-align: center;">82.86</td>
+<td style="text-align: center;">82.43</td>
+<td style="text-align: center;">73.42</td>
+<td style="text-align: center;">70.54</td>
+<td style="text-align: center;">88.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peak TCI window</td>
+<td style="text-align: center;">-19.00</td>
+<td style="text-align: center;">40.00</td>
+<td style="text-align: center;">8.00</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">6.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Recovery time</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Post crisis TCI mean</td>
+<td style="text-align: center;">63.59</td>
+<td style="text-align: center;">79.06</td>
+<td style="text-align: center;">68.09</td>
+<td style="text-align: center;">62.58</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Change</td>
+<td style="text-align: center;">-16.47</td>
+<td style="text-align: center;">14.90</td>
+<td style="text-align: center;">1.20</td>
+<td style="text-align: center;">-5.28</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pct. change</td>
+<td style="text-align: center;">-20.57</td>
+<td style="text-align: center;">23.22</td>
+<td style="text-align: center;">1.79</td>
+<td style="text-align: center;">-7.78</td>
+<td style="text-align: center;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#fig-firm_event_net" class="quarto-xref">Figure&nbsp;<span>4.27</span></a> reports the progression of net strength for the six firms displaying the greatest absolute variation in their event-related roles, differentiation between firms whose net transmitter role increased (solid lines) and those whose role decreased (dashed lines).</p>
+<section id="him-hurricanes" class="level4" data-number="4.5.1.1">
+<h4 data-number="4.5.1.1" class="anchored" data-anchor-id="him-hurricanes"><span class="header-section-number">4.5.1.1</span> HIM Hurricanes</h4>
+<p>The liability-side shock produces a clear shift in roles among specialty reinsurers. RenaissanceRe, whose business model is concentrated in US property catastrophe reinsurance, transitions from the dominant net transmitter to a net receiver, consistent with its disproportionate exposure to HIM losses. Conversely, AXA XL’s diversified European platform increased its net transmitter role, suggesting that the shock redistributes influence from exposed specialists toward less-exposed diversified generalists. This asymmetric firm-level response explains the negative aggregate TCI change: rather than synchronizing the network, the NatCat shock fragmented it along geographic exposure lines.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-him_evolution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-him_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-him_evolution-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-him_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.12: Evolution of the reinsurance network in the windows before, during, and after the HIM hurricanes (Harvey, Irma, Maria). Node size represents absolute net strength; color indicates geographic region
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-him_evolution1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-him_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-him_evolution1-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-him_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.13: Evolution of the reinsurance network in the windows before, during, and after the HIM hurricanes (Harvey, Irma, Maria). Node size represents absolute net strength; color indicates geographic region
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-him_evolution2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-him_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-him_evolution2-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-him_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.14: Evolution of the reinsurance network in the windows before, during, and after the HIM hurricanes (Harvey, Irma, Maria). Node size represents absolute net strength; color indicates geographic region
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As <a href="#fig-him_evolution" class="quarto-xref">Figure&nbsp;<span>4.12</span></a> through <a href="#fig-him_evolution2" class="quarto-xref">Figure&nbsp;<span>4.14</span></a> shows, the networks display a trend of declining TCI value, with subsequent windows showing a more dispersed periphery, with net variance contribution roles becoming less clear and more uniform across the network. This trend is consistent with what is shown in <a href="#fig-event_study" class="quarto-xref">Figure&nbsp;<span>4.11</span></a>, and provide a visual representation of the ability of the sector to sustain even large catastrophical events, without significantly increasing the interconnectedness of the system, rising the volatility spillovers between nodes.</p>
+</section>
+<section id="covid-19" class="level4" data-number="4.5.1.2">
+<h4 data-number="4.5.1.2" class="anchored" data-anchor-id="covid-19"><span class="header-section-number">4.5.1.2</span> COVID-19</h4>
+<p>The simultaneous asset-side and liability-side shock rearrange roles among a different dimensions. European reinsurers Generali and Munich Re, among the largest by total assets, emerge with increased net variance explainer roles. Their dominant investment portfolios, heavily allocated to European sovereign and corporate bonds, experience simultaneous mark-to-market losses during the March 2020 liquidity shock, consistent with the asset-side channel amplifying their influence on the network. Contrariwise, Asian firms (Taiping Re and The Toa Re) and specialty player (QBE) decline. The pattern is consistent with European equity markets, heavily weighted in reinsurance portfolios, driving the initial contagion signal, while Asian and Australian firms respond with delay.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-covid_evolution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-covid_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-covid_evolution-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-covid_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.15: Evolution of the reinsurance network in the window before, during, and after the COVID-19 market decline
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-covid_evolution1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-covid_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-covid_evolution1-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-covid_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.16: Evolution of the reinsurance network in the window before, during, and after the COVID-19 market decline
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-covid_evolution2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-covid_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-covid_evolution2-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-covid_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.17: Evolution of the reinsurance network in the window before, during, and after the COVID-19 market decline
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Visual representation of the structure dynamics and main cluster evolution can be seen in <a href="#fig-covid_evolution" class="quarto-xref">Figure&nbsp;<span>4.15</span></a>, <a href="#fig-covid_evolution1" class="quarto-xref">Figure&nbsp;<span>4.16</span></a>, and <a href="#fig-covid_evolution2" class="quarto-xref">Figure&nbsp;<span>4.17</span></a>: all windows show European reinsurers forming a dense central cluster connected by thicker edges, while Asian firms remain at the periphery of the network with smaller sizes. The high connectedness values for the pre-event (<span class="math inline">\(77\)</span>), event (<span class="math inline">\(80.5\)</span>) and post-event (<span class="math inline">\(77.50\)</span>) are a consequence of the spike in the previous windows, as shown in <a href="#fig-event_study" class="quarto-xref">Figure&nbsp;<span>4.11</span></a>. The tight connectedness value (all in the high regime section), and the consequent close disposition of the nodes in the plots show the systemic vulnerability of crisis of this type: the volatility explanation spread more rapidly due to the conformation given by the stress period, and the high interconnecetedness that the global reinsruance market has.</p>
+</section>
+<section id="ukraine-war" class="level4" data-number="4.5.1.3">
+<h4 data-number="4.5.1.3" class="anchored" data-anchor-id="ukraine-war"><span class="header-section-number">4.5.1.3</span> Ukraine War</h4>
+<p>Although the Ukrainian war affected the European continent more closely, the highest changes in net variance explanation roles did not include dominant European reinsurers. The highest positive changes were in fact seen for the Japanese (6809.T and 8725.T), while Hiscox Ltd saw its net variance role decline. However, the absence of major European spikes in net strength values can be explained looking at the recent past: COVID-19 already created a strong position of variance contribution to the whole market from major European and American reinsurers (CS.PA, SREN.SW, HNR1.DE), as <a href="#fig-directional_heatmap" class="quarto-xref">Figure&nbsp;<span>4.7</span></a> showed. The geopolitical crisis of early 2022 consolidated this market condition rather radically disrupting it.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ukraine_evolution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ukraine_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-ukraine_evolution-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ukraine_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.18: Network at the window before the onset of the Russia-Ukraine war
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ukraine_evolution1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ukraine_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-ukraine_evolution1-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ukraine_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.19: Network for the window of the onset of the Russia-Ukraine war
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ukraine_evolution2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ukraine_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-ukraine_evolution2-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ukraine_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.20: Network at the window after the onset of the Russia-Ukraine war
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-ukraine_evolution" class="quarto-xref">Figure&nbsp;<span>4.18</span></a> shows that the pre-event network exhibits elevated node sizes, continuing the high connectedness regime established during COVID-19. The relative connectedness measure remains stable throughout the event and the post-event windows (<a href="#fig-ukraine_evolution1" class="quarto-xref">Figure&nbsp;<span>4.19</span></a>, <a href="#fig-ukraine_evolution2" class="quarto-xref">Figure&nbsp;<span>4.20</span></a>), without any relevant detectable structural change.</p>
+</section>
+<section id="svb-collapse" class="level4" data-number="4.5.1.4">
+<h4 data-number="4.5.1.4" class="anchored" data-anchor-id="svb-collapse"><span class="header-section-number">4.5.1.4</span> SVB Collapse</h4>
+<p>The banking crisis of March 2023 saw the Japanese reinsurer Tokio Marine, changing its position to a net variance receiver to a net variance explainer. Even more marked was the movement of AXIS Capital, which moved from a net strength value of <span class="math inline">\(\approx - 0.5\)</span> to a peak value of <span class="math inline">\(\approx 0.8\)</span>. This is consistent with the firm’s exposure to US fixed-income assets and the interest rate shock that encouraged SVB’s failure and simultaneously created mark-to-market volatility across Japanese and dollar denominated bond portfolios, increasing the variance contribution of these companies in the network. Swiss Re, Toa Re and Hannover Re instead moved in the opposite direction, transitioning to net receiver positions. The SVB crisis activated peripheral firms with asset or liability exposure in the US banking sector.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-svb_evolution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-svb_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-svb_evolution-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-svb_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.21: Network at the window before the SVb collapse
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-svb_evolution1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-svb_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-svb_evolution1-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-svb_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.22: Network at the window of the SVb collapse
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-svb_evolution2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-svb_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-svb_evolution2-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-svb_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.23: Network at the window after the SVb collapse
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-svb_evolution2" class="quarto-xref">Figure&nbsp;<span>4.23</span></a> clearly shows an already increased node size for Asian companies, compared to <a href="#fig-svb_evolution1" class="quarto-xref">Figure&nbsp;<span>4.22</span></a> and <a href="#fig-svb_evolution" class="quarto-xref">Figure&nbsp;<span>4.21</span></a>, consistent with the finding in <a href="#sec-directional-connectedness" class="quarto-xref"><span>Section 4.4.1</span></a> where the trend of major variance contributors started to shift towards Japanese and Asian reinsurers. The increased connectedness is coherent with what is shown in <a href="#fig-event_study" class="quarto-xref">Figure&nbsp;<span>4.11</span></a>, as the post-event window saw a TCI increase of <span class="math inline">\(2.64\)</span> indicating a relatively quick market response to the event, but a later tendency to return to the pre-event TCI measure.</p>
+</section>
+<section id="trump-tariffs" class="level4" data-number="4.5.1.5">
+<h4 data-number="4.5.1.5" class="anchored" data-anchor-id="trump-tariffs"><span class="header-section-number">4.5.1.5</span> Trump Tariffs</h4>
+<p>The pure asset-side shock compresses firm-level net strength toward the mean, as the indiscriminate equity-bond selloff affects all reinsurers simultaneously. Swiss Re, the pre-crisis dominant transmitter (Net Strength <span class="math inline">\(\approx 1.0\)</span>), declines sharply, while previously net receiver firms, like Berkshire Hathaway, AXA XL, and MAPFRE, increase rapidly becoming the net variance contributor companies of the system. The post-event window is truncated due to sample end, limiting interpretation of the post-crisis regime.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-trump_evolution" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trump_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-trump_evolution-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trump_evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.24: Network at the window before the Trump “Liberation Day” Tariffs
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-trump_evolution1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trump_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-trump_evolution1-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trump_evolution1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.25: Network at the window of the Trump “Liberation Day” Tariffs
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-trump_evolution2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trump_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-trump_evolution2-1.png" class="img-fluid figure-img" data-fig-pos="H" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trump_evolution2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.26: Network at the window after the Trump “Liberation Day” Tariffs
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The Trump tariffs event provides the clearest visual contrast across all five events. The pre-event network (<a href="#fig-trump_evolution" class="quarto-xref">Figure&nbsp;<span>4.24</span></a>) is dispersed with major variance contribution roles in American and Asian companies, as the TCI value confirms (<span class="math inline">\(57.62\)</span>). By window +1 (<a href="#fig-trump_evolution2" class="quarto-xref">Figure&nbsp;<span>4.26</span></a>), all nodes collapse into a tightly compressed center, increasing the connectedness index by <span class="math inline">\(26.74\)</span> and showing the return as variance explainer of European reinsurers, a behavior possibly explained by the historical commercial partnership between European countries and the US, that faced increasing tumbles with US tariffs threats. The rapid response and structural change of the network show that systemic events external to the industry can have an impact on the dynamics of variance spillovers.</p>
+</section>
+<section id="cross-event-stability-of-firms-rankings" class="level4" data-number="4.5.1.6">
+<h4 data-number="4.5.1.6" class="anchored" data-anchor-id="cross-event-stability-of-firms-rankings"><span class="header-section-number">4.5.1.6</span> Cross-Event Stability of Firm’s Rankings</h4>
+<p>To test whether the ranking of net transmitters is preserved across shock types, the pairwise Spearman rank correlation of company net strength ranking across the five crisis networks is computed (<a href="#tbl-net_rank_corr" class="quarto-xref">Table&nbsp;<span>4.8</span></a>). Two pairs of events show statistical significance at the 5% level: COVID-19 and Ukraine conflict (<span class="math inline">\(\rho = 0.466\)</span>, <span class="math inline">\(p=0.012\)</span>), and the Ukraine conflict and the SVB collapse (<span class="math inline">\(\rho=0.462\)</span>, <span class="math inline">\(p=0.012\)</span>). This suggests that for moderate shocks with an asset-side component, the structural hierarchy of net transmitter, dominated by large European reinsurers, is partially preserved. However, neither the HIM hurricanes nor the Trump tariff shock exhibit statistical significance with any other.</p>
+<div class="cell">
+<div id="tbl-net_rank_corr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-net_rank_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.8: Pairwise Spearman correlation of companies’ net strength ranking across the five events
+</figcaption>
+<div aria-describedby="tbl-net_rank_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event 1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event 2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\rho\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(p\)-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="cross-event-net-delta-correlation" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="cross-event-net-delta-correlation"><span class="header-section-number">4.5.2</span> Cross-Event Net Delta Correlation</h3>
+<p>A separate analysis test whether the same firms consistently change their systemic role in the same direction across events, we computed the spearman rank correlation of net strength variations (<span class="math inline">\(\Delta\)</span> Net Strength) for the 27 companies in each event pair (<a href="#tbl-delta_net_corr" class="quarto-xref">Table&nbsp;<span>4.9</span></a>). No pairwise correlation achieved statistical significance following adjustments for multiple comparisons. The strongest observed relationship is between the SVB collapse and Trump tariff shock, indicating that firms exhibiting heightened net transmitter functionality during the banking crisis subsequently demonstrates reduced functionality during the trade policy shock, and vice versa. The visual evidence from <a href="#fig-firm_event_net" class="quarto-xref">Figure&nbsp;<span>4.27</span></a> confirms this result: the company composition does not follow a specific pattern, and varies across events, with no single firm consistently maintaining a dominant position. This absence of stable, cross-event roles implies that firm-level systemic importance within the reinsurance sector is contingent upon the nature of the shock, rather than reflecting a fixed structural property of the network.</p>
+<div class="cell">
+<div id="tbl-delta_net_corr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-delta_net_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.9: Spearman correlation of net strength variation for the five events considered
+</figcaption>
+<div aria-describedby="tbl-delta_net_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event 1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event 2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\rho\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(p\)-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: right;">-0.22</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.86</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HIM Hurricanes</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">-0.35</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: right;">-0.35</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: right;">-0.21</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COVID-19</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: right;">-0.35</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ukraine War</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">-0.06</td>
+<td style="text-align: right;">0.78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SVB Collapse</td>
+<td style="text-align: left;">Trump Tariffs</td>
+<td style="text-align: right;">-0.29</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Taken together, these results suggest a partial stable core hierarchy of net transmitters that persists across moderate asset-side shocks, co-existing with event-specific perturbations that prevent any single firm from consistently amplifying or absorbing shocks across all crisis types.</p>
+<div id="fig-firm_event_net" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-firm_event_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-firm_event_net" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-firm_event_net-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-firm_event_net-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-firm_event_net-1.png" class="img-fluid figure-img" data-ref-parent="fig-firm_event_net" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-firm_event_net-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) HIM hurricanes
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-firm_event_net" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-firm_event_net-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-firm_event_net-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-firm_event_net-2.png" class="img-fluid figure-img" data-ref-parent="fig-firm_event_net" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-firm_event_net-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) COVID-19
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-firm_event_net" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-firm_event_net-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-firm_event_net-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-firm_event_net-3.png" class="img-fluid figure-img" data-ref-parent="fig-firm_event_net" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-firm_event_net-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Ukraine War
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-firm_event_net" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-firm_event_net-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-firm_event_net-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-firm_event_net-4.png" class="img-fluid figure-img" data-ref-parent="fig-firm_event_net" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-firm_event_net-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) SVB collapse
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-firm_event_net" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-firm_event_net-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-firm_event_net-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-firm_event_net-5.png" class="img-fluid figure-img" data-ref-parent="fig-firm_event_net" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-firm_event_net-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(e) Trump tariffs
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-firm_event_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.27: Representation of the 3 companies with the highest increase (solid lines) in Net Strength and the 3 companies with the highest decrease (dashed lines) in Net Strength for each event analyzed
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="early-warning-and-structural-instability" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="early-warning-and-structural-instability"><span class="header-section-number">4.6</span> Early Warning and Structural Instability</h2>
+<section id="early-warning-signal---vix-analysis" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="early-warning-signal---vix-analysis"><span class="header-section-number">4.6.1</span> Early Warning Signal - VIX Analysis</h3>
+<p>To test the predictive capacity of TCI relative to the whole market movements, we tested the reinsurance network’s volatility against the Chicago Board Options Exchange Volatility Index (VIX), which is usually used as a proxy for market volatility, as in <span class="citation" data-cites="dieboldyilmaz2014">Diebold and Yılmaz (<a href="references.html#ref-dieboldyilmaz2014" role="doc-biblioref">2014</a>)</span>. The data for the VIX were collected from Yahoo Finance. To ensure alignment with the rolling window methodology - which used a 5-day step size - the VIX was aggregated into a 5-day trailing average, mapping the macroeconomic sentiment directly to the time-step of the connectedness index. Furthermore, to avoid spurious regression problem, as highlighted by <span class="citation" data-cites="granger-newbold1974">Granger and Newbold (<a href="references.html#ref-granger-newbold1974" role="doc-biblioref">1974</a>)</span>, related to the high persistent TCI resulting from the rolling window construction - attributable to 98% of shared data created by the 5-day shift - the cross-correlation was evaluated on the first difference of the two series (<span class="math inline">\(\Delta TCI\)</span> and <span class="math inline">\(\Delta VIX\)</span>). The innovation series were then tested applying a cross correlation function and a multi-lead lag correlation, and the latter results are graphically shown in <a href="#fig-vix-corr" class="quarto-xref">Figure&nbsp;<span>4.28</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-vix-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vix-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-vix-corr-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vix-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.28: Lead lag correlation of the first difference of the TCI and VIX time series. Each lag correspond to a 5-day period
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The correlation functions peaks at lag 0, showing a contemporaneous transmission of reinsurance connectedness. The network reacts within the same 5-day trading window as the board market, suggesting that the reinsurance sector is integrated into the global financial system, making the TCI a “Coincident Indicator” rather than a “lagging indicator”, capturing market shocks in real time. However, the highest correlation achieved (<span class="math inline">\(\rho = 0.350\)</span>) implies that approximately only 12% of the weekly variation in reinsurance market connectedness is explained by equity market volatility. This highlights two different behavior: while the reinsurance market reacts rapidly and almost simultaneously to market movements, the intensity of the reaction remains largely driven by idiosyncratic factors. The remaining variance is likely attributable to liability shocks, internal network rewiring, or lag effects. Thus, while the sector is well connected in terms of information transmission, it remains insulated in terms of magnitude, preventing a one-to-one coupling with the broad market sentiment.</p>
+<p>Regarding other major fluctuations in the correlation structure, observed spikes at non-zero lags (like at lag -12 or at lag +5) fall within the bounds of statistical noise and lack significance. The absence of significant lead or lag effects confirm that the VIX cannot be used to predict future movement of TCI.</p>
+</section>
+<section id="structural-break-test" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="structural-break-test"><span class="header-section-number">4.6.2</span> Structural Break Test</h3>
+<p>The structural stability of the dynamic analysis was tested performing structural break test on the total connectedness index time series. The tests performed are the Bai-Perron and the ordinary least square cumulative sum (OLS-CUSUM).</p>
+<section id="bai-perron" class="level4" data-number="4.6.2.1">
+<h4 data-number="4.6.2.1" class="anchored" data-anchor-id="bai-perron"><span class="header-section-number">4.6.2.1</span> Bai-Perron</h4>
+<p>The Bai-Perron algorithm (<span class="citation" data-cites="bai-perron1998">Bai and Perron (<a href="references.html#ref-bai-perron1998" role="doc-biblioref">1998</a>)</span>) tests for <span class="math inline">\(m\)</span> structural breaks in a linear regression model. For our scenario, we tested for regime shifts in the unconditional mean of the connectedness index. For a time series <span class="math inline">\(y_t\)</span> (TCI), the model with <span class="math inline">\(m\)</span> breaks (so <span class="math inline">\(m+1\)</span> regimes) is: <span class="math display">\[
+y_t = \mu_j + u_t, \quad \text{for } t= T_{j-1}+1, \dots, T_j
+\]</span> The algorithm identifies the break dates <span class="math inline">\(T_1, \dots, T_j\)</span> by minimizing the global residual sum of squares (SSR) via dynamic programming (<span class="citation" data-cites="bai-perron2003">Bai and Perron (<a href="references.html#ref-bai-perron2003" role="doc-biblioref">2003</a>)</span>): <span class="math display">\[
+\min_{T_1,\dots, T_m} \sum_{j=1}^{m+1} \sum_{t=T_{j-1}+1}^{T_j} (y_t - \mu_j)^2
+\]</span> The algorithm successfully identified 4 optimal breaks, translating to 5 distinct systemic regimes. The dates of the breaks, with their confidence interval at <span class="math inline">\(95\%\)</span> significance level is reported in <a href="#tbl-bai-perron" class="quarto-xref">Table&nbsp;<span>4.10</span></a>.</p>
+<div class="cell">
+<div id="tbl-bai-perron" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bai-perron-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.10: Dates of the regime breaks identified by the Bai-Perron algorithm
+</figcaption>
+<div aria-describedby="tbl-bai-perron-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Lower bound</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Upper bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2018-04-09</td>
+<td style="text-align: left;">2018-03-28</td>
+<td style="text-align: left;">2018-06-19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020-03-02</td>
+<td style="text-align: left;">2020-02-21</td>
+<td style="text-align: left;">2020-03-09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2021-06-17</td>
+<td style="text-align: left;">2021-06-09</td>
+<td style="text-align: left;">2021-06-24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023-01-18</td>
+<td style="text-align: left;">2022-07-22</td>
+<td style="text-align: left;">2023-02-14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The first regime coincides with high connectedness period. This coincides with the 2017 HIM hurricanes, but as the previous parts note, the NatCat event happened during a phase that was already in a high connectedness state and moving towards a declining trend, independent on the event, which did not alter significantly the moving of the TCI. The second regime coincides with a stabilization phase (<span class="math inline">\(\mu = 62.15\)</span>); the third identified regime represents the maximum connectedness average value (<span class="math inline">\(\mu = 79.50\)</span>), corresponding to the COVID-19 pandemic and the subsequent crisis. The fourth regime maintained medium-level connectedness, with the first part characterized by a significative decline until 2022, where the trend reverted to an increasing phase, leading to an average TCI value of <span class="math inline">\(\mu = 69.01\)</span>. The last regime identified saw a gradual normalization of total connectedness (<span class="math inline">\(\mu=63.79\)</span>), although the high spike in the last windows might not be fully captured by the Bai-Perron analysis, due to their recent event.</p>
+</section>
+<section id="ols-cusum" class="level4" data-number="4.6.2.2">
+<h4 data-number="4.6.2.2" class="anchored" data-anchor-id="ols-cusum"><span class="header-section-number">4.6.2.2</span> OLS-CUSUM</h4>
+<p>The cumulative sum of ordinary least squares residuals tests the null hypothesis (<span class="math inline">\(H_0\)</span>) that the mean <span class="math inline">\(\mu\)</span> is constant over time (<span class="citation" data-cites="strucchange2002">Zeileis et al. (<a href="references.html#ref-strucchange2002" role="doc-biblioref">2002</a>)</span>). The empirical fluctuation process is defined as: <span class="math display">\[
+W_n(t) = \frac{1}{\hat{\sigma}\sqrt{n}} \sum_{i=1}^{\lfloor nt \rfloor} \hat{u}_i \quad \text{for } t \in [0,1]
+\]</span> where <span class="math inline">\(\hat{u}_i\)</span> are the OLS residuals from the regression on the entire sample, and <span class="math inline">\(\hat{\sigma}\)</span> is the estimated standard deviation (<span class="citation" data-cites="brown-evans1975">Brown, Durbin, and Evans (<a href="references.html#ref-brown-evans1975" role="doc-biblioref">1975</a>)</span>). Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(W_n(t)\)</span> converges in distribution to a standard Brownian bridge. Instead, if the mean shifts, the residuals accumulate systemically, causing <span class="math inline">\(W_n(t)\)</span> to drift and cross the asymptotic confidence boundaries.</p>
+<p>The <span class="math inline">\(p\)</span>-value = <span class="math inline">\(0.000\)</span> obtained rejects the null hypothesis, meaning that the total connectedness within the reinsurance network is empirically non-stationary. The blue line (CUSUM process) in <a href="#fig-ols-cusum" class="quarto-xref">Figure&nbsp;<span>4.29</span></a> repeatedly and severely breaches the confidence interval (gray area), proving that the mean connectedness of the market fundamentally changes over time, advocating the assessment of reinsurance network through dynamic analysis and not only with the static ones.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ols-cusum" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ols-cusum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter4_files/figure-html/fig-ols-cusum-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ols-cusum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.29: CUSUM plot: clearly the blue line exceeds the confidence interval of the test statistic, providing non-stationarity of the dynamic connectedness
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4.7</span> Conclusion</h2>
+<p>This chapter extended the static connectedness framework of <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a> to a full dynamic analysis, estimating 349 rolling BVAR windows over the 2015-2025 sample and tracing the evolution of network topology, firm-level roles, and structural stability.</p>
+<p>At the system level, the Total Connectedness Index reveals a structurally non-stationary market. The OLS-CUSUM test rejects mean stationarity, and the Bai-Perron algorithm identifies four structural breaks corresponding to five regimes: an initial high-connectivity phase, a stabilization period, the COVID-19 peak, a prolonged elevated phase, and a gradual normalization. The bimodal TCI distribution confirms that the reinsurance system does not revert to a single equilibrium but oscillates between two distinct states. This finding directly qualifies the static results of <a href="chapter3.html" class="quarto-xref"><span>Chapter 3</span></a>: a Total Connectedness values of <span class="math inline">\(74.278\)</span> exceeds the rolling window mean of <span class="math inline">\(68.2\)</span> by approximately 6 TCI units. Since the static BVAR was computed over the full 1,993 observation sample, this gap reflects the upward pull of the high-connectivity regime on the full sample average.</p>
+<p>The topology analysis revealed an asymmetric network that contracts faster than it expands. The 2.2<span class="math inline">\(\times\)</span> ratio between the APL response coefficients to TCI increases(<span class="math inline">\(-0.003\)</span>) and decreases (<span class="math inline">\(-0.007\)</span>) shows that the network’s structural compactness reacts far more sharply when connectedness receds than when it builds: the architecture tightens gradually under accumulating stress but loosens abruptly once that stress passes. The modularity evidence reinforces this: community boundaries erode sharply during high-connectivity periods (<span class="math inline">\(\rho(\text{Modularity}, \text{TCI}) = -0.78\)</span>), meaning that geographical or functional segmentation provides less containment precisely when it is most needed.</p>
+<p>At the firm level, the persistent versus reactive centrality classification uncovers systemic institution not detected through static BVAR. Chubb and Mapfre rank among the top eigenvector hubs across all rolling windows despite their absence from the static centrality ranking, while reactive firms shift between the network core and periphery during stress. The event analysis further shows that the stable core hierarchy of net transmitters is only partially preserved across shocks: COVID-19 and Ukraine conflict showed the highest significant rank correlation (<span class="math inline">\(\rho=0.47\)</span>), but the HIM hurricanes and the Trump tariffs produce no significant rank correlation with any other event. This shows that firm-level systemic importance within the reinsurance network is not a fixed structural property, but it is rather contingent on the transmission channel. Asset-side shocks synchronize the network amplify the European transmitter hierarchy, while liability-side shocks fragment it along idiosyncratic exposure lines.</p>
+<p>The VIX cross-correlation analysis supports this aspect. The TCI behaves as an indicator of broad-market stress, with correlation peaking at lag 0 (<span class="math inline">\(\rho = 0.35\)</span>), but only <span class="math inline">\(\approx 12\%\)</span> of weekly TCI variation is explained by equity market sentiment, leaving the bulk attributable to network-internal dynamics and idiosyncratic reinsurance shocks. This seclusion limits the scope for using broad-market instruments as early-warning proxies for reinsurance connectedness.</p>
+<p>These findings establish two components of systemic risk that the topological and connectedness analysis alone cannot resolve: the <em>magnitude</em> of the economic damage that a distress firm inflicts on the broader system and whether firms identified as persistent network hubs constitute genuine Systemically Important Financial Institution in the regulatory sense. <a href="chapter5.html" class="quarto-xref"><span>Chapter 5</span></a> addresses both questions by combining tail-risk measures with cross-validation against the centrality and net-strength rankings.</p>
+<hr>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-bai-perron1998" class="csl-entry" role="listitem">
+Bai, Jushan, and Pierre Perron. 1998. <span>“Estimating and Testing Linear Models with Multiple Structural Changes.”</span> <em>Econometrica</em> 66 (1): 47–78. <a href="http://www.jstor.org/stable/2998540">http://www.jstor.org/stable/2998540</a>.
+</div>
+<div id="ref-bai-perron2003" class="csl-entry" role="listitem">
+———. 2003. <span>“Computation and Analysis of Multiple Structural Change Models.”</span> <em>Journal of Applied Econometrics</em> 18 (1): 1–22. https://doi.org/<a href="https://doi.org/10.1002/jae.659">https://doi.org/10.1002/jae.659</a>.
+</div>
+<div id="ref-Blondel_2008" class="csl-entry" role="listitem">
+Blondel, Vincent D, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre. 2008. <span>“Fast Unfolding of Communities in Large Networks.”</span> <em>Journal of Statistical Mechanics: Theory and Experiment</em> 2008 (10): P10008. <a href="https://doi.org/10.1088/1742-5468/2008/10/p10008">https://doi.org/10.1088/1742-5468/2008/10/p10008</a>.
+</div>
+<div id="ref-brown-evans1975" class="csl-entry" role="listitem">
+Brown, R. L., J. Durbin, and J. M. Evans. 1975. <span>“Techniques for Testing the Constancy of Regression Relationships over Time.”</span> <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 37 (2): 149–92. <a href="http://www.jstor.org/stable/2984889">http://www.jstor.org/stable/2984889</a>.
+</div>
+<div id="ref-dieboldyilmaz2014" class="csl-entry" role="listitem">
+Diebold, Francis X., and Kamil Yılmaz. 2014. <span>“On the Network Topology of Variance Decompositions: Measuring the Connectedness of Financial Firms.”</span> <em>Journal of Econometrics</em> 182 (1): 119–34. https://doi.org/<a href="https://doi.org/10.1016/j.jeconom.2014.04.012">https://doi.org/10.1016/j.jeconom.2014.04.012</a>.
+</div>
+<div id="ref-granger-newbold1974" class="csl-entry" role="listitem">
+Granger, C. W. J., and P. Newbold. 1974. <span>“Spurious Regressions in Econometrics.”</span> <em>Journal of Econometrics</em> 2 (2): 111–20. https://doi.org/<a href="https://doi.org/10.1016/0304-4076(74)90034-7">https://doi.org/10.1016/0304-4076(74)90034-7</a>.
+</div>
+<div id="ref-Newman2006" class="csl-entry" role="listitem">
+Newman, M. E. J. 2006. <span>“Modularity and Community Structure in Networks.”</span> <em>Proceedings of the National Academy of Sciences</em> 103 (23): 8577–82. <a href="https://doi.org/10.1073/pnas.0601602103">https://doi.org/10.1073/pnas.0601602103</a>.
+</div>
+<div id="ref-strucchange2002" class="csl-entry" role="listitem">
+Zeileis, Achim, Friedrich Leisch, Kurt Hornik, and Christian Kleiber. 2002. <span>“Strucchange: An r Package for Testing for Structural Change in Linear Regression Models.”</span> <em>Journal of Statistical Software</em> 7 (2): 1–38. <a href="https://doi.org/10.18637/jss.v007.i02">https://doi.org/10.18637/jss.v007.i02</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter3.html" class="pagination-link" aria-label="Static Network Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter5.html" class="pagination-link" aria-label="Systemic Importance">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

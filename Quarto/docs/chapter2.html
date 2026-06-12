@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrea De Bortoli">
+
+<title>2&nbsp; Methodology and Data – Volatility Connectedness and Network Topology in the Reinsurance Sector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter3.html" rel="next">
+<link href="./chapter1.html" rel="prev">
+<link href="./UNIVE_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Volatility Connectedness and Network Topology in the Reinsurance Sector</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/adb-coding/network-connectedness-volatility-spillover" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Thesis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Chapter 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link active" data-scroll-target="#methodology"><span class="header-section-number">2.1</span> Methodology</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2.2</span> Data</a>
+  <ul class="collapse">
+  <li><a href="#sample-selection-and-limitations" id="toc-sample-selection-and-limitations" class="nav-link" data-scroll-target="#sample-selection-and-limitations"><span class="header-section-number">2.2.1</span> Sample Selection and Limitations</a></li>
+  </ul></li>
+  <li><a href="#bvar" id="toc-bvar" class="nav-link" data-scroll-target="#bvar"><span class="header-section-number">2.3</span> BVAR</a>
+  <ul class="collapse">
+  <li><a href="#priors-implementation" id="toc-priors-implementation" class="nav-link" data-scroll-target="#priors-implementation"><span class="header-section-number">2.3.1</span> Priors Implementation</a></li>
+  <li><a href="#sec-model_selection" id="toc-sec-model_selection" class="nav-link" data-scroll-target="#sec-model_selection"><span class="header-section-number">2.3.2</span> Model Selection and Hyperparameter Optimization</a></li>
+  </ul></li>
+  <li><a href="#gfevd" id="toc-gfevd" class="nav-link" data-scroll-target="#gfevd"><span class="header-section-number">2.4</span> GFEVD</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chapter2" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andrea De Bortoli </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="methodology" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="methodology"><span class="header-section-number">2.1</span> Methodology</h2>
+<p>As discussed before, the reinsurance industry is founded on the principle of ri sk sharing among market participants. While this mechanism provides various benefits, as stated in Chapter 1, it also introduces interdependencies among participants that could spread financial distress, creating substantial systemic risk. Financial networks are frequently analyzed and subject to research, especially after the subprime mortgage crisis of 2008, although the existence of systemic risk arising from interconnection is still debated, especially for insurance and the reinsurance sector. The goal of this research is to construct a network based on forecast error variance decomposition to quantify risk spillovers, and assess the stability of the system and identify the presence of systemic risk in the industry.</p>
+<p>The research initially developed by selecting possible internationally influential reinsurance companies and collecting market price data during the analysis period. Yang-Zhang volatility was then calculated on the retrieved data. A statistical BVAR model was chosen, after comparing it with frequentist analogous VAR models, and the connectivity measure deriving from the generalized forecast error variance decomposition is calculated, to later construct and analyze the network. The methodology used and the empirical results are reported in this chapter.</p>
+</section>
+<section id="data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data"><span class="header-section-number">2.2</span> Data</h2>
+<p>he original dataset of reinsurance companies considered consists of the top 50 global reinsurance groups for the year 2024 according to the rating agency <em>A.M. Best</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The dataset includes only publicly listed companies with available trading data on Yahoo Finance for the last 10 years, with prices considered from January 2015 to March 2025. <a href="#tbl-companies" class="quarto-xref">Table&nbsp;<span>2.1</span></a> shows the reinsurers considered for the network construction, the Country in which they are established, and the gross written premiums (GWP)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> expressed in million USD. Of the 27 companies composing our dataset, 6 are set in the American continent (4 in the US, 1 in Canada), 6 are set in Bermuda, 8 in Europe, 7 in Asia, and 1 in Australia, ensuring to capture various markets’ dynamics.</p>
+<section id="sample-selection-and-limitations" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="sample-selection-and-limitations"><span class="header-section-number">2.2.1</span> Sample Selection and Limitations</h3>
+<p>The construction of the dataset follows a selection process starting from the A.M. &nbsp;Best ranking of the top 50 global reinsurance groups by net reinsurance premiums written for the year 2024. From this initial ranking, only companies that satisfied two criteria were retained: (i) they are publicly listed on a stock exchange, and (ii) continuously daily trading data are available on Yahoo Finance for the period October 2015 to March 2025. Of the original 50 groups, 23 were excluded. Of the 23 companies excluded, 15 are not listed or private companies, 5 are listed companies but their trading data are available for a period shorter than the required one, one was delisted as it was acquired by another financial company, and two were removed as their ticker did not purely represent the reinsurance sector. Detailed information of the excluded companies is reported in <a href="app-ch2.html#tbl-am_list_excluded" class="quarto-xref">Table&nbsp;<span>A.2</span></a> in <a href="app-ch2.html#sec-am-list" class="quarto-xref"><span>Section A.1</span></a></p>
+<section id="market-coverage" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="market-coverage"><span class="header-section-number">2.2.1.1</span> Market Coverage</h4>
+<p>The 27 retained companies account for an aggregate gross written premium (GWP) of $573.32 billion. According to <span class="citation" data-cites="gimar2025report">International Association of Insurance Supervisors (<a href="references.html#ref-gimar2025report" role="doc-biblioref">2025</a>)</span>, written global life and non-life reinsurance premiums amounted to approximately $1.75 trillion for the year 2024, making the sample representative for one third of the whole market volume. In addition, A.M. &nbsp;Best estimated GWP was $265 billion. The difference with the values reported in <a href="#tbl-companies" class="quarto-xref">Table&nbsp;<span>2.1</span></a> mainly comes from the fact that these data represent group-level gross written premiums, which include substantial primary insurance operations for several conglomerates. Their inclusion is justified as their reinsurance divisions are ranked within the A.M. &nbsp;Best top 50, and that group-level stock prices - which are the input to our volatility estimation - reflect the market’s assessment of the entire group, including its reinsurance exposure. This is consistent with the approach of <span class="citation" data-cites="billio2012">Billio et al. (<a href="references.html#ref-billio2012" role="doc-biblioref">2012</a>)</span>, who use publicly traded equity prices to measure systemic interconnectedness, and with the Diebold-Yilmaz framework (<span class="citation" data-cites="dieboldyilmaz2014">Diebold and Yılmaz (<a href="references.html#ref-dieboldyilmaz2014" role="doc-biblioref">2014</a>)</span>), which relies on market-observable proxies rather than balance-sheet data.</p>
+<div class="cell">
+<div id="tbl-companies" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-companies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Reinsurers considered for the network construction
+</figcaption>
+<div aria-describedby="tbl-companies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Ticker</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Country</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mkt Cap</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">GWP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: left;">Korean Reinsurance Co</td>
+<td style="text-align: left;">South Korea</td>
+<td style="text-align: right;">1.34</td>
+<td style="text-align: right;">5.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: left;">Taiping Reinsurance Co. Ltd.</td>
+<td style="text-align: left;">Hong Kong</td>
+<td style="text-align: right;">6.92</td>
+<td style="text-align: right;">1.11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: left;">China Reinsurance (Group) Corp</td>
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">8.53</td>
+<td style="text-align: right;">7.85</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: left;">The Toa Reinsurance Co, Limited</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">2.30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: left;">Sompo International Holdings, Ltd.</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">26.68</td>
+<td style="text-align: right;">26.83</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: left;">MS&amp;AD Insurance Group Holdings, Inc.</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">32.04</td>
+<td style="text-align: right;">35.34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: left;">Tokio Marine &amp; Nichido Fire Insurance Co., Ltd.</td>
+<td style="text-align: left;">Japan</td>
+<td style="text-align: right;">76.77</td>
+<td style="text-align: right;">36.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: left;">Arch Capital Group Ltd.</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">33.25</td>
+<td style="text-align: right;">11.11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: left;">AXIS Capital Holdings Limited</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">7.34</td>
+<td style="text-align: right;">2.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK-A</td>
+<td style="text-align: left;">Berkshire Hathaway Inc.</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">1070.25</td>
+<td style="text-align: right;">88.69</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: left;">Chubb Limited</td>
+<td style="text-align: left;">Switzerland</td>
+<td style="text-align: right;">112.18</td>
+<td style="text-align: right;">62.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">AXA XL</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">74.46</td>
+<td style="text-align: right;">8.41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EG</td>
+<td style="text-align: left;">Everest Group, Ltd.</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">14.72</td>
+<td style="text-align: right;">12.94</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: left;">Allied World Assurance Co Holdings, Ltd.</td>
+<td style="text-align: left;">Canada</td>
+<td style="text-align: right;">38.91</td>
+<td style="text-align: right;">7.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: left;">Assicurazioni Generali SpA</td>
+<td style="text-align: left;">Italy</td>
+<td style="text-align: right;">43.37</td>
+<td style="text-align: right;">81.84</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">Hannover Rück SE</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: right;">26.60</td>
+<td style="text-align: right;">22.68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: left;">Hiscox Ltd</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">3.43</td>
+<td style="text-align: right;">1.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: left;">MAPFRE RE, Compañía de Reaseguros S.A.</td>
+<td style="text-align: left;">Spain</td>
+<td style="text-align: right;">10.77</td>
+<td style="text-align: right;">6.72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: left;">Markel Corp</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">24.30</td>
+<td style="text-align: right;">1.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: left;">Munich Reinsurance Company</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: right;">62.00</td>
+<td style="text-align: right;">34.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: left;">QBE Insurance Group Limited</td>
+<td style="text-align: left;">Australia</td>
+<td style="text-align: right;">47.59</td>
+<td style="text-align: right;">22.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: left;">Reinsurance Group of America Inc.</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">12.81</td>
+<td style="text-align: right;">18.49</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: left;">RenaissanceRe Holdings Ltd.</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">12.04</td>
+<td style="text-align: right;">11.73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: left;">SCOR S.E.</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">4.63</td>
+<td style="text-align: right;">17.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: left;">SiriusPoint Ltd.</td>
+<td style="text-align: left;">Bermuda</td>
+<td style="text-align: right;">2.09</td>
+<td style="text-align: right;">1.34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">Swiss Re Ltd.</td>
+<td style="text-align: left;">Switzerland</td>
+<td style="text-align: right;">54.45</td>
+<td style="text-align: right;">44.86</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: left;">W.R. Berkley Corp</td>
+<td style="text-align: left;">US</td>
+<td style="text-align: right;">28.89</td>
+<td style="text-align: right;">1.55</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="survivorship-bias" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="survivorship-bias"><span class="header-section-number">2.2.1.2</span> Survivorship bias</h4>
+<p>A limitation of this sample construction is survivorship bias. The dataset inherently excludes firms that were active during the sample period considered but subsequently exited the market, either through insolvency, merger, or delisting. Such firms may also constitute the most relevant cases for the study of systemic risk, as financial distress and corporate failure are manifestations of the intrinsic systemic risk of the industry. Notable exclusions include XL Group (acquired by AXA in 2018, partially captured through CS.PA post-acquisition) and PartnerRe (delisted in 2015 following acquisition by EXOR). The use of a survivor-conditioned sample may therefore lead to an underestimation of tail-risk spillovers and an overly benign view of network stability during crisis periods.</p>
+</section>
+<section id="data-quality-consideration" class="level4" data-number="2.2.1.3">
+<h4 data-number="2.2.1.3" class="anchored" data-anchor-id="data-quality-consideration"><span class="header-section-number">2.2.1.3</span> Data quality consideration</h4>
+<p>The use of Yahoo Finance as the data source introduces additional considerations. Stock prices across the 27 companies are quoted on 8 different exchanges and spanning multiple time zones. To address non-synchronous trading, only trading days on which all exchanges were open simultaneously are retained, reducing the sample from approximately 2,500 potential trading days to 1,989 common trading days. While this approach eliminates stale-price contamination, it discards information from days when only specific markets experience significant price movements. Furthermore, Yahoo Finance data may not consistently account for corporate actions (stock splits, special dividends) across all exchanges, although the use of adjusted closing prices and log-transformation applied during volatility estimation mitigate the impact of level shifts.</p>
+</section>
+<section id="volatility-estimation" class="level4" data-number="2.2.1.4">
+<h4 data-number="2.2.1.4" class="anchored" data-anchor-id="volatility-estimation"><span class="header-section-number">2.2.1.4</span> Volatility estimation</h4>
+<p>Volatility is a crucial element for the estimation of the network and the subsequent findings about spillovers effects in the system. The volatility estimator used in this framework is the one developed by Yang and Zhang (<span class="citation" data-cites="yangzhang2000journal">Yang and Zhang (<a href="references.html#ref-yangzhang2000journal" role="doc-biblioref">2000</a>)</span>), in which an unbiased estimator based on multiple periods of open, close, high and low prices is used. It is assumed that price movements can be modeled as a geometric Brownian motion with undetermined parameters, volatility <span class="math inline">\(\sigma\)</span> and drift <span class="math inline">\(\mu\)</span>. The estimator is shown to be the minimum-variance unbiased variance estimator, also being independent of the drift motion <span class="math inline">\(\mu\)</span>, and from the opening price jumps, due to the multi period consideration. The formula for the Yang-Zhang variance is defined as: <span id="eq-yang-zhang_vol"><span class="math display">\[
+    V_{YZ} = V_o + kV_c + (1-k)V_{RS}
+\tag{2.1}\]</span></span> where <span class="math inline">\(k\)</span> is a parameter defined as <span class="math inline">\(k=\frac{0.34}{1.34+\frac{n+1}{n-1}}\)</span>. Letting <span class="math inline">\(O_i\)</span>, <span class="math inline">\(C_i\)</span>, <span class="math inline">\(H_i\)</span>,<span class="math inline">\(L_i\)</span> be the opening, closing, high, and low of the period considered, the formula can be further decomposed to its core components: the term <span class="math inline">\(V_o\)</span> is the overnight variance, defined as: <span class="math display">\[
+    V_o = \frac{1}{n-1}\sum^n_{i=1}(o_i - \bar{o})^2
+\]</span> in which <span class="math inline">\(\bar{o}=\frac{1}{n-1}\sum_{i=1}^no_i\)</span> and <span class="math inline">\(o_i=ln(O_i)-ln(C_{i-1})\)</span> is the normalized open price, to account for jumps in the stock quotations, otherwise not considered. The second term of the Yang-Zhang variance is the open-to-close volatility, <span class="math inline">\(V_c\)</span>, used to account for intra-day price variations: <span class="math display">\[
+    V_c = \frac{1}{n-1}\sum_{i=1}^n(c_i - \bar{c})^2
+\]</span> where <span class="math inline">\(\bar{c} = \frac{1}{n-1}\sum_{i=1}^nc_i\)</span> and <span class="math inline">\(c_i = ln(C_i)-ln(O_i)\)</span> is the normalized closing price. The latter element to calculate the variance estimator is the Rogers-Satchell variance <span class="math inline">\(V_{RS}\)</span> that gives independence of the estimator from the drift component. It is computed as: <span class="math display">\[
+    V_{RS} = \frac{1}{n}\sum_{i=1}^n[u_i(u_i - c_i) + d_i(d_i - c_i)]
+\]</span> where <span class="math inline">\(u_i = ln(H_i)-ln(O_i)\)</span> and <span class="math inline">\(d_i = ln(L_i)-ln(O_i)\)</span> are respectively the normalized high and the normalized low of the trading day. The period used to calculate the estimator was 21 days (approximately one month of data). To normalize the results, the log transformation was applied to the resulting variance (<span class="math inline">\(V_{YZ}\)</span>) to ensure the absence of unit-roots.</p>
+<p>The use of this estimator, instead of the more common close-to-close volatility measure, is mainly driven by the fact that the Yang-Zhang estimator preserves the beneficial properties of the original estimator, but at the same time it increases efficiency, allowing for more accurate estimation with less data, and decrease the dependency of the drift component which could significantly impact volatility estimations. In addition, <span class="math inline">\(V_{YZ}\)</span> reflects volatility drops that occur when a stock undergoes a steady one direction movement, known as trendy phase. The volatility dataset was then used to estimate a Bayesian Vector autoregressive model, as discussed in the following section. However, while the Yang-Zhang estimator achieves minimum variance under geometric Brownian motion, reinsurance equities frequently exhibit jump-diffusion behavior due to sudden catastrophe loss announcements. Consequently, the Yang-Zhang estimator serves here as a robust, drift-independent baseline proxy for underlying variance, rather than a perfect measure of continuous-path volatility.</p>
+</section>
+<section id="stationarity-test" class="level4" data-number="2.2.1.5">
+<h4 data-number="2.2.1.5" class="anchored" data-anchor-id="stationarity-test"><span class="header-section-number">2.2.1.5</span> Stationarity test</h4>
+<p>Before proceeding with the BVAR estimation, the stationarity of the log-volatility series was assessed using the Augmented Dickey-Fuller (ADF) test (<span class="citation" data-cites="dickey1979">Dickey and Fuller (<a href="references.html#ref-dickey1979" role="doc-biblioref">1979</a>)</span>), in which the null hypothesis is the presence of a unit-root, and the Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test (<span class="citation" data-cites="kpss1992">Kwiatkowski et al. (<a href="references.html#ref-kpss1992" role="doc-biblioref">1992</a>)</span>), where the null hypothesis is level-stationarity.</p>
+<p><a href="app-ch2.html#tbl-stationarity" class="quarto-xref">Table&nbsp;<span>A.3</span></a> in the <a href="app-ch2.html#sec-stationarity" class="quarto-xref"><span>Section A.2</span></a> reports the results for all the 27 log-volatility series. The ADF test rejects the unit-root null hypothesis at the 5% significance level for all the series, confirming the absence of I(1) behavior, while the KPSS test fails to reject level-stationarity at 5% significance level for only one of the 27 series. This implies that the stationarity of the series is ambiguous, due to the failed level-stationarity test. This pattern is consistent with the long-memory properties of financial volatility (<span class="citation" data-cites="andersen2003">Andersen et al. (<a href="references.html#ref-andersen2003" role="doc-biblioref">2003</a>)</span>), where slowly decaying autocorrelations cause the KPSS test to over-reject even in absence of unit roots. We point out that strict level-stationarity is not a necessary condition for VAR estimation, as the critical requirement is the absence of unit roots. Furthermore, the BVAR specification already accommodates near-unit-root behavior through the Sum-of-Coefficients (SOC) and Single-unit-root (SUR) dummy priors, which shrink the model towards unit-root compatible dynamics without requiring strict stationarity of the input series (<span class="citation" data-cites="sims1993">Sims (<a href="references.html#ref-sims1993" role="doc-biblioref">1993</a>)</span>, <span class="citation" data-cites="giannone2015">Giannone, Lenza, and Primiceri (<a href="references.html#ref-giannone2015" role="doc-biblioref">2015</a>)</span>)</p>
+</section>
+</section>
+</section>
+<section id="bvar" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="bvar"><span class="header-section-number">2.3</span> BVAR</h2>
+<p>Vector autoregressive (VAR) models are flexible time series models widely used in macroeconomics and finance to analyze the interrelationships among multiple variables. However, as the number of endogenous variables increases, the number of parameters in an unrestricted VAR increases quadratically, often leading to overfitting, unstable inference, and faulty out-of-sample forecasts. Bayesian VAR (BVAR) models address this issue by introducing prior distribution that shrink the unrestricted model toward a more parsimonious specification, improving estimation stability and predictive accuracy (<span class="citation" data-cites="litterman1986">Litterman (<a href="references.html#ref-litterman1986" role="doc-biblioref">1986</a>)</span>, <span class="citation" data-cites="banbura2010">Bańbura, Giannone, and Reichlin (<a href="references.html#ref-banbura2010" role="doc-biblioref">2010</a>)</span>, <span class="citation" data-cites="giannone2015">Giannone, Lenza, and Primiceri (<a href="references.html#ref-giannone2015" role="doc-biblioref">2015</a>)</span>).</p>
+<p>A VAR model of finite order <span class="math inline">\(p\)</span>, in its standard form, can be expressed as: <span id="eq-var"><span class="math display">\[
+    y_t = a_0 + A_1y_{t-1}+...+A_py_{t-p} + \varepsilon_t, \qquad \varepsilon_t \sim \mathcal{N}(0,\Sigma)
+\tag{2.2}\]</span></span></p>
+<p>where <span class="math inline">\(y_t\)</span> is an <span class="math inline">\(M \times 1\)</span> vector of endogenous variables, <span class="math inline">\(a_0\)</span> is a <span class="math inline">\(M \times 1\)</span> vector of the intercept, <span class="math inline">\(A_j, (j=1,\dots,p)\)</span> are <span class="math inline">\(M \times M\)</span> coefficient matrices, <span class="math inline">\(\varepsilon_t\)</span> is a <span class="math inline">\(M \times 1\)</span> vector of exogenous normal distributed shocks with zero mean and variance-covariance matrix <span class="math inline">\(\Sigma\)</span>.</p>
+<p>Under flat (noninformative) priors, the posterior distribution of the VAR coefficients is centered at the ordinary least squares (OLS) estimator. Nevertheless, since the number of coefficients increases rapidly with <span class="math inline">\(M\)</span> and <span class="math inline">\(p\)</span>, OLS becomes unreliable in high dimensions. Bayesian inference treats the unknown parameters as random variables, and updates beliefs using the observed data. Let <span class="math inline">\(\theta = (A_1,\dots,A_p,a_0,\Sigma)\)</span> denote the VAR parameters, and let <span class="math inline">\(\gamma\)</span> denote the hyperparameters determining the prior distribution. Bayes’ rules yields:</p>
+<p><span id="eq-posterior"><span class="math display">\[
+     p(\theta,\gamma| y) \propto p(y|\theta,\gamma)\, p(\theta|\gamma)p(\gamma)\\
+\tag{2.3}\]</span></span></p>
+<p><span id="eq-marg_likelihood"><span class="math display">\[
+     p(y|\gamma) = \int{p(y|\theta)p(\theta|\gamma)d\theta}
+\tag{2.4}\]</span></span></p>
+<p>where <span class="math inline">\(p(y|\theta, \gamma)\)</span> is the likelihood, used to explore the full posterior hyperparameter space . The introduction of a prior structure allows the BVAR to shrink toward economically plausible values, such as persistence close to a random walk, thus mitigating the overfitting while maintaining flexibility for forecasting (<span class="citation" data-cites="bvar2018">Miranda-Agrippino and Ricco (<a href="references.html#ref-bvar2018" role="doc-biblioref">2018</a>)</span>).</p>
+<section id="priors-implementation" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="priors-implementation"><span class="header-section-number">2.3.1</span> Priors Implementation</h3>
+<p>BVAR models require specifying prior distributions for the VAR coefficients. Priors may incorporate information from economic theory, historical data, or empirical regularities. A widely adopted prior is the Minnesota prior, often supplemented with additional dummy-observation priors to regularize the deterministic components of the VAR.</p>
+<section id="sec-MinnesotaPrior" class="level4" data-number="2.3.1.1">
+<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="sec-MinnesotaPrior"><span class="header-section-number">2.3.1.1</span> Minnesota Prior</h4>
+<p>The Minnesota prior is built on the empirical observation that many macro-financial variables are persistent and often well approximated by a univariate random walk. It embodies the economic beliefs that recenbservations are more informative than distant ones, own lags are more relevant than lags of other variables, and that many financial time series show near unit-root behavior.</p>
+<p>Let <span class="math inline">\(\beta\)</span> denote the vectorized VAR coefficients, <span class="math inline">\(\beta = vec(A_1,\dots,A_p,a_0)\)</span>, with dimension <span class="math inline">\(K = M^2p + M\)</span>. The Minnesota prior specifies <span class="math display">\[
+    \beta \sim \mathcal{N}(\bar{\beta},\Omega)
+\]</span> where <span class="math inline">\(\bar{\beta}\)</span> is the prior mean and <span class="math inline">\(\Omega\)</span> is the covariance matrix, and are structured as follows.</p>
+<ul>
+<li><p><strong>Mean structure</strong>: for the coefficient on the <span class="math inline">\(k\)</span>-th lag of variable <span class="math inline">\(j\)</span> in the equation of variable <span class="math inline">\(i\)</span>, denoted as <span class="math inline">\(a_{ij}^{(k)}\)</span>, the prior mean is: <span class="math display">\[\begin{equation}
+      E[a_{ij}^{(k)}]=
+      \begin{cases}
+      \delta_i &amp; \text{if $i=j$ and $k=1$} \\
+      0 &amp; \text{otherwise}
+      \end{cases}
+  \end{equation}\]</span> where <span class="math inline">\(\delta_i = 1\)</span> corresponds to a random walk prior and <span class="math inline">\(\delta_i=0\)</span> to a white noise prior.</p></li>
+<li><p><strong>Variance structure</strong>: the prior variance for the coefficient <span class="math inline">\(a_{ij}^{(k)}\)</span> <span class="math display">\[\begin{equation}
+      Var(a_{ij}^{(k)})=
+      \begin{cases}
+          \frac{\lambda^2}{k^{\alpha}} &amp; \text{if $i=j$} \\
+          \frac{\lambda^2 \sigma_i^2}{k^{\alpha}\psi_j} &amp; \text{if $i \neq j$}
+      \end{cases}
+  \end{equation}\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(\lambda &gt; 0\)</span> controls the overall tightness of the prior, so smaller values impose a stronger shrinkage toward the prior mean</li>
+<li><span class="math inline">\(\alpha &gt; 0\)</span> controls the rate of variance decay across lags, setting how quickly the prior tightens for more distant observation</li>
+<li><span class="math inline">\(\psi_j\)</span> controls the prior standard deviation, over lags of variable <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(\sigma_i^2\)</span> represents the error variance of the variable <span class="math inline">\(i\)</span></li>
+</ul></li>
+</ul>
+<p>The selected values for the hyperparameters of the Minnesota prior are reported later in this chapter along with the methodology used for their selection.</p>
+</section>
+<section id="dummy-observation" class="level4" data-number="2.3.1.2">
+<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="dummy-observation"><span class="header-section-number">2.3.1.2</span> Dummy Observation</h4>
+<p>In addition to the Minnesota prior, to further regularize the BVAR model, dummy observations are added, imposing additional structure on the long-run properties of the VAR, reducing the importance of deterministic components estimated using the initial observations (<span class="citation" data-cites="giannone2015">Giannone, Lenza, and Primiceri (<a href="references.html#ref-giannone2015" role="doc-biblioref">2015</a>)</span>). These priors operate by appending artificial dummy observations to the data, effectively modifying the likelihood in a principled manner, as found in <span class="citation" data-cites="sims1993">Sims (<a href="references.html#ref-sims1993" role="doc-biblioref">1993</a>)</span>.</p>
+<p><strong>SOC</strong></p>
+<p>The Sum-of-coefficients prior addresses the concern that, without additional regularization, traditional VAR models may produce implausible long-run forecasts. This prior imposes the notion that a no-change forecast is optimal at the beginning of a time series, so it shrinks the sum-of-coefficients towards unity, reinforcing persistence while avoiding explosive behavior. The SOC dummy observation is constructed as follows: <span class="math display">\[\begin{gather*}
+    Y^{SOC}=\frac{1}{\mu}\cdot diag(\bar{y}) \\
+    X^{SOC}=[0,\frac{1}{\mu},\bar{y},\dots,\bar{y}]
+\end{gather*}\]</span> where <span class="math inline">\(\bar{y}\)</span> represents an <span class="math inline">\(M \times1\)</span> vector of means over the first <span class="math inline">\(p\)</span> observations of each variable, and <span class="math inline">\(\mu&gt;0\)</span> controls the tightness of this prior. As <span class="math inline">\(\mu \rightarrow \infty\)</span>, the prior becomes uninformative, while as <span class="math inline">\(\mu \rightarrow0\)</span>, the model is pulled toward a specification with as many unit roots as variables and no cointegration.</p>
+<p>The intuition is that if all lags of variable <span class="math inline">\(j\)</span> sums to <span class="math inline">\(1\)</span>, then a permanent unit shock to variable <span class="math inline">\(j\)</span> will have a permanent unit effect on itself. The hyperparameter <span class="math inline">\(\mu\)</span> determines how strongly this property is applied.</p>
+<p><strong>SUR</strong></p>
+<p>The single-unit-root prior complements the function of the SOC prior, imposing that the VAR system admits at least one unit root. The SUR prior takes the form of: <span class="math display">\[\begin{gather*}
+    Y^{SUR} = \frac{1}{\delta}\cdot \bar{y}^T \\
+    X^{SUR} = [\frac{1}{\delta},\frac{1}{\delta}\bar{y}^T,\dots,\frac{1}{\delta}\bar{y}^T]
+\end{gather*}\]</span> where <span class="math inline">\(\bar{y}^T\)</span> is the row vector of <span class="math inline">\(\bar{y}\)</span> introduced before, and <span class="math inline">\(\delta&gt;0\)</span> controls the tightness.</p>
+<p>This prior shrinks the model towards a specification where the sum of all coefficients across all variables and lags equals the identity matrix plus a constant, preserving long-run co-movement. This is economically motivated in environments where variables are believed to share common stochastic trends.</p>
+</section>
+<section id="metropolis-hastings-alorithm" class="level4" data-number="2.3.1.3">
+<h4 data-number="2.3.1.3" class="anchored" data-anchor-id="metropolis-hastings-alorithm"><span class="header-section-number">2.3.1.3</span> Metropolis-Hastings Alorithm</h4>
+<p>Given the structure of our priors specification, with hyperparameters <span class="math inline">\(\gamma = (\lambda, \alpha,\mu,\delta)\)</span> treated as random, posterior inference, as in <a href="#eq-posterior" class="quarto-xref">Equation&nbsp;<span>2.3</span></a>, requires sampling from the joint posterior distribution <span class="math inline">\(p(\theta, \gamma |y )\)</span>. However, the marginal posterior of the hyperparameters <span class="math inline">\(p(\gamma | y)\)</span> generally lacks a closed form solution, requiring the use of the Metropolis-Hastings (MH) algorithm to sample from the marginal posterior (<span class="citation" data-cites="ChibGreenberg1995">Chib and Greenberg (<a href="references.html#ref-ChibGreenberg1995" role="doc-biblioref">1995</a>)</span>). A deeper explanation about the process used by this algorithm are showed in the <a href="app-ch2.html#sec-app-mh" class="quarto-xref"><span>Section A.4</span></a></p>
+<p>Because the posterior distribution is not analytically tractable, the estimation is carried out using a Markov Chain Monte Carlo (MCMC) algorithm, where the combination of Metropolis-Hastings sampling for the hyperparameters and Gibbs sampling for the VAR coefficients allows to draw from the joint posterior <span class="math inline">\(p(\theta,\gamma|y)\)</span>, properly accounting for uncertainty not only in the VAR parameters, but also in the hyperparameters controlling shrinkage intensity, which is crucial for hierarchical BVAR estimation.</p>
+</section>
+</section>
+<section id="sec-model_selection" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="sec-model_selection"><span class="header-section-number">2.3.2</span> Model Selection and Hyperparameter Optimization</h3>
+<p>Given the reliance of BVAR models on the specifications of prior beliefs, selecting appropriate hyperparameters accurately is a crucial step to avoid overfitting and over-shrinkage of the model. To determine the optimal model specification, a systematic grid search procedure was performed, comparing the predictive performance of various BVAR models, against frequentist VAR models that served as benchmark. The model selection process involved estimating BVAR models across a range of values for the hyperparameters described in the previous section. The grid search focused primarily on the:</p>
+<ul>
+<li>Lag length (<span class="math inline">\(p\)</span>): models were estimated using lags ranging from 1 to 6, in order to obtain an ideal trade-off between model-complexity and information capture.</li>
+<li>Overall tightness (<span class="math inline">\(\lambda\)</span>): the starting value of the hyperparameter <span class="math inline">\(\lambda\)</span> were tested at <span class="math inline">\([0.05, 0.1, 0.2, 0.50]\)</span>, to assess various level of informative behavior.</li>
+<li>Variance decay (<span class="math inline">\(\alpha\)</span>): the rate at which distant lags are discounted was tested with <span class="math inline">\(\alpha \in [1,2]\)</span>, representing linear and harmonic decay.</li>
+</ul>
+<p>Other settings of the hyperpriors for the Minnesota and dummy priors were left unchanged, as well as the behavior of the Metropolis-Hastings algorithm.</p>
+<p>In total, 48 models were estimated, with <span class="math inline">\(15,000\)</span> total draws for each model, of which <span class="math inline">\(5,000\)</span> were used for the burn-in phase, and the remaining <span class="math inline">\(10,000\)</span> draws were saved. Each model was assessed using an in-sample forecast of 10 days horizon. The dataset was therefore split into a training set, excluding the last 10 observations, that served as the test dataset. The same operation was carried out for the VAR models, where the only variable changed was the lag order.</p>
+<p>The primary performance metric used to assess model performance was the Root Mean Squared Error (RMSE) of the forecast. For comparative analysis, the difference in RMSE (<span class="math inline">\(\Delta MSE\)</span>) was calculated as: <span class="math display">\[
+    \Delta RMSE = RMSE_{BVAR} - RMSE_{VAR}
+\]</span> where a negative value of <span class="math inline">\(\Delta RMSE\)</span> indicates that the Bayesian model has outperformed the frequentist VAR.</p>
+<section id="model-diagnostic" class="level4" data-number="2.3.2.1">
+<h4 data-number="2.3.2.1" class="anchored" data-anchor-id="model-diagnostic"><span class="header-section-number">2.3.2.1</span> Model diagnostic</h4>
+<p>Statistical diagnostics were evaluated to ensure the stability and reliability of the posterior distribution, calculated using the MCMC method. For every estimated model, the following diagnostics were analyzed: - Acceptance rate: the proportion of proposed parameter draws accepted by the sampler. The target acceptance range was set between <span class="math inline">\(0.20\)</span> and <span class="math inline">\(0.40\)</span>. Extremely low rates indicate a stuck chain, where no draws are accepted in the posterior distribution, while extremely high rates suggest that the sampler is not adequately exploring the parameter space. - Geweke Convergence diagnostic: this test compares the mean of the first <span class="math inline">\(10\%\)</span> of the chain against the last <span class="math inline">\(50\%\)</span>. If the samples are drawn from the stationary distribution of the chain, the two means are equal and Geweke’s statistic has an asymptotically standard normal distribution <span id="eq-geweke"><span class="math display">\[
+        Z = \frac{\bar{\theta_1} - \bar{\theta_2}}{\sqrt{Var(\bar{\theta_1})+Var(\bar{\theta_2}})} \sim N(0,1)
+     \tag{2.5}\]</span></span></p>
+<p>A value of <span class="math inline">\(|Z| &lt; 1.96\)</span> indicates that the chain has converged to a stationary distribution. - Effective Sample Size (ESS): represents a measure of the number of independent samples equivalent to the autocorrelated MCMC chain (<span class="citation" data-cites="geweke1992">Geweke (<a href="references.html#ref-geweke1992" role="doc-biblioref">1992</a>)</span>).<br>
+<span id="eq-ess"><span class="math display">\[
+    ESS = \frac{N}{1+2\sum_{k=1}^{\infty}\rho_k}
+\tag{2.6}\]</span></span> where <span class="math inline">\(\rho_k\)</span> is the lag-<span class="math inline">\(k\)</span> autocorrelation of the chain. It is used to assess the quality of the convergence of MCMC samples, with higher values indicating better convergence.</p>
+</section>
+<section id="hyperparameter-selection" class="level4" data-number="2.3.2.2">
+<h4 data-number="2.3.2.2" class="anchored" data-anchor-id="hyperparameter-selection"><span class="header-section-number">2.3.2.2</span> Hyperparameter Selection</h4>
+<p>The comparative results revealed distinct patterns in predictive performance relative to lag length, where models with smaller lags (1 to 3) presented underfitting behavior, with RMSE relatively high (<span class="math inline">\(&gt; 0.59\)</span>), although Bayesian models consistently outperformed their frequentist counterpart (negative <span class="math inline">\(\Delta RMSE\)</span>). This suggests that these models were too parsimonious to capture the full dynamic relationships between the variables in the system.</p>
+<p>The higher lags tested (from 5 to 6), instead, showed overfitting or over-shrinkage behavior. Indeed, the BVAR models’ performance deteriorated relative to the VAR models of equivalent lags, with a positive <span class="math inline">\(\Delta RMSE\)</span>, indicating better forecasting performance. This is likely due to the Bayesian’s priors imposing excessive shrinkage on distant lags. <a href="#fig-model_comparison" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> provides a graphical representation of the <span class="math inline">\(RMSEs\)</span> relative to the number of lags used.</p>
+<p>The analysis identified the model with 4 lags, prior belief <span class="math inline">\(\lambda = 0.2\)</span> and linear decay <span class="math inline">\(\alpha = 1\)</span> as the optimal specification (<em>model 28</em>). This model achieved the lowest predictive error (<span class="math inline">\(RMSE_{BVAR} = 0.588\)</span> while maintaining a performance advantage over the frequentist VAR model, with a negative <span class="math inline">\(\Delta RMSE = -0.15\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-model_comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter2_files/figure-html/fig-model_comparison-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Comparison of the Root Mean Squared Error (<span class="math inline">\(RMSE\)</span>) for both the BVAR and VAR models, with different lag values: BVAR models perform better (lower <span class="math inline">\(RMSE\)</span>) compared to frequentist VARs, up to lag 4, where the difference (<span class="math inline">\(Delta RMSE\)</span>) is greater; for higher lags, VAR models have better predictive performance
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="final-model" class="level4" data-number="2.3.2.3">
+<h4 data-number="2.3.2.3" class="anchored" data-anchor-id="final-model"><span class="header-section-number">2.3.2.3</span> Final Model</h4>
+<p>The parameters used in the final models are reported in the <a href="#tbl-model" class="quarto-xref">Table&nbsp;<span>2.2</span></a> below.</p>
+<div class="cell">
+<div id="tbl-model" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: Parameters select for the final model
+</figcaption>
+<div aria-describedby="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Parameter</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Prior Distribution / Type</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value / Bound Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="3">
+<td colspan="3" style="border-bottom: 1px solid"><strong>Minnesota Prior</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(\lambda\) (Overall tightness)</td>
+<td style="text-align: left;">\(N(0.2, 0.4)\)</td>
+<td style="text-align: left;">\([0.0001, 5]\)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(\alpha\) (Lag decay)</td>
+<td style="text-align: left;">\(N(2, 0.25)\)</td>
+<td style="text-align: left;">\([0.01, 3]\)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(\psi\) (Scale parameter)</td>
+<td style="text-align: left;">\(\Gamma(\text{scale}=0.004, \text{shape}=0.004)\)</td>
+<td style="text-align: left;">Automatically set by package</td>
+</tr>
+<tr class="odd" data-grouplength="1">
+<td colspan="3" style="border-bottom: 1px solid"><strong>Sum-of-Coefficients (SOC) Prior</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(\mu\) (Sum-of-coefficients)</td>
+<td style="text-align: left;">\(N(1, 1)\)</td>
+<td style="text-align: left;">\([0.0001, 50]\)</td>
+</tr>
+<tr class="odd" data-grouplength="1">
+<td colspan="3" style="border-bottom: 1px solid"><strong>Single-Unit-Root (SUR) Prior</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(\delta\) (Single-unit-root)</td>
+<td style="text-align: left;">\(N(1, 1)\)</td>
+<td style="text-align: left;">\([0.0001, 50]\)</td>
+</tr>
+<tr class="odd" data-grouplength="4">
+<td colspan="3" style="border-bottom: 1px solid"><strong>MCMC Metropolis-Hastings Sampler</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(c\) (Scaling factor)</td>
+<td style="text-align: left;">Constant value</td>
+<td style="text-align: left;">0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">\(\alpha_{\text{MH}}\) (Acceptance rate)</td>
+<td style="text-align: left;">Adaptive target window</td>
+<td style="text-align: left;">\([0.25, 0.40]\) (\(\Delta = 0.01\))</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Burn-in phase</td>
+<td style="text-align: left;">50\% adaptive allocation</td>
+<td style="text-align: left;">5,000 draws</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Total iterations</td>
+<td style="text-align: left;">MCMC sampler size</td>
+<td style="text-align: left;">15,000 draws</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The MCMC process resulted in a posterior distribution with a value of <span class="math inline">\(\lambda =0.191\)</span>, with an acceptance rate of <span class="math inline">\(\alpha_{MH} = 0.259\)</span>, falling just inside the acceptance region, indicating a proper exploration of the parameter space. The posterior mode of <span class="math inline">\(\lambda = 0.191\)</span> remains close to the prior mode (<span class="math inline">\(0.20\)</span>). In an highly over-parametrized 27-variable system, this indicates the prior is appropriately regularizing the likelihood. Further diagnostic was performed and the results are reported in <a href="app-ch2.html#sec-final-model" class="quarto-xref"><span>Section A.6</span></a>, along with the source code to implement the specfic BVAR model.</p>
+<p>Retaining the outcome of the model estimation satisfactory, the output was then processed to estimate the forecast error variance decomposition, in pursuance of constructing the network. The next section addresses the procedure adopted and the results obtained.</p>
+</section>
+</section>
+</section>
+<section id="gfevd" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="gfevd"><span class="header-section-number">2.4</span> GFEVD</h2>
+<p>The computation of the network was done using the forecast-error variance decomposition (FEVD), developed in a series of paper by Francis X. Diebold and Kamil Yilmaz. Following <span class="citation" data-cites="dieboldyilmaz2012">Diebold and Yilmaz (<a href="references.html#ref-dieboldyilmaz2012" role="doc-biblioref">2012</a>)</span> findings, the use of generalized forecast-error variance decomposition (GFEVD) allows to generate a spillover measure that at first is independent on variable ordering, and second is able to examine directional spillovers.</p>
+<p>Let us define own variance shares as the fractions of the <span class="math inline">\(H\)</span>-step ahead error variance in forecasting <span class="math inline">\(y_i\)</span> that are due to shocks to <span class="math inline">\(x_i\)</span>, for <span class="math inline">\(i = 1,2, \dots,N\)</span>, and spillovers (cross-variance shares) as the fractions of the <span class="math inline">\(H\)</span>-step ahead error variances in forecasting <span class="math inline">\(x_i\)</span> that are due to shocks to <span class="math inline">\(x_j\)</span>, for <span class="math inline">\(i,j=1,2,\dots,N\)</span>, such that <span class="math inline">\(i\neq j\)</span>. Denoting with <span class="math inline">\(\theta^g_{ij}(H)\)</span>, for <span class="math inline">\(H=1,2,\dots,\)</span> the <span class="math inline">\(H\)</span>-step ahead forecast error variance decomposition entries, as developed in the generalized VAR framework of <span class="citation" data-cites="koop1996">Koop, Pesaran, and Potter (<a href="references.html#ref-koop1996" role="doc-biblioref">1996</a>)</span> and <span class="citation" data-cites="pesaranshin1998">Pesaran and Shin (<a href="references.html#ref-pesaranshin1998" role="doc-biblioref">1998</a>)</span>, we have: <span id="eq-GFEVD"><span class="math display">\[
+    d^g_{ij}(H) =
+        \frac{\sigma^{-1}_{jj}\sum^{H-1}_{h=0}(e^\prime_i\theta_h\Sigma e_j)^2}
+        {\sum^{H-1}_{h=0}(e^\prime_i \theta_h\Sigma \theta^\prime_h e_i)}
+\tag{2.7}\]</span></span> where <span class="math inline">\(\Sigma\)</span> is the covariance matrix for the shock vector in the non-orthogonalized BVAR model, <span class="math inline">\(\theta_h\)</span> is the coefficient matrix multiplying the <span class="math inline">\(h\)</span>-lagged shock vector in the infinite moving-average representation of non-orthogonalized shocks, <span class="math inline">\(\sigma_{jj}\)</span> is the <span class="math inline">\(j\)</span>-th diagonal element of <span class="math inline">\(\Sigma\)</span>, and <span class="math inline">\(e_i\)</span> and <span class="math inline">\(e_j\)</span> are the selection vectors for the <span class="math inline">\(i\)</span>-th and <span class="math inline">\(j\)</span>-th variables.</p>
+<p>However, the sums of the row elements of the variance decomposition are not necessarily equal to 1. In order to use the results in the calculation of the spillover index, we normalize the sum of the elements of each row: <span class="math display">\[
+    \hat{d^{g}_{ij}}(H) = \frac{d^g_{ij}(H)}{\sum^N_{j=1}d_{ij}(H)}
+\]</span></p>
+<p>By construction <span class="math inline">\(\sum^N_{j=1}\hat{d^{g}_{ij}}(H)=1\)</span> and <span class="math inline">\(\sum^N_{i,j=1}\bar{d^{g}_{ij}}(H)=N\)</span>, therefore, after normalization, the generalized variance decomposition matrix <span class="math inline">\(D^{gH}\)</span> is an <span class="math inline">\(N \times N\)</span> matrix with entries <span class="math inline">\([d^{gH}_{ij}]\)</span>.</p>
+<p>The off-diagonal elements of <span class="math inline">\(D^{gH}\)</span> are the values of the N forecast error variance decomposition that are relevant from a connectedness perspective, since they represent the pairwise directional connectedness between the variables considered in the system. The pairwise directional connectedness from <span class="math inline">\(j\)</span> to <span class="math inline">\(i\)</span>, is therefore defined as: <span class="math display">\[
+    C^H_{i\xleftarrow{}j} = d^H_{ij}
+\]</span></p>
+<p>The sums of off-diagonal rows and columns give two other important measures. The row sum of the off-diagonal elements gives the share of the <span class="math inline">\(H\)</span>-step forecast error variance of variable <span class="math inline">\(i\)</span> coming from shocks arising in other variables (“<em>from others to</em> <span class="math inline">\(i\)</span>”) , while the column sum of the off-diagonal elements produces the forecast error variance that arises in variable <span class="math inline">\(j\)</span> and is transmitted to the other variables (“<em>to others from</em> <span class="math inline">\(j\)</span>”). The two measures are defined as: <span class="math display">\[\begin{gather*}
+    C^H_{i \xleftarrow{} \blacksquare} = \sum^N_{j=1}d^{gH}_{ij} \qquad j\neq i\\
+    C^H_{\blacksquare \xleftarrow{} j} =  \sum^N_{i=1}d^{gH}_{ij} \qquad i \neq j
+\end{gather*}\]</span></p>
+<p>These additional measures, in extension to the already calculated GFEVD matrix, compose the connectedness table, which is represented schematically in <a href="#tbl-connectedness_table" class="quarto-xref">Table&nbsp;<span>2.3</span></a>. The sum of the column labeled “From others” and the sum of the row labeled “To others” represents the total connectedness measure <span class="math inline">\(C^H\)</span>:</p>
+<p><span id="eq-tot_connectedness"><span class="math display">\[
+    C^H = \frac{1}{N}\sum^N_{i,j = 1} d^{gH}_{ij}, \quad \text{with}  j \neq i
+\tag{2.8}\]</span></span></p>
+<div id="tbl-connectedness_table" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-connectedness_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.3: Simplified representation of the connectedness table as presented by <span class="citation" data-cites="dieboldyilmaz2014">Diebold and Yılmaz (<a href="references.html#ref-dieboldyilmaz2014" role="doc-biblioref">2014</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-connectedness_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(x_1\)</span></th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th><span class="math inline">\(x_N\)</span></th>
+<th>From others</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_1\)</span></td>
+<td><span class="math inline">\(d^{gH}_{11}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(d^{gH}_{1N}\)</span></td>
+<td><span class="math inline">\(\sum^N_{j=1}d^{gH}_{1j}\)</span></td>
+<td><span class="math inline">\(j \neq 1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\ddots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_N\)</span></td>
+<td><span class="math inline">\(d^{gH}_{N1}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(d^{gH}_{NN}\)</span></td>
+<td><span class="math inline">\(\sum^N_{j=1}d^{gH}_{Nj}\)</span></td>
+<td><span class="math inline">\(j \neq N\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>To others</strong></td>
+<td><span class="math inline">\(\sum^N_{i=1}d^{gH}_{i1}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\sum^N_{i=1}d^{gH}_{iN}\)</span></td>
+<td><span class="math inline">\(\frac{1}{N}\sum^N_{i,j=1}d^{gH}_{ij}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(i \neq 1\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(i \neq N\)</span></td>
+<td><span class="math inline">\(i\neq j\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The total connectedness index effectively summarizes the degree of interdependence within the system, providing a single measure of the contribution of spillover effects to the total forecast error variance. This metric, combined with the directional pairwise connectedness measures, constitutes the primary output of the GFEVD framework used to assess systemic risk.</p>
+<p>To address parameter uncertainty in the GFEVD estimates, the decomposition is computed not only at the posterior median but across all accepted MCMC draws (after thinning by factor 10, yielding 1,000 posterior draws). This yields a full posterior distribution for every element of the connectedness matrix and for the Total Connectedness Index. The plug-in TCI estimate at the posterior mean of the VAR coefficients is <span class="math inline">\(C^H = 74.28\)</span>, consistent with the <span class="citation" data-cites="dieboldyilmaz2014">Diebold and Yılmaz (<a href="references.html#ref-dieboldyilmaz2014" role="doc-biblioref">2014</a>)</span> convention. Propagating parameter uncertainty through the MCMC posterior yields a median TCI of <span class="math inline">\(77.09\)</span> with a 90% credible interval of [<span class="math inline">\(74.03\)</span>, <span class="math inline">\(80.61\)</span>], confirming that the high level of interconnectedness is roust to BVAR parameter uncertainty. The upward shift from plug-in estimate reflects Jensen’s inequality applied to the nonlinear GFEVD transform. Posterior credible intervals for individual node-level metrics are reported in <a href="app-ch2.html#tbl-posterior_strength_ci" class="quarto-xref">Table&nbsp;<span>A.5</span></a> in Appendix <a href="app-ch2.html#sec-app-posterior_ci" class="quarto-xref"><span>Section A.5</span></a>.</p>
+<p>Having presented the econometric and mathematical foundations-ranging from the Yang-Zhang volatility estimation to the Bayesian VAR specification and generalized variance decomposition, the methodology allows for a robust reconstruction of the reinsurance network. The empirical results derived from this framework, including the estimated connectedness table, the topological analysis of the network, are presented in the following chapter.</p>
+<hr>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-andersen2003" class="csl-entry" role="listitem">
+Andersen, Torben G., Tim Bollerslev, Francis X. Diebold, and Paul Labys. 2003. <span>“Modeling and Forecasting Realized Volatility.”</span> <em>Econometrica</em> 71 (2): 579–625. https://doi.org/<a href="https://doi.org/10.1111/1468-0262.00418">https://doi.org/10.1111/1468-0262.00418</a>.
+</div>
+<div id="ref-banbura2010" class="csl-entry" role="listitem">
+Bańbura, Marta, Domenico Giannone, and Lucrezia Reichlin. 2010. <span>“Large Bayesian Vector Auto Regressions.”</span> <em>Journal of Applied Econometrics</em> 25 (1): 71–92. https://doi.org/<a href="https://doi.org/10.1002/jae.1137">https://doi.org/10.1002/jae.1137</a>.
+</div>
+<div id="ref-billio2012" class="csl-entry" role="listitem">
+Billio, Monica, Getmansky Mila, Andrew W. Lo, and Loriana Pelizzon. 2012. <span>“Econometric Measures of Connectedness and Systemic Risk in the Finance and Insurance Sectors.”</span> <em>Journal of Financial Economics</em> 104 (3): 535–59. <a href="https://doi.org/10.1016/j.jfineco.2011.12.010">https://doi.org/10.1016/j.jfineco.2011.12.010</a>.
+</div>
+<div id="ref-ChibGreenberg1995" class="csl-entry" role="listitem">
+Chib, Siddhartha, and Edward Greenberg. 1995. <span>“Understanding the Metropolis-Hastings Algorithm.”</span> <em>The American Statistician</em> 49 (4): 327–35. <a href="https://doi.org/10.1080/00031305.1995.10476177">https://doi.org/10.1080/00031305.1995.10476177</a>.
+</div>
+<div id="ref-dickey1979" class="csl-entry" role="listitem">
+Dickey, David A., and Wayne A. Fuller. 1979. <span>“Distribution of the Estimators for Autoregressive Time Series with a Unit Root.”</span> <em>Journal of the American Statistical Association</em> 74 (366a): 427–31.
+</div>
+<div id="ref-dieboldyilmaz2012" class="csl-entry" role="listitem">
+Diebold, Francis X., and Kamil Yilmaz. 2012. <span>“Better to Give Than to Receive: Predictive Directional Measurement of Volatility Spillovers.”</span> <em>International Journal of Forecasting</em> 28 (1): 57–66. https://doi.org/<a href="https://doi.org/10.1016/j.ijforecast.2011.02.006">https://doi.org/10.1016/j.ijforecast.2011.02.006</a>.
+</div>
+<div id="ref-dieboldyilmaz2014" class="csl-entry" role="listitem">
+Diebold, Francis X., and Kamil Yılmaz. 2014. <span>“On the Network Topology of Variance Decompositions: Measuring the Connectedness of Financial Firms.”</span> <em>Journal of Econometrics</em> 182 (1): 119–34. https://doi.org/<a href="https://doi.org/10.1016/j.jeconom.2014.04.012">https://doi.org/10.1016/j.jeconom.2014.04.012</a>.
+</div>
+<div id="ref-geweke1992" class="csl-entry" role="listitem">
+Geweke, John. 1992. <span>“Evaluating the Accuracy of Sampling-Based Approaches to the Calculation of Posterior Moments.”</span> In <em>Bayesian Statistics 4: Proceedings of the Fourth Valencia International Meeting, Dedicated to the Memory of Morris h. DeGroot, 1931–1989</em>. Oxford University Press. <a href="https://doi.org/10.1093/oso/9780198522669.003.0010">https://doi.org/10.1093/oso/9780198522669.003.0010</a>.
+</div>
+<div id="ref-giannone2015" class="csl-entry" role="listitem">
+Giannone, Domenico, Michele Lenza, and Giorgio E. Primiceri. 2015. <span>“Prior Selection for Vector Autoregressions.”</span> <em>The Review of Economics and Statistics</em> 97 (2): 436–51. <a href="https://doi.org/10.1162/REST_a_00483">https://doi.org/10.1162/REST_a_00483</a>.
+</div>
+<div id="ref-gimar2025report" class="csl-entry" role="listitem">
+International Association of Insurance Supervisors. 2025. <span>“Global Insurance Market Report (GIMAR).”</span> International Association of Insurance Supervisors.
+</div>
+<div id="ref-koop1996" class="csl-entry" role="listitem">
+Koop, Gary, M.Hashem Pesaran, and Simon M. Potter. 1996. <span>“Impulse Response Analysis in Nonlinear Multivariate Models.”</span> <em>Journal of Econometrics</em> 74 (1): 119–47. https://doi.org/<a href="https://doi.org/10.1016/0304-4076(95)01753-4">https://doi.org/10.1016/0304-4076(95)01753-4</a>.
+</div>
+<div id="ref-kpss1992" class="csl-entry" role="listitem">
+Kwiatkowski, Denis, Peter C. B. Phillips, Peter Schmidt, and Yongcheol Shin. 1992. <span>“Testing the Null Hypothesis of Stationarity Against the Alternative of a Unit Root.”</span> <em>Journal of Econometrics</em> 54 (1-3): 159–78.
+</div>
+<div id="ref-litterman1986" class="csl-entry" role="listitem">
+Litterman, Robert B. 1986. <span>“Forecasting with Bayesian Vector Autoregressions: Five Years of Experience.”</span> <em>Journal of Business &amp; Economic Statistics</em> 4 (1): 25–38. <a href="http://www.jstor.org/stable/1391384">http://www.jstor.org/stable/1391384</a>.
+</div>
+<div id="ref-bvar2018" class="csl-entry" role="listitem">
+Miranda-Agrippino, Silvia, and Giovanni Ricco. 2018. <span>“Bayesian Vector Autoregressions.”</span> Working Paper 18. Sciences Po OFCE. <a href="https://www.ofce.sciences-po.fr/pdf/dtravail/WP2018-18.pdf">www.ofce.sciences-po.fr/pdf/dtravail/WP2018-18.pdf</a>.
+</div>
+<div id="ref-pesaranshin1998" class="csl-entry" role="listitem">
+Pesaran, H.Hashem, and Yongcheol Shin. 1998. <span>“Generalized Impulse Response Analysis in Linear Multivariate Models.”</span> <em>Economics Letters</em> 58 (1): 17–29. https://doi.org/<a href="https://doi.org/10.1016/S0165-1765(97)00214-0">https://doi.org/10.1016/S0165-1765(97)00214-0</a>.
+</div>
+<div id="ref-sims1993" class="csl-entry" role="listitem">
+Sims, Christopher. 1993. <span>“A Nine-Variable Probabilistic Macroeconomic Forecasting Model.”</span> In <em>Business Cycles, Indicators, and Forecasting</em>, 179–212. National Bureau of Economic Research, Inc. <a href="https://EconPapers.repec.org/RePEc:nbr:nberch:7192">https://EconPapers.repec.org/RePEc:nbr:nberch:7192</a>.
+</div>
+<div id="ref-yangzhang2000journal" class="csl-entry" role="listitem">
+Yang, Dennis, and Qiang Zhang. 2000. <span>“Drift‐independent Volatility Estimation Based on High, Low, Open, and Close Prices.”</span> <em>The Journal of Business</em> 73 (3): 477–92. <a href="http://www.jstor.org/stable/10.1086/209650">http://www.jstor.org/stable/10.1086/209650</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The list of said companies is publicly available at this <a href="https://www.reinsurancene.ws/top-50-reinsurance-groups/">link</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The exchange rates used to calculate the amounts in premiums are reported in the appendix<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter1.html" class="pagination-link" aria-label="Introduction to Reinsurance">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter3.html" class="pagination-link" aria-label="Static Network Analysis">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

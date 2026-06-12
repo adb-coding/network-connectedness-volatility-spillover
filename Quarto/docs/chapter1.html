@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrea De Bortoli">
+
+<title>1&nbsp; Introduction to Reinsurance – Volatility Connectedness and Network Topology in the Reinsurance Sector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter2.html" rel="next">
+<link href="./introduction.html" rel="prev">
+<link href="./UNIVE_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Volatility Connectedness and Network Topology in the Reinsurance Sector</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/adb-coding/network-connectedness-volatility-spillover" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Thesis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Chapter 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#reinsurance" id="toc-reinsurance" class="nav-link active" data-scroll-target="#reinsurance"><span class="header-section-number">1.1</span> Reinsurance</a></li>
+  <li><a href="#facultative-and-treaty-reinsurance" id="toc-facultative-and-treaty-reinsurance" class="nav-link" data-scroll-target="#facultative-and-treaty-reinsurance"><span class="header-section-number">1.2</span> Facultative and Treaty Reinsurance</a>
+  <ul class="collapse">
+  <li><a href="#facultative-reinsurance" id="toc-facultative-reinsurance" class="nav-link" data-scroll-target="#facultative-reinsurance"><span class="header-section-number">1.2.1</span> Facultative Reinsurance</a></li>
+  <li><a href="#treaty-reinsurance" id="toc-treaty-reinsurance" class="nav-link" data-scroll-target="#treaty-reinsurance"><span class="header-section-number">1.2.2</span> Treaty Reinsurance</a></li>
+  </ul></li>
+  <li><a href="#proportional-and-non-proportional-reinsurance" id="toc-proportional-and-non-proportional-reinsurance" class="nav-link" data-scroll-target="#proportional-and-non-proportional-reinsurance"><span class="header-section-number">1.3</span> Proportional and Non-proportional Reinsurance</a>
+  <ul class="collapse">
+  <li><a href="#proportional" id="toc-proportional" class="nav-link" data-scroll-target="#proportional"><span class="header-section-number">1.3.1</span> Proportional</a></li>
+  <li><a href="#non-proportional" id="toc-non-proportional" class="nav-link" data-scroll-target="#non-proportional"><span class="header-section-number">1.3.2</span> Non-proportional</a></li>
+  </ul></li>
+  <li><a href="#co-reinsurance-and-layering" id="toc-co-reinsurance-and-layering" class="nav-link" data-scroll-target="#co-reinsurance-and-layering"><span class="header-section-number">1.4</span> Co-reinsurance and Layering</a></li>
+  <li><a href="#the-reinsurance-market" id="toc-the-reinsurance-market" class="nav-link" data-scroll-target="#the-reinsurance-market"><span class="header-section-number">1.5</span> The Reinsurance Market</a>
+  <ul class="collapse">
+  <li><a href="#sec-market" id="toc-sec-market" class="nav-link" data-scroll-target="#sec-market"><span class="header-section-number">1.5.1</span> Market Volume and Capitalization</a></li>
+  <li><a href="#regulatory-framework" id="toc-regulatory-framework" class="nav-link" data-scroll-target="#regulatory-framework"><span class="header-section-number">1.5.2</span> Regulatory Framework</a></li>
+  <li><a href="#future-challenges" id="toc-future-challenges" class="nav-link" data-scroll-target="#future-challenges"><span class="header-section-number">1.5.3</span> Future Challenges</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chapter1" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andrea De Bortoli </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="reinsurance" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="reinsurance"><span class="header-section-number">1.1</span> Reinsurance</h2>
+<p>Financial theory suggests that the use of reinsurance, under the conditions of capital market equilibrium, is redundant and not necessary for diversified and widely held firms, as these entities are able to pool risks internally and access capital markets for financing when needed, representing a reinsurance specific application of the broader principle of corporate hedging irrelevance under frictionless capital market (<span class="citation" data-cites="modigliani1958">Modigliani and Miller (<a href="references.html#ref-modigliani1958" role="doc-biblioref">1958</a>)</span>, doherty_tinic1981). However, as shown in <span class="citation" data-cites="mayers_smith1982">Mayers and Smith (<a href="references.html#ref-mayers_smith1982" role="doc-biblioref">1982</a>)</span>, market imperfections such as bankruptcy costs, tax convexity, and agency conflicts create a rational corporate demand for insurance and risk transfer. <span class="citation" data-cites="froot1993">Froot, Scharfstein, and Stein (<a href="references.html#ref-froot1993" role="doc-biblioref">1993</a>)</span> further demonstrate that costly external financing makes hedging strategies value-enhancing: by smoothing internal cash flows, reinsurance enables insurers to fund investment opportunities without resorting to expensive capital markets. These theoretical foundations establish reinsurance as a rational response to real-world frictions. In this context, reinsurance plays an instrumental role in enhancing diversification beyond the boundaries of solely insurance, providing financial and operational flexibility in addition to the transfer of risk.</p>
+<p>From a financial perspective, reinsurance impacts an insurer’s surplus management and financing capacity. Since insurers must establish unearned premium reserves upon collecting premiums, their ability to underwrite new policies is limited by surplus levels. Reinsurance mitigates such constraint by reducing the amount of unearned premium reserves requirements, increasing the underwriting capacity, both in terms of single-risk exposure and the volume of contracts written. This allows insurers to underwrite policies that might otherwise exceed their risk tolerance or capital base, and to remain competitive in high-volume lines of business.</p>
+<p>An additional benefit is the stabilization of loss experience over time. Due to economic, environmental, and portfolio-specific factors, underwriting results can vary significantly on a yearly basis. Reinsurance enables insurers to smooth these fluctuations, functioning similarly to a contingent capital mechanism whereby reinsurers absorb part of the losses in bad years and receive premiums in better years (<span class="citation" data-cites="webb1984insurance">Webb, Property, and Underwriters (<a href="references.html#ref-webb1984insurance" role="doc-biblioref">1984</a>)</span>). This rationale is formalized by <span class="citation" data-cites="plantin_rochet2007">Plantin and Rochet (<a href="references.html#ref-plantin_rochet2007" role="doc-biblioref">2007</a>)</span>, who model the optimal demand for reinsurance as a function of the insurer’s liability structure and regulatory capital constraints, showing that reinsurance serves as a risk transfer mechanism rather than a generic contingent capital facility.</p>
+<p>Catastrophe protection is another key driver for reinsurance usage. In the event of natural disasters or other extreme events, reinsurance shields the primary insurer from potentially severe financial consequences. Furthermore, reinsurance provides underwriting assistance through access to specialized expertise, advanced actuarial data, and claims management capabilities. This knowledge is especially valuable for insurers that expand into new product lines, geographic territories, or unconventional risk classes. Reinsurance also facilitates the entry and exit from specific markets, facilitating the cessation of operations in certain lines of business, allowing the transfer of entire portfolios without sudden contract cancellations, which could result in reputational and regulatory backlash.</p>
+<p>In combination, recent literature highlights that business line diversification, particularly across life and non-life segments, can contribute to systemic risk mitigation. As demonstrated by <span class="citation" data-cites="regele2022">Regele (<a href="references.html#ref-regele2022" role="doc-biblioref">2022</a>)</span>, insurers that engage in both life and non-life insurance (multi-line insurers) contribute less to systemic risk compared to monoline insurers. This is largely due to a coinsurance effect arising from the low correlation between life and non-life insurance cash flows. While life insurance typically involves long-term, predictable liabilities, non-life insurance is characterized by short-term, volatile claims. The combination of these underwriting profiles leads to more stable cash flows and reduces equity volatility, decreasing the likelihood of financial distress. Empirical findings indicate that insurers with a line of business mix of roughly 54% life and 46% non-life insurance exhibit the lowest contribution to systemic risk. This insight suggests that diversification not only enhances firm-level stability, but also serves a macro-prudential function, helping the broader financial system stability.</p>
+</section>
+<section id="facultative-and-treaty-reinsurance" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="facultative-and-treaty-reinsurance"><span class="header-section-number">1.2</span> Facultative and Treaty Reinsurance</h2>
+<p>Reinsurance agreements can be broadly categorized in two main forms: <em>facultative</em> and <em>treaty</em> reinsurance. These two mechanisms differ significantly in terms of their application, risk exposure, contractual complexity, and strategic applications. Facultative reinsurance is characterized by its use in the coverage of individual risks, where the primary insurer selectively acquires reinsurance coverage for specific risks on a case-by-case basis. In contrast, treaty reinsurance involves the cession of all risks within a defined class of insurance policies, typically structured through a predetermined agreement that applies to a broader portfolio of exposures <span class="citation" data-cites="outerville1998theory">Outreville (<a href="references.html#ref-outerville1998theory" role="doc-biblioref">1998</a>)</span>. The distinction between these two arrangements is critical, as it reflects the differing risk management strategies, operational requirements, and the degree of control retained by the primary insurer. Facultative reinsurance provides highly customized coverage and is typically used in situations involving large or unusual risks. On the other hand, treaty reinsurance emphasizes automation and scalability, supporting the transfer of homogeneous risks with reduced transactional friction.</p>
+<section id="facultative-reinsurance" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="facultative-reinsurance"><span class="header-section-number">1.2.1</span> Facultative Reinsurance</h3>
+<p>Facultative reinsurance is a transactional form of reinsurance in which the ceding insurer offers a specific individual risk to a reinsurer, who then has the discretion to accept or decline all or part of that risk. As defined by <span class="citation" data-cites="thompson1966reinsurance">Thompson (<a href="references.html#ref-thompson1966reinsurance" role="doc-biblioref">1966</a>)</span>,</p>
+<blockquote class="blockquote">
+<p>“Facultative reinsurance involves a practice between insurance companies whereby a ceding company offers special or individual risks that it decides to reinsure to a proposed reinsurer which has the free choice to accept part or all, or may reject part or all, of risks offered”.</p>
+</blockquote>
+<p>Unlike treaty reinsurance – which applies to a predefined pool of risks under a blanket agreement – facultative reinsurance is arranged on a case-by-case basis. Each contract is negotiated separately, and each risk is individually underwritten by the reinsurer. There is no binding obligation on either party to enter into the agreement: the primary insurer is not required to cede the risk, nor is the reinsurer obliged to accept it. This mutual optionality makes facultative reinsurance a flexible tool for managing non-standard exposures or covering risks that are not included in existing treaty agreements.</p>
+<p>One of the principal advantages of facultative reinsurance lies in its assessment process. Since each risk is addressed individually, the reinsurer can tailor terms, pricing, and conditions to reflect the specific characteristics and loss potential of the exposure. This versatility enables more accurate risk selection and premium adequacy, especially in high-severity or complex underwriting situations, such as industrial facilities, large infrastructures, or natural catastrophe.</p>
+<p>However, the facultative model also has significant limitations in terms of efficiency and cost. Each contract entails extensive underwriting review, requiring the ceding company to submit detailed information and risk documentation. The process often involves multiple rounds of negotiations and may include multiple negotiations with several reinsurers to obtain the most favorable terms. As a result, facultative reinsurance can be time-consuming, labor-intensive, and administratively burdensome. These complexities often render facultative placements less suitable for high frequency or commoditized lines of business.</p>
+<p>Facultative reinsurance is also instrumental in enhancing the insurer’s overall risk diversification. It allows to offload large exposures that would otherwise concentrate risk within their book of business, and can be employed to supplement treaty arrangements by covering risks that exceed treaty limits or fall outside the treaty scope, functioning as a second layer of coverage.</p>
+<p>In practice, facultative agreements are generally short-term and often structured as single-event transactions tied to the duration of the insurance policy, providing tailored, transaction specific coverage for exceptional risks that require individualized attention.</p>
+</section>
+<section id="treaty-reinsurance" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="treaty-reinsurance"><span class="header-section-number">1.2.2</span> Treaty Reinsurance</h3>
+<p>Treaty reinsurance is a contractual arrangement whereby the reinsurer agrees in advance to accept a defined portion of all risks falling within a specified portfolio of policies. Treaty reinsurance functions as a blanket agreement, covering all risks written by the ceding company within the scope of the treaty. This acceptance of risk optimizes the reinsurance process and serves as a pivot for efficient and scalable risk transfer in the insurance industry (<span class="citation" data-cites="rejda2021principles">Rejda and McNamara (<a href="references.html#ref-rejda2021principles" role="doc-biblioref">2021</a>)</span>).</p>
+<p>Treaty reinsurance is designed to improve operational efficiency, promote long-term strategic partnerships between insurers and reinsurers, and support the growth of the insurer’s underwriting activities. The agreement typically covers terms and conditions related to the type of business and risks covered, the attachment points, limits, premium-sharing quotas, and claim procedures. These stipulations are set out in a legally binding reinsurance treaty, which governs the relationship over a fixed period.</p>
+<p>One of the several advantages associated with treaty contracts is enhanced operational efficiency, due to the fact that treaty arrangements do not require risk-by-risk negotiation, significantly reducing administrative costs and transaction time, enabling primary insurers to focus on core underwriting activities and client service activities. Similarly to facultative reinsurance, treaty arrangements help smooth loss exposure over time, sharing large-scale underwritten losses and extreme claims volatility. Additionally, treaty reinsurance often establishes deeper relationships between cedants and reinsurers, promoting cooperation in areas such as pricing, underwriting expertise, and claims handling. This relationship often includes value-added services from the reinsurer, including actuarial support, product development, and portfolio analysis.</p>
+<p>Despite its advantages, treaty reinsurance presents some limitations and drawbacks. The most prominent is the potential for adverse selection, whereby the ceding insurer includes disproportionately risky policies within the treaty. Therefore, reinsurers conduct rigorous due diligence and often require detailed portfolio analytics before entering a treaty agreement. Another potential flaw is the lack of flexibility. Once a treaty agreement is in force, it applies uniformly across the portfolio, which may lead to inefficiencies if certain risks become unwanted but cannot be excluded. Thus, there is limited scope for tailoring the contract to individual risks. Treaty reinsurance provides an essential tool in the insurance industry, making it the preferred method to manage routine high-volume exposures.</p>
+<p>Reinsurance agreements, whether in facultative or in treaty form, can be categorized as proportional or non-proportional type.</p>
+</section>
+</section>
+<section id="proportional-and-non-proportional-reinsurance" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="proportional-and-non-proportional-reinsurance"><span class="header-section-number">1.3</span> Proportional and Non-proportional Reinsurance</h2>
+<p>Proportional reinsurance involves one or more reinsurers taking a pre-agreed percentage share of the premiums and liabilities of each policy written by the insurer. Non-proportional reinsurance, on the other hand, reimburses losses suffered above a fixed sum. Under proportional reinsurance, primary insurer and reinsurer share premiums and losses by a ratio defined in their contract. The reinsurer’s share of the premium is directly proportional to its obligation to pay any claim. Moreover, the reinsurer compensates the ceding insurer for a portion of its administrative and acquisition costs by paying a commission, typically expressed as a percentage of the original premium.</p>
+<p>Non-proportional reinsurance was introduced in the 1970s as an alternative and a complement to traditional proportional forms of coverage. Non-proportional forms of reinsurance - meaning coverage with no fixed or pre-determined split of premiums and losses - are mainly used to provide protection against the biggest and accumulated losses that can potentially jeopardize insurer’s solvency. Non proportional reinsurance requires that all losses up to a certain amount are covered by the primary insurer, while claims exceeding that amount are covered by the reinsurer up to a pre-agreed limit.</p>
+<section id="proportional" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="proportional"><span class="header-section-number">1.3.1</span> Proportional</h3>
+<p>The most frequently used proportional agreements are the <em>quota share</em> and the <em>surplus share</em> agreement.</p>
+<section id="quota-share-reinsurance" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="quota-share-reinsurance"><span class="header-section-number">1.3.1.1</span> Quota-share reinsurance</h4>
+<p>Quota share contracts are a form of proportional reinsurance, in which a fixed percentage of the primary insurer’s risk is transferred to one or more reinsurers. This agreement typically applies to the entire portfolio under the treaty, ensuring uniformity in the cession through all policies. The reinsurer receives a premium rate proportional to the percentage of claims covered, minus a ceding commission paid to the insurer as a way to cover the acquirement and administrative costs resulting from the acquisition of the business (<span class="citation" data-cites="outerville1998theory">Outreville (<a href="references.html#ref-outerville1998theory" role="doc-biblioref">1998</a>)</span>).</p>
+<p>Assuming a payout functions <span class="math inline">\(Y\)</span> for a policy <span class="math inline">\(p\)</span>, <span class="math inline">\(Y^p = P - X^P\)</span>, where <span class="math inline">\(P\)</span> represents the written premium, and <span class="math inline">\(X^P\)</span> is the random loss with a maximum claim of <span class="math inline">\(x_{max}\)</span> <span class="math display">\[X^P=\begin{cases}
+    x &amp; \text{in the case of claim} \quad 0 &lt; x \leq x_{max} \\
+    0 &amp; \text{otherwise}
+\end{cases} \]</span> the payout functions can be represented as:</p>
+<p><span id="eq-quota-share-primary"><span class="math display">\[
+Y^i = (1-\Lambda) P - (1- \Lambda) X^P + c\Lambda P   
+\tag{1.1}\]</span></span> for the primary insurer and <span id="eq-quota-share-reinsurer"><span class="math display">\[
+Y^r  = \Lambda P - \Lambda X^P -c \Lambda P     
+\tag{1.2}\]</span></span></p>
+<p>for the reinsurer, where <span class="math inline">\(\Lambda \in (0,1)\)</span> is the retention ratio and <span class="math inline">\((1-\Lambda)\)</span> is the ceded ratio by the primary insurer, while <span class="math inline">\(c\)</span> is the commission rate paid by the reinsurer to the insurer as a percentage of the written premiums.</p>
+<p>One of the main advantages of quota-share reinsurance is the smoothing of underwriting results and the reduced volatility in the insurer’s retained loss distribution. This makes it particularly suitable for the coverage of high-volume and homogeneous lines of risk, such as property, liability, or business interruption insurance. However, a key drawback lies in the potential reduction in profitability arising from the cession of significant portion of the insurer’s premiums.</p>
+</section>
+<section id="surplus-share-reinsurance" class="level4" data-number="1.3.1.2">
+<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="surplus-share-reinsurance"><span class="header-section-number">1.3.1.2</span> Surplus-share reinsurance</h4>
+<p>Surplus share reinsurance is another form of proportional reinsurance but differs in its conditional application. Instead of applying a fixed percentage to all policies, the insurer retains a fixed monetary amount, known as the <em>retention limit</em>. Any amount exceeding the retention limit is ceded to the reinsurer. The proportion of intervention for each policy is determined by the ratio of the surplus (the amount exceeding the retention), to the total amount written by the policy. This implies that the ceded proportion varies by policy, depending on the size of the exposure.</p>
+<p>This type of agreement is advantageous for insurers that want to retain full control over smaller risks while sharing larger exposures that could potentially undermine their solvency or capital, as only the policies that are less capital demanding are fully retained by the primary insurer. Surplus-share, compared to quota-share reinsurance, allows for more detailed control over which risks are transferred and greater management of the loss distribution’s volatility.</p>
+<p><a href="#fig-quota_surplus" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> provides a graphical representation of the differences between the two types of proportional agreement: figure <em>a</em> shows the scenario of the quota-share, with <span class="math inline">\(\Lambda=40\%\)</span>; figure <em>b</em> shows the amounts ceded and retained, for the same policies, in the case of a surplus-share agreement. Only policies above the retention line will see the intervention of the reinsurer.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-quota_surplus" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quota_surplus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter1_files/figure-html/fig-quota_surplus-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quota_surplus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Comparison of the Quota-share and Surplus-share reinsurance contracts
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="non-proportional" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="non-proportional"><span class="header-section-number">1.3.2</span> Non-proportional</h3>
+<p>Non-proportional reinsurance agreements typically take one of these three forms:</p>
+<ul>
+<li><p>Excess-of-loss</p></li>
+<li><p>Catastrophe</p></li>
+<li><p>Stop-Loss</p></li>
+</ul>
+<section id="excess-of-loss" class="level4" data-number="1.3.2.1">
+<h4 data-number="1.3.2.1" class="anchored" data-anchor-id="excess-of-loss"><span class="header-section-number">1.3.2.1</span> Excess-of-loss</h4>
+<p>Excess-of-loss (XoL) reinsurance is a type of non-proportional reinsurance, in which the reinsurer provides coverage only for losses that exceed a pre-specified threshold, known as the <em>priority</em> or <em>retention</em>, up to an agreed <em>limit</em>. This arrangement is typically used to mitigate the financial impact of large infrequent losses.</p>
+<p>The reinsurer bears the portion of claims <span class="math inline">\(x\)</span> that lies between the priority <span class="math inline">\(d\)</span> and the limit <span class="math inline">\(M\)</span>, resulting in the following payout structure: <span id="eq-exl"><span class="math display">\[
+   \text{Reinsurer Payout} =  \min(M, \max(x-d,0))
+\tag{1.3}\]</span></span></p>
+<p>For instance, in a “€10M XS €5M” contract, the primary insurer retains losses up to €5M, while the reinsurer covers the following €10M in losses. Losses greater than €15M are uncovered by the reinsurer, and will be borne by the primary insurer.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-exl" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter1_files/figure-html/fig-exl-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Function of the losses faced by the reinsurer when the total loss crosses the priority level. Reinsurer is obliged to repay up to the limit amount agreed with the insurer
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>XoL contracts diverge into two different categories, to serve two separate types of needs: excess of loss <em>per-risk</em>, and excess of loss <em>per-event</em>. The former is the traditional reinsurance product in which the reinsurer indemnifies the primary insurer for the loss amount of all the individual policies affected defined in the treaty agreement who exceed the priority amount. The reinsurer’s contribution is limited by its cover obligations, and typically an annual limit of the total amount refundable is established. The per risk agreement is an effective way to mitigate risks against large single losses but is inadequate for protection against high frequency or cumulative losses, in which multiple policies are affected by the same event. To address this lack of capability, excess of loss per-event contracts are more suitable, as the unit of loss is not the individual loss per policy, but rather the aggregate loss caused by an event within the insurance portfolio covered by the treaty. This arrangement represents an effective risk reduction against large losses made up of the sum of potentially hundreds of small losses (<span class="citation" data-cites="swissre2015guide">SwissRe (<a href="references.html#ref-swissre2015guide" role="doc-biblioref">2015</a>)</span>).</p>
+<p>Excess-of-loss contracts are preferred for their efficiency in capital management, especially in portfolios with high exposure volatility (<span class="citation" data-cites="boyer2015structure">Boyer and Dupont-Courtade (<a href="references.html#ref-boyer2015structure" role="doc-biblioref">2015</a>)</span>), and are used especially to provide coverage against events or risks of an unusual nature, which involve potential losses that can undermine the solvency of the primary insurer.</p>
+</section>
+<section id="catastrophe-reinsurance" class="level4" data-number="1.3.2.2">
+<h4 data-number="1.3.2.2" class="anchored" data-anchor-id="catastrophe-reinsurance"><span class="header-section-number">1.3.2.2</span> Catastrophe Reinsurance</h4>
+<p>Catastrophe reinsurance, generally referred to as Cat-XL, is another type of non-proportional reinsurance arrangement that aims at covering the portfolio of insurers against claims arising from a single accident, such as natural disasters (earthquakes, hurricanes, floods) or other large-scale man-made accidents. Catastrophe reinsurance addresses the correlation of risks where a single event triggers the simultaneous claims across multiple policies, potentially threatening the insurer’s solvency. A catastrophe is usually defined in terms of a given number of claims within a time interval of a given duration, or based on the amount of total claims caused by the single event.</p>
+<p>Transfer of risk arising from catastrophic event among market participants is essential if we look at the total economic losses caused in 2024: according to <span class="citation" data-cites="swissre2025catnat">Banerjee et al. (<a href="references.html#ref-swissre2025catnat" role="doc-biblioref">2025</a>)</span> report, the amount was $328 billion, for a total insured losses of $146 billion, around 43% of the total losses, and insured losses arising from natural catastrophes totaled $137 billion, with an year-on-year increase from 2023 of $22 billion, in line with the 5-7% annual growth rate (in real terms) of the recent years. Major causes of insurance loss are still the “major perils” events, such as earthquakes and hurricanes, that typically mark the “peak loss” years, like in 2011 due to the Japan earthquake ($169 B insured losses) or in 2005 for the Katrina hurricane ($166 B insured losses). However, recent years have seen an increase in the impact of “secondary perils” events, such as severe convective storms (SCS), floodings, or wildfires, due to the increase in severity and frequency of such events, with studies providing clear evidence for the role of man-made climate change in this transition (<span class="citation" data-cites="munichre_naturaldisasters2025">Munich Re (<a href="references.html#ref-munichre_naturaldisasters2025" role="doc-biblioref">2025</a>)</span>).</p>
+</section>
+<section id="stop-loss" class="level4" data-number="1.3.2.3">
+<h4 data-number="1.3.2.3" class="anchored" data-anchor-id="stop-loss"><span class="header-section-number">1.3.2.3</span> Stop-loss</h4>
+<p>Stop loss reinsurance is another form of non-proportional reinsurance, in which the reinsurer covers the excess of the aggregate losses of a portfolio over a pre-agreed threshold. Stop loss reinsurance provides protection against the accumulation of numerous small or medium-sized losses that could undermine the financial capability of the insurer.</p>
+<p>In a stop loss agreement, the retention level is defined as a fixed monetary amount or as a loss ratio, that is, a percentage of the earned premiums from the covered business. The reinsurer only becomes liable if the total incurred losses exceed the defined retention level over the contract period. Typically, the contract also identifies a limit over which payments are no longer provided. This type of protection is suitable especially for lines of business with high frequency but typically low losses (like motor insurance), new or volatile lines of business, or for insurers seeking to stabilize underwriting results in adverse years.</p>
+<p>Mathematically, the repayment function of the insurer <span class="math inline">\(X^i\)</span> and of the reinsurer <span class="math inline">\(X^r\)</span> can be expressed as follows:</p>
+<p><span class="math display">\[\begin{equation}
+    X^i=
+    \begin{cases}
+    X^p, &amp; \text{if } X^p \leq \Lambda \\
+    \Lambda, &amp; \text{if } \Lambda &lt; X^p \leq \Lambda+L \\
+    X^p - L, &amp; \text{if } X^p \geq \Lambda + L
+    \end{cases}
+\end{equation}\]</span> <span class="math display">\[\begin{equation}
+    X^r =
+    \begin{cases}
+        0 &amp; \text{if } X^p \leq \Lambda \\
+        X^p - \Lambda &amp; \text{if } \Lambda &lt; X^p &lt; \Lambda + L \\
+        L  &amp; \text{if $X^p \geq \Lambda + L$}  
+    \end{cases}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(X^p\)</span> denotes the total aggregate losses of the primary insurer’s portfolio under the contract, <span class="math inline">\(\Lambda\)</span> is the retention level (defined here as a fixed monetary amount) of the primary insurer, and <span class="math inline">\(L\)</span> is the maximum coverage limit provided by the reinsurer. Note that here <span class="math inline">\(\Lambda\)</span> denotes a monetary retention level, distinct from the dimensionsless retention ratio <span class="math inline">\(\Lambda \in (0,1)\)</span> used in equations <a href="#eq-quota-share-primary" class="quarto-xref"><span>1.1</span></a> and <a href="#eq-quota-share-reinsurer" class="quarto-xref"><span>1.2</span></a>. The same symbol is retained following actuarial convention.</p>
+<p>Stop loss reinsurance is considered among the most complex and carefully negotiated reinsurance arrangements, due to the high complexity arising from several factors. Among those, the definition of covered business is a crucial condition in these agreements, to correctly identify and monitor the retention level. In addition, loss reporting and development might be laborious, as losses must be aggregated from multiple policies and possibly multiple lines of business. These intricate complexities make reinsurers require detailed actuarial projections, robust claims reserving practices, and exhaustive and frequent audit monitoring (<span class="citation" data-cites="swissre2015guide">SwissRe (<a href="references.html#ref-swissre2015guide" role="doc-biblioref">2015</a>)</span>).</p>
+</section>
+</section>
+</section>
+<section id="co-reinsurance-and-layering" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="co-reinsurance-and-layering"><span class="header-section-number">1.4</span> Co-reinsurance and Layering</h2>
+<p>Reinsurance contracts involves high capital commitments, uncertainty regarding potential losses, and complex negotiations due to information asymmetries, agency problems, and moral hazard concerns. To mitigate concentration risk and improve capital efficiency, insurers typically adopt strategies to spread risks among multiple reinsurers. That is why most reinsurance agreements involve the use of <em>co-reinsurance</em> and <em>layering</em>.</p>
+<section id="co-reinsurance" class="level4" data-number="1.4.0.1">
+<h4 data-number="1.4.0.1" class="anchored" data-anchor-id="co-reinsurance"><span class="header-section-number">1.4.0.1</span> Co-reinsurance</h4>
+<p>Co-reinsurance refers to the practice in which multiple reinsurers underwrite the same layer of a given risk, each assuming a specified percentage share of the liability. The reinsurers involved in the agreement participate collectively in both claim settlement and premium sharing, based on the proportion of the contract.</p>
+<p>This approach allows the primary insurer to reduce its counterparty risk, by not relying on a single reinsurer for a specific layer, and is particularly used in the coverage for high-severity portfolios with large aggregate exposures. For example, consider an insurer ceding any losses exceeding €100,000 to a co-reinsurance agreement involving three reinsurers. If the loss incurred by the insurer is €280,000, the €180,000 in excess will be split equally between reinsurers, with a €60,000 claim each. However, co-reinsurance can also be concurred with asymmetric participation, in which the total loss in excess of the retention level, the share underwritten by each reinsurer varies. <a href="#fig-co_reinsurance" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> provides a graphical representation of the different contributions of reinsurers in the symmetric and asymmetric agreements for the same claim size.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-co_reinsurance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-co_reinsurance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter1_files/figure-html/fig-co_reinsurance-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-co_reinsurance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Representation of the division of claims between the reinsurers in the case of symmetric (a) and asymmetric (b) co-reinsurance.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-layering" class="level4" data-number="1.4.0.2">
+<h4 data-number="1.4.0.2" class="anchored" data-anchor-id="multi-layering"><span class="header-section-number">1.4.0.2</span> Multi layering</h4>
+<p>In contrast to co-reinsurance, multi-layering involves structuring the reinsurance program in distinct tranches to multiple reinsurers, who cover different layers of loss. These contracts are typically of non-proportional form, such as excess of loss or stop loss reinsurance.</p>
+<p>Under a layering strategy, the primary insurer retains losses up to a predefined retention level. Losses that exceed this level are passed sequentially to reinsurers responsible for specific ranges or layers. Thus, each reinsurer faces different risk exposures, with different severity and probability, depending on the covered layer. This setup is ideal to construct a tailored risk-transfer structure, with low-severity claims being managed internally or through lower layers, while high-severity, but with low-frequency losses are transferred to reinsurers willing to assume tail risks, as represented in <a href="#fig-multi-layer" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>. Separating total liability into distinct layers increases the attractiveness of the entire contract, since it allows each reinsurer to choose the degree of volatility and exposure it seeks, and also reduces each reinsurer’s risk, since they are only responsible for the part of the loss included in the layer (<span class="citation" data-cites="boyer2015structure">Boyer and Dupont-Courtade (<a href="references.html#ref-boyer2015structure" role="doc-biblioref">2015</a>)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-multi-layer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-multi-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter1_files/figure-html/fig-multi-layer-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-multi-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Probability density of the random claim payment of a policy with multiple layers covered by different reinsurers. Higher layers correspond to higher claim size and higher risk taken.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-reinsurance-market" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="the-reinsurance-market"><span class="header-section-number">1.5</span> The Reinsurance Market</h2>
+<p>The previous sections have outlined the functional mechanics of reinsurance, from facultative placement to complex treaty layers. However, to fully grasp the role of reinsurance in the global economy, one must view it not as a collection of isolated bilateral agreements, but as a dense, interconnected market structure, absorbing volatility for primary insurers and redistributing it across a global network of capital.</p>
+<section id="sec-market" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="sec-market"><span class="header-section-number">1.5.1</span> Market Volume and Capitalization</h3>
+<p>As of 2025, the global reinsurance market has continued its trajectory of robust growth. The total dedicated reinsurance capital has reached approximately $766 billion, driven by both traditional equity capital and a surging alternative capital structure (<span class="citation" data-cites="GallagherRe2024">Gallagher Re (<a href="references.html#ref-GallagherRe2024" role="doc-biblioref">2024</a>)</span>). The market has seen a particular expansion in third-party capital, which is estimated to exceed $144 billion, largely fueled by record issuance of Catastrophe Bonds (Cat Bonds) and other Insurance-Linked Securities (ILS) (<span class="citation" data-cites="swissre2025catnat">Banerjee et al. (<a href="references.html#ref-swissre2025catnat" role="doc-biblioref">2025</a>)</span>). This influx of capital has led to a “softening” of pricing in certain retrocession markets during the mid-2025 renewals, creating a favorable environment for buyers despite the increase in frequency of loss events.</p>
+<p>With the rise of ILS, the distinction between traditional reinsurance and capital market has blurred. By securitizing insurance risks into tradeable assets like Cat Bonds, the industry has tapped into a deeper pool of institutional capital. While this collateralized retrocession mitigates some counterparty risk, it also links the insurance market more directly to broader financial market trends, potentially correlating insurance losses with financial market liquidity shocks.</p>
+<p>ILS is just another form of retrocession of risk, a defining feature of this market. This creates a multi-layered web of liabilities where risk is not merely transferred but circulated. A primary insurer may cede risk to Reinsurer A, who retrocedes a portion to Reinsurer B, who might, in turn, pass it to an ILS fund or even back to a subsidiary of Reinsurer A. This phenomenon, known as “retrocession spiral”, can obscure the true accumulation of risk. Although retrocession is vital for capital efficiency, it introduces significant counterparty risk and opacity. As noted by <span class="citation" data-cites="swissre2015guide">SwissRe (<a href="references.html#ref-swissre2015guide" role="doc-biblioref">2015</a>)</span> and expanded in recent network literature (<span class="citation" data-cites="BATTISTON2012">Battiston et al. (<a href="references.html#ref-BATTISTON2012" role="doc-biblioref">2012</a>)</span>), the failure of major retrocessionaires could trigger a cascade of defaults, transmitting financial distress across the entire network, as happened in the London Market Spiral in the late 1980s. This interconnectedness makes the reinsurance market a complex financial network, where the stability of the whole depends also on the resilience of its most connected and exposed nodes.</p>
+<p>It is worth noting, despite the new business model and financial products that insurance and reinsurance companies have begun to offer, their core model remains substantially different from that of the typical banking sector. The consequences for the regulatory regimes, the supervisory authorities, and the systemic risk that characterize the industry therefore differ significantly. As banks take in short-term callable deposit and convert them into long-term, illiquid loans, borrowing short and lending long, insurance and reinsurance companies do the reverse. They collect premiums up front and pay claims later, which makes these institution pre-funded by construction. Moreover, their liabilities are not callable on demand, as banks’ deposits are, but are paid only in the event of a claim. Substituability is also higher than the banking sector: if an underwriter fails, its capacity can usually be replaced by competitors.</p>
+<p>These differences between the banking and (re)insurance business models imply that the two sectors are governed by different regulatory regimes, with different systemic measures and supervisory activities. The next section briefly introduces the regulatory architecture of the (re)insurance sector.</p>
+</section>
+<section id="regulatory-framework" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="regulatory-framework"><span class="header-section-number">1.5.2</span> Regulatory Framework</h3>
+<p>Reinsurance is not governed by a dedicated “reinsurance regulator”; reinsurers are instead supervised as insurance undertakings under the same prudential regimes that apply under primary insurers, with an additional systemic risk overlay imposed when a firm is large and internationally active. Four overlapping layers can be distinguished: - The <strong>Financial Stability Board (FSB)</strong> determines whether and how the insurance sector is treated as a source of global systemic risk, and it owns the cross-sector resolution standard embodied in the <em>Key Attributes of Effective Resolution Regimes</em>. - The <strong>International Association of Insurance Supervisors (IAIS)</strong> builds the technical framework to assess the systemic importance and draft the Insurance Core Principles - Regional and jurisdictional prudential regimes, such as Solvency II in the European Union and the UK, or the NAIC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> in the US, set the binding capital and supervisory requirements that apply to firms. - Finally, a layer of group-wide supervision for <strong>internationally active insurance groups (IAIG)</strong>, which sits above solo-entities and is the specific target of the Insurance Capital Standards.</p>
+<p>The regulatory assessment of the insurance sector and its systemic risk has evolved over the years. Initial investigations of key systemic institution in the reinsurance sector were performed using entity-based approach The FSB, applying the IAIS methodology, designated nine Global Systemically Important Insurers (G-SIIs), keeping this list updated from 2013 to 2016. However, no reinsurer was ever identified as G-SII. Systemic importance was scored against five categories under a weighting scheme that assigned 45% of the weight to Non-Traditional Non-Insurance activities (NTNI) and a further 40% to interconnectedness, with size accounting only for 5% of the weight, inverting the G-SIB methodology used to identify systemically important banks.</p>
+<p>As entity-based approach received numerous critiques, since 2019 the IAIS adopted an <em>activity-based</em> approach, recognising that systemic risk can arise from the collective exposures of many insurers rather than only from the disorderly failure of one. It rests on an enhanced set of macroprudential supervisory measures embedded in the Insurance Core Principles; on an annual, data-driven Global Monitoring Exercise that scans the sector for build-ups of risk; and an assessment of whether supervisors can apply the measures.</p>
+<p>Running alongside the systemic-risk overlay, the European Union and the UK adopted the Sovlency II to constrain firms. It is based on three pillars - quantitative requirements calibrated to a 99.5% one-year Value-at-Risk, internal control and Own Risk and Solvency Assessment, and mandatory disclosure - and subjects reinsurers to the same requirements of primary insurers. Reinsurance serves as a risk mitigation tool, allowing a cedant to reduce its capital requirements, while simultaneously creating a new counterparty risk, captured in the counterparty-default-risk module. The system becomes safer as the risk is not eliminated, but spreaded into the system.</p>
+<p>However, these regulatory frameworks focus on the ability of reinsurers to sustain an extremely rare loss, calibrating their measures to solvency rather than to contagion. The works that follows tries to measures this quantity, trying to bridge an opaque questions.</p>
+</section>
+<section id="future-challenges" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="future-challenges"><span class="header-section-number">1.5.3</span> Future Challenges</h3>
+<p>Before proceeding further, it is notable to identify the challenges that the reinsurance sector faces in 2026 and in the coming years, as the multi-crisis environment with traditional natural catastrophe risks are compounded by emerging and evolving threats:</p>
+<ul>
+<li><p><strong>Climate Change and Secondary Perils</strong>: The industry is witnessing a structural shift where secondary perils are becoming primary drivers of loss. Global insured losses from natural catastrophes are projected to reach $145 billion in 2025, with climate change acting as a “permanent stress test” on portfolio resilience (<span class="citation" data-cites="swissre2025catnat">Banerjee et al. (<a href="references.html#ref-swissre2025catnat" role="doc-biblioref">2025</a>)</span>).</p></li>
+<li><p><strong>Cyber Risk</strong>: Cyber coverage represents a unique systemic threat due to its lack of geographical boundaries and rapidly evolving technologies. The cyber insurance market is expanding rapidly, with global written premiums amounting to $15 billion for the year 2024, an increase of 7% from the previous year (<span class="citation" data-cites="naic2025cybersecurity">National Association of Insurance Commissioners (<a href="references.html#ref-naic2025cybersecurity" role="doc-biblioref">2025</a>)</span>). Between 50 to 65% of the premiums coming from cyber security policies are ceded to reinsurers, highlighting the crucial role of the reinsurers’ sector in sustaining market capacity, but increasing the potential for accumulation risk — where a single event (e.g., a cloud service outage) triggers simultaneous claims globally — and creating difficulties in monitoring the portfolios of primary insurers, posing concrete challenges to control aggregation and capacity risks.</p></li>
+<li><p><strong>Artificial Intelligence (AI)</strong>: AI presents a dual-edged challenge. While it enhances underwriting efficiency, it also introduces new liability landscapes (e.g., algorithmic bias, deepfakes) and empowers more sophisticated cyber-attacks, creating volatile risk profiles that lack historical data for accurate pricing.</p></li>
+</ul>
+<p>The complexity described above - where financial interconnectedness meets evolving, unmodeled risks - challenges traditional “siloed” analysis methods. The debate regarding the systemic nature of reinsurance is ongoing. Traditional views, grounded in the pre-funded, loss-indemnity nature of insurance liabilities, argue that core insurance liabilities pose limited systemic risk (<span class="citation" data-cites="cummins_weiss2014">Cummins and Weiss (<a href="references.html#ref-cummins_weiss2014" role="doc-biblioref">2014</a>)</span>, geneva2010). Unlike banks, insurers do not engage in maturity transformation, and policyholder claims are subject to contingent claims. However, as <span class="citation" data-cites="cummins_weiss2014">Cummins and Weiss (<a href="references.html#ref-cummins_weiss2014" role="doc-biblioref">2014</a>)</span> demonstrate, this assessment breaks down when insurers engage in non-traditional activities - derivatives trading, financial guarantees, structured securities underwriting - and, critically, when interconnectedness of reinsurance and retrocession networks creates channels through which localized distress can propagate.</p>
+<p>The reinsurance structures described in the preceding sections translate directly into such contagion channels. When a primary insurer cedes risk via a proportional treaty, its solvency becomes partially contingent on the reinsurer’s ability to honor claims. In layered excess-of-loss programs, the failure of a reinsurer covering a layer of the agreement exposes the cedant to unhedged tail risk. The retrocession spiral described in <a href="#sec-market" class="quarto-xref"><span>Section 1.5.1</span></a> compounds this: risk is not eliminated but redistributed through bilateral obligations, where the ultimate bearer of risk is often unidentifiable from publicly available data (<span class="citation" data-cites="BATTISTON2012">Battiston et al. (<a href="references.html#ref-BATTISTON2012" role="doc-biblioref">2012</a>)</span>, park2019). As <span class="citation" data-cites="chen2014">Chen, Iyengar, and Moallemi (<a href="references.html#ref-chen2014" role="doc-biblioref">2013</a>)</span> show, this network opacity means that the failure of a node can trigger cascading reassessment of counterparty exposure, amplifying an initial shock behind what aggregate statistics would predict.</p>
+<p>The lack of transparency of retrocession networks poses a fundamental empirical challenge: bilateral reinsurance exposures are proprietary and unavailable by researchers. This motivates the use of market-based data to infer connectedness. Following <span class="citation" data-cites="billio2012">Billio et al. (<a href="references.html#ref-billio2012" role="doc-biblioref">2012</a>)</span>, who demonstrate that statistical associations in stock returns capture meaningful linkages between financial institutions, this thesis employs equity return volatility as a proxy for the latent risk transfer relationships described above. It must be acknowledged, however, that <span class="citation" data-cites="billio2012">Billio et al. (<a href="references.html#ref-billio2012" role="doc-biblioref">2012</a>)</span> study <em>banks and hedge funds</em>: in that context, equity co-movement plausibly reflects interbank lending and derivative exposure. For reinsurers, co-movement may instead reflect shared catastrophe-event exposure, common investment portfolio marks, or index membership. <span class="citation" data-cites="acharya2017">Acharya et al. (<a href="references.html#ref-acharya2017" role="doc-biblioref">2016</a>)</span> further validate market-based systemic risk measures for the banking sector; their applicability to reinsurers rests on the non-traditional activity channels. Documented by <span class="citation" data-cites="cummins_weiss2014">Cummins and Weiss (<a href="references.html#ref-cummins_weiss2014" role="doc-biblioref">2014</a>)</span>, which create bank-like contagion pathways. While equity volatility remains an imperfect proxy, it constitutes the best available market-observable signal given the proprietary nature of reinsurance treaty data.</p>
+<p>Therefore the following chapters adopt the Generalized Forecast Error Variance Decomposition (GFEVD) framework of (<span class="citation" data-cites="dieboldyilmaz2014">Diebold and Yılmaz (<a href="references.html#ref-dieboldyilmaz2014" role="doc-biblioref">2014</a>)</span>), embedded within a Bayesian Vector Autoregression (BVAR) model. The GFEVD decomposes the forecast error variance of each reinsurer’s volatility into contributors from all others, yielding a directed, weighted adjacency matrix that approximates the network of volatility spillovers. The resulting network is then analyzed using graph-theoretic methods to identify which reinsurers occupy structurally critical position, and whether the global reinsurance market exhibits the hub-dominated, disassortative topology that would make it vulnerable to targeted shocks (<span class="citation" data-cites="battiston2016">Battiston et al. (<a href="references.html#ref-battiston2016" role="doc-biblioref">2016</a>)</span>).</p>
+<hr>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-acharya2017" class="csl-entry" role="listitem">
+Acharya, Viral V., Lasse H. Pedersen, Thomas Philippon, and Matthew Richardson. 2016. <span>“Measuring Systemic Risk.”</span> <em>The Review of Financial Studies</em> 30 (1): 2–47. <a href="https://doi.org/10.1093/rfs/hhw088">https://doi.org/10.1093/rfs/hhw088</a>.
+</div>
+<div id="ref-swissre2025catnat" class="csl-entry" role="listitem">
+Banerjee, Chandan, Lucia Bevere, Michael Ewald, Erik Lindgren, and Mahesh Puttaiah. 2025. <span>“Natural Catastrophes: Insured Losses on Trend to USD 145 Billion in 2025.”</span> sigma 1/2025. Swiss Re Institute. <a href="https://www.swissre.com/institute/research/sigma-research/sigma-2025-01-natural-catastrophes-trend.html">https://www.swissre.com/institute/research/sigma-research/sigma-2025-01-natural-catastrophes-trend.html</a>.
+</div>
+<div id="ref-battiston2016" class="csl-entry" role="listitem">
+Battiston, Stefano, J. Doyne Farmer, Andreas Flache, Diego Garlaschelli, Andrew G. Haldane, Hans Heesterbeek, Cars Hommes, Carlo Jaeger, Robert May, and Marten Scheffer. 2016. <span>“Complexity Theory and Financial Regulation.”</span> <em>Science</em> 351 (6275): 818–19. <a href="https://doi.org/10.1126/science.aad0299">https://doi.org/10.1126/science.aad0299</a>.
+</div>
+<div id="ref-BATTISTON2012" class="csl-entry" role="listitem">
+Battiston, Stefano, Domenico Delli Gatti, Mauro Gallegati, Bruce Greenwald, and Joseph E. Stiglitz. 2012. <span>“Default Cascades: When Does Risk Diversification Increase Stability?”</span> <em>Journal of Financial Stability</em> 8 (3): 138–49. https://doi.org/<a href="https://doi.org/10.1016/j.jfs.2012.01.002">https://doi.org/10.1016/j.jfs.2012.01.002</a>.
+</div>
+<div id="ref-billio2012" class="csl-entry" role="listitem">
+Billio, Monica, Getmansky Mila, Andrew W. Lo, and Loriana Pelizzon. 2012. <span>“Econometric Measures of Connectedness and Systemic Risk in the Finance and Insurance Sectors.”</span> <em>Journal of Financial Economics</em> 104 (3): 535–59. <a href="https://doi.org/10.1016/j.jfineco.2011.12.010">https://doi.org/10.1016/j.jfineco.2011.12.010</a>.
+</div>
+<div id="ref-boyer2015structure" class="csl-entry" role="listitem">
+Boyer, Martin, and Théodora Dupont-Courtade. 2015. <span>“The Structure of Reinsurance Contracts.”</span> <em>The Geneva Papers on Risk and Insurance Issues and Practice</em> 40 (May). <a href="https://doi.org/10.1057/gpp.2015.2">https://doi.org/10.1057/gpp.2015.2</a>.
+</div>
+<div id="ref-chen2014" class="csl-entry" role="listitem">
+Chen, Chen, Garud Iyengar, and Ciamac C. Moallemi. 2013. <span>“An Axiomatic Approach to Systemic Risk.”</span> <em>Management Science</em> 59 (6): 1373–88. <a href="https://doi.org/10.1287/mnsc.1120.1631">https://doi.org/10.1287/mnsc.1120.1631</a>.
+</div>
+<div id="ref-cummins_weiss2014" class="csl-entry" role="listitem">
+Cummins, J. David, and Mary A. Weiss. 2014. <span>“Systemic Risk and the u.s. Insurance Sector.”</span> <em>Journal of Risk and Insurance</em> 81 (3): 489–528. https://doi.org/<a href="https://doi.org/10.1111/jori.12039">https://doi.org/10.1111/jori.12039</a>.
+</div>
+<div id="ref-dieboldyilmaz2014" class="csl-entry" role="listitem">
+Diebold, Francis X., and Kamil Yılmaz. 2014. <span>“On the Network Topology of Variance Decompositions: Measuring the Connectedness of Financial Firms.”</span> <em>Journal of Econometrics</em> 182 (1): 119–34. https://doi.org/<a href="https://doi.org/10.1016/j.jeconom.2014.04.012">https://doi.org/10.1016/j.jeconom.2014.04.012</a>.
+</div>
+<div id="ref-froot1993" class="csl-entry" role="listitem">
+Froot, Kenneth A., David S. Scharfstein, and Jeremy C. Stein. 1993. <span>“Risk Management: Coordinating Corporate Investment and Financing Policies.”</span> <em>The Journal of Finance</em> 48 (5): 1629–58. https://doi.org/<a href="https://doi.org/10.1111/j.1540-6261.1993.tb05123.x">https://doi.org/10.1111/j.1540-6261.1993.tb05123.x</a>.
+</div>
+<div id="ref-GallagherRe2024" class="csl-entry" role="listitem">
+Gallagher Re. 2024. <span>“Reinsurance Market Report: Mid-Year 2025 Analysis.”</span> Gallagher Re. <a href="https://www.ajg.com/gallagherre/">https://www.ajg.com/gallagherre/</a>.
+</div>
+<div id="ref-mayers_smith1982" class="csl-entry" role="listitem">
+Mayers, David, and Clifford W. Smith. 1982. <span>“On the Corporate Demand for Insurance.”</span> <em>The Journal of Business</em> 55 (2): 281–96. <a href="http://www.jstor.org/stable/2352704">http://www.jstor.org/stable/2352704</a>.
+</div>
+<div id="ref-modigliani1958" class="csl-entry" role="listitem">
+Modigliani, Franco, and Merton H. Miller. 1958. <span>“The Cost of Capital, Corporation Finance and the Theory of Investment.”</span> <em>The American Economic Review</em> 48 (3): 261–97. <a href="http://www.jstor.org/stable/1809766">http://www.jstor.org/stable/1809766</a>.
+</div>
+<div id="ref-munichre_naturaldisasters2025" class="csl-entry" role="listitem">
+Munich Re. 2025. <span>“Natural Disaster Risks — Rising Trend in Losses.”</span> <a href="https://www.munichre.com/en/risks/natural-disasters.html" class="uri">https://www.munichre.com/en/risks/natural-disasters.html</a>.
+</div>
+<div id="ref-naic2025cybersecurity" class="csl-entry" role="listitem">
+National Association of Insurance Commissioners. 2025. <span>“Report on the Cybersecurity Insurance Market.”</span> National Association of Insurance Commissioners.
+</div>
+<div id="ref-outerville1998theory" class="csl-entry" role="listitem">
+Outreville, J. 1998. <em>Theory and Practice of Insurance</em>. <a href="https://doi.org/10.1007/978-1-4615-6187-3">https://doi.org/10.1007/978-1-4615-6187-3</a>.
+</div>
+<div id="ref-plantin_rochet2007" class="csl-entry" role="listitem">
+Plantin, Guillame, and Jean-Charles Rochet. 2007. <em>When Insurers Go Bust</em>. Princenton University Press.
+</div>
+<div id="ref-regele2022" class="csl-entry" role="listitem">
+Regele, Fabian. 2022. <span>“Insurance Business Diversification and Systemic Risk.”</span> <em>Journal of Insurance Regulation</em>, Journal of insurance regulation, no. 41: 16–17. https://doi.org/<a href="https://doi.org/10.52227/25441.2022">https://doi.org/10.52227/25441.2022</a>.
+</div>
+<div id="ref-rejda2021principles" class="csl-entry" role="listitem">
+Rejda, George E., and Michael J. McNamara. 2021. <em>Principles of Risk Management and Insurance</em>. 14th ed. Boston: Pearson.
+</div>
+<div id="ref-swissre2015guide" class="csl-entry" role="listitem">
+SwissRe. 2015. <span>“The Essential Guide to Reinsurance.”</span> Swisse Re Institution.
+</div>
+<div id="ref-thompson1966reinsurance" class="csl-entry" role="listitem">
+Thompson, K. R. 1966. <em>Reinsurance: A Digest on Some Aspects of the Practice of Reinsurance and Excess Insurance and a Legal Treatise on the Subject</em>. The Spectator. <a href="https://books.google.it/books?id=Rr7uAAAAMAAJ">https://books.google.it/books?id=Rr7uAAAAMAAJ</a>.
+</div>
+<div id="ref-webb1984insurance" class="csl-entry" role="listitem">
+Webb, B. L., American Institute for Property, and Liability Underwriters. 1984. <em>Insurance Company Operations</em>. Insurance Company Operations, v. 1. American Institute for Property; Liability Underwriters. <a href="https://books.google.it/books?id=Z5Sa8ZaG7gUC">https://books.google.it/books?id=Z5Sa8ZaG7gUC</a>.
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>National Association of Insurance Commissioners<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./introduction.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter2.html" class="pagination-link" aria-label="Methodology and Data">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

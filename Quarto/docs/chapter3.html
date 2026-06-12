@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrea De Bortoli">
+
+<title>3&nbsp; Static Network Analysis – Volatility Connectedness and Network Topology in the Reinsurance Sector</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter4.html" rel="next">
+<link href="./chapter2.html" rel="prev">
+<link href="./UNIVE_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Volatility Connectedness and Network Topology in the Reinsurance Sector</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/adb-coding/network-connectedness-volatility-spillover" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Volatility-Connectedness-and-Network-Topology-in-the-Reinsurance-Sector.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Thesis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Reinsurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Systemic Importance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Chapter 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./app-ch5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Chapter 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#robustness-analysis" id="toc-robustness-analysis" class="nav-link" data-scroll-target="#robustness-analysis"><span class="header-section-number">3.2</span> Robustness Analysis</a>
+  <ul class="collapse">
+  <li><a href="#network-topology" id="toc-network-topology" class="nav-link" data-scroll-target="#network-topology"><span class="header-section-number">3.2.1</span> Network Topology</a></li>
+  <li><a href="#node-centrality" id="toc-node-centrality" class="nav-link" data-scroll-target="#node-centrality"><span class="header-section-number">3.2.2</span> Node Centrality</a></li>
+  <li><a href="#community-structure" id="toc-community-structure" class="nav-link" data-scroll-target="#community-structure"><span class="header-section-number">3.2.3</span> Community Structure</a></li>
+  </ul></li>
+  <li><a href="#global-topology-measure" id="toc-global-topology-measure" class="nav-link" data-scroll-target="#global-topology-measure"><span class="header-section-number">3.3</span> Global Topology Measure</a>
+  <ul class="collapse">
+  <li><a href="#network-density" id="toc-network-density" class="nav-link" data-scroll-target="#network-density"><span class="header-section-number">3.3.1</span> Network Density</a></li>
+  <li><a href="#average-path-length" id="toc-average-path-length" class="nav-link" data-scroll-target="#average-path-length"><span class="header-section-number">3.3.2</span> Average Path Length</a></li>
+  <li><a href="#diameter" id="toc-diameter" class="nav-link" data-scroll-target="#diameter"><span class="header-section-number">3.3.3</span> Diameter</a></li>
+  <li><a href="#assortativity" id="toc-assortativity" class="nav-link" data-scroll-target="#assortativity"><span class="header-section-number">3.3.4</span> Assortativity</a></li>
+  </ul></li>
+  <li><a href="#micro-prudential-analysis-node-centrality" id="toc-micro-prudential-analysis-node-centrality" class="nav-link" data-scroll-target="#micro-prudential-analysis-node-centrality"><span class="header-section-number">3.4</span> Micro-Prudential Analysis: Node Centrality</a>
+  <ul class="collapse">
+  <li><a href="#strength" id="toc-strength" class="nav-link" data-scroll-target="#strength"><span class="header-section-number">3.4.1</span> Strength</a></li>
+  <li><a href="#betweenness-centrality" id="toc-betweenness-centrality" class="nav-link" data-scroll-target="#betweenness-centrality"><span class="header-section-number">3.4.2</span> Betweenness Centrality</a></li>
+  <li><a href="#eigenvector-centrality" id="toc-eigenvector-centrality" class="nav-link" data-scroll-target="#eigenvector-centrality"><span class="header-section-number">3.4.3</span> Eigenvector Centrality</a></li>
+  <li><a href="#pagerank" id="toc-pagerank" class="nav-link" data-scroll-target="#pagerank"><span class="header-section-number">3.4.4</span> PageRank</a></li>
+  <li><a href="#hubs-and-authorities" id="toc-hubs-and-authorities" class="nav-link" data-scroll-target="#hubs-and-authorities"><span class="header-section-number">3.4.5</span> Hubs and Authorities</a></li>
+  </ul></li>
+  <li><a href="#clustering-and-community-detection" id="toc-clustering-and-community-detection" class="nav-link" data-scroll-target="#clustering-and-community-detection"><span class="header-section-number">3.5</span> Clustering and Community Detection</a>
+  <ul class="collapse">
+  <li><a href="#clustering-coefficient---transitivity" id="toc-clustering-coefficient---transitivity" class="nav-link" data-scroll-target="#clustering-coefficient---transitivity"><span class="header-section-number">3.5.1</span> Clustering Coefficient - Transitivity</a></li>
+  <li><a href="#community-detection" id="toc-community-detection" class="nav-link" data-scroll-target="#community-detection"><span class="header-section-number">3.5.2</span> Community Detection</a></li>
+  </ul></li>
+  <li><a href="#summary-and-key-findings" id="toc-summary-and-key-findings" class="nav-link" data-scroll-target="#summary-and-key-findings"><span class="header-section-number">3.6</span> Summary and Key Findings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1.html">Thesis</a></li><li class="breadcrumb-item"><a href="./chapter3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chapter3" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Static Network Analysis</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andrea De Bortoli </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>In this chapter, we report the results of the application of the methodology presented previously. We start by analyzing the outcomes of the BVAR model on the reinsurers’ volatility and the connectedness table derived from the generalized forecast error variance decomposition (GFEVD), then we move to the network analysis of the reinsurance market, reporting the global topology measures and the connections between market players. We proceed then to a micro-prudential analysis of the network, assessing the key central reinsurers and their systemic importance, to later move on community detection and cluster analysis.</p>
+<p>In this research the network is defined as a graph <span class="math inline">\(G = (V, E)\)</span> where</p>
+<ul>
+<li><span class="math inline">\(V\)</span> is the set of nodes representing the reinsurance companies selected for the study</li>
+<li><span class="math inline">\(E\)</span> is the set of edges representing pairwise forecast error variance contributions between companies</li>
+</ul>
+<p>The weighted directed network is constructed on the adjacency matrix deriving from the BVAR model applied to the Yang-Zhang log-volatility and the GFEVD over a time horizon of 10 days. To construct the network topology, in which the directions of the edges represent the explanation of variance (from source to target), the adjacency matrix was transposed<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Consequently, a directed edge from company <span class="math inline">\(j\)</span> to company <span class="math inline">\(i\)</span> reflects the proportion of <span class="math inline">\(i\)</span>’s forecast error variance explained by <span class="math inline">\(j\)</span>, ensuring that the out-strength captures a firm’s variance contribution. The graph <span class="math inline">\(G_{full}\)</span> consists of <span class="math inline">\(|V| = 27\)</span> nodes and <span class="math inline">\(|E|=702\)</span> edges. The connections between nodes are presented in Table <span class="math inline">\(\ref{tab:conn_tab}\)</span>, where entry <span class="math inline">\(A_{ij}\)</span> represents the pairwise relationship between company <span class="math inline">\(i\)</span> and company <span class="math inline">\(j\)</span>, or in graphical terms the weight of the edge <span class="math inline">\(E\)</span> that quantifies the proportion of company <span class="math inline">\(i\)</span>’s forecast error variance attributable to changes in company <span class="math inline">\(j\)</span>. The cross diagonal elements, <span class="math inline">\(A_{ii}\)</span> represent the forecast error variance explained by its own forecast, while row sums (<span class="math inline">\(\sum_{j, j\neq i}^n A_{ij}\)</span>) represent the proportion of each reinsurer’s forecast error variance explained by other reinsurers, and column sums (<span class="math inline">\(\sum_{i,i\neq j}^nA_{ij}\)</span>) represent each company’s contribution to explaining the system’s aggregate forecast error variance. The total connectedness index (<span class="math inline">\(C^H = 74.278\)</span>) is the rightmost entry and represents the total level of interconnectedness within the network. A value of this magnitued means that roughly three-quarters of the total volatility forecast-error variance in the system is cross-firm spillover and only about a quarter is idiosyncratic: from the market’s standpoint the global reinsurance sector act almost as a single risk pool.</p>
+<p><a href="#fig-weight_distribution" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> illustrates the distribution of edge weights in the <span class="math inline">\(G_{full}\)</span>. The distribution exhibits positive skewness, with a mean of <span class="math inline">\(\mu = 2.857\)</span> (<span class="math inline">\(\sigma =2.118\)</span>). The majority of pairwise connections are relatively weak, while a small number of edges in the right tail represent the strongest variance contribution relationships.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-weight_distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-weight_distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-weight_distribution-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-weight_distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Distribution of the pairwise connectedness weights in <span class="math inline">\(G_{full}\)</span>. The dashed red line indicates the mean, dotted orange lines represent the 1 standard deviation. The right-skewed distribution shows that most connections are weak, with few strong linkages driving system connectedness.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#tbl-top_pairwise_connection" class="quarto-xref">Table&nbsp;<span>3.1</span></a> reports the 15 strongest pairwise connections of the network, with the highest value estimated at <span class="math inline">\(18.1568323\)</span>. Interestingly, the first 6 records are all between Japanese companies, with values <span class="math inline">\(&gt; 10\)</span>, while all the other strongest connections are between European companies. This indicates a strong statistical connectedness within the Japanese market, where the forecast error variance is predominantly explained by the variance within the market, while American companies show lower pairwise variance contributions. The Japanese links reflect a tightly coupled, largely self-contained regional block whose firms explain each other’s volatility without exporting it to the global system, whereas the European links form the global backbone, since these firms set the worldwide reinsurance pricing and capacity at the major renewals and their volatility leads the system.</p>
+<div class="cell">
+<div id="tbl-top_pairwise_connection" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top_pairwise_connection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Ranked list of the 15 strongest pairwise connections.
+</figcaption>
+<div aria-describedby="tbl-top_pairwise_connection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">From</th>
+<th style="text-align: left;">To</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">18.157</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">17.422</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">13.348</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">12.013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">11.334</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">10.722</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">10.012</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">9.023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">8.922</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">8.550</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">8.529</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">8.434</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">8.378</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">8.374</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">8.296</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The Diebold-Yilmaz framework, by construction, produces a complete network, where all companies are connected to each other and contribute to explaining each other’s forecast error variance. To better represent and conduct financial network analysis and to consider only weights that show some impact on other market participants, we applied a threshold to the weights of the connections, where only the edges with weight above the <span class="math inline">\(50^{th}\)</span> percentile are considered. The 50th percentile threshold serves as filter to separate the signal (structural transmission channels) from the noise (negligible spillovers). By focusing on the upper half of the distribution, we isolate the effective network where changes in forecast error variance are economically meaningful. This construction and the topology of the network itself allow us to perform deeper and more detailed analysis, otherwise unattainable. The network obtained, <span class="math inline">\(G_{sparse}\)</span>, still comprises the 27 reinsurance companies, but the number of edges is reduced to <span class="math inline">\(351\)</span>, and from now on it is the base model considered for further examinations. The choice of the 50th percentile as threshold is validated through robustness analysis presented in the following section, where we demonstrated that the key findings remain stable across alternative thresholds (<span class="math inline">\(25^{th}\)</span> and <span class="math inline">\(75^{th}\)</span> percentile).</p>
+</section>
+<section id="robustness-analysis" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="robustness-analysis"><span class="header-section-number">3.2</span> Robustness Analysis</h2>
+<p>In this section, we present the robustness analysis to assess whether the key findings that are later presented are sensitive to the choice of threshold and to validate the 50th percentile threshold selection. A robust result should exhibit qualitative consistency (same directional findings) and quantitative stability (high rank correlations) across alternative thresholds. We consider Spearman’s rank correlations of companies for the 25th, 50th, and 75th percentiles of the weight distribution. We define a stability threshold of <span class="math inline">\(\rho &gt; 0.85\)</span> as indicating robust stability for the different threshold. This criterion is conservative, exceeding the standard statistical benchmark for a “very strong” relationship (<span class="math inline">\(\rho &gt; 0.8\)</span>) proposed by <span class="citation" data-cites="Evans1996">Evans (<a href="references.html#ref-Evans1996" role="doc-biblioref">1996</a>)</span>. A correlation above 0.85 ensures that the identification of the most systemically important insurers remains consistent regardless of the thresholding choice.</p>
+<p>The total connections between nodes for the three graphs reduce to 526 for the <span class="math inline">\(25^{th}\)</span> , 351 for the <span class="math inline">\(50^{th}\)</span>, and 176 for the <span class="math inline">\(75^{th}\)</span> quantile thresholds, corresponding to an edge density of 75%, 50%, and 25% respectively. The metrics analyzed to test the robustness and stability of the method are the topologies and micro-prudential level statistics, to identify the key variance contributors and recipients, and the community detection and creation. The results obtained were then compared by assessing similarity through ranks correlation.</p>
+<section id="network-topology" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="network-topology"><span class="header-section-number">3.2.1</span> Network Topology</h3>
+<p><a href="#tbl-robustness_topology" class="quarto-xref">Table&nbsp;<span>3.2</span></a> presents the key topological measures across the different thresholded networks. By construction, the average path length and the diameter vary significantly, due to the different densities of the networks. The <span class="math inline">\(25^{th}\)</span> percentile network shows a dense interconnected structure with a strong core interconnected with the peripheral nodes (<span class="math inline">\(L = 0.419\)</span>, <span class="math inline">\(D= 1.169\)</span>). Instead, for the <span class="math inline">\(75^{th}\)</span> percentile network, the metrics indicate a less efficient flow, with an average path length of approximately 10 steps to connect distant node pairs. The maximum geodesic distance (<span class="math inline">\(D = 1.0741362\)</span>) indicates greater isolation for peripheral nodes; this value exceeds the node count because diameter in weighted network is measured in inverse-weighted units rather than hop count, reflecting the cumulative distance along paths with weak connections.</p>
+<p>Strength-based assortativity remained consistent across the three networks, showing slightly disassortative behavior. With a value of <span class="math inline">\(r = -0.146\)</span>, the <span class="math inline">\(75^{th}\)</span> percentile network exhibited the strongest disassortative signal, suggesting that the structure best captures the hub-spoke transmission patterns, while the 25th percentile thresholded network showed a value of <span class="math inline">\(r_{25} = -0.097\)</span>, very close to the <span class="math inline">\(r_{50} = -0.116\)</span> of the <span class="math inline">\(50^{th}\)</span> percentile network. This behavior reflects either noise inclusion (<span class="math inline">\(25^{th}\)</span>), or compression of the strength distribution as peripheral nodes completely lose edges, reducing statistical power to detect mixing patterns.</p>
+<div class="cell">
+<div id="tbl-robustness_topology" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-robustness_topology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: Key topological metrics for the thresholded networks
+</figcaption>
+<div aria-describedby="tbl-robustness_topology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Network Threshold</th>
+<th style="text-align: right;">Avg. Path Length</th>
+<th style="text-align: right;">Diameter</th>
+<th style="text-align: right;">Assortativity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">50th</td>
+<td style="text-align: right;">0.394</td>
+<td style="text-align: right;">1.187</td>
+<td style="text-align: right;">-0.116</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25th</td>
+<td style="text-align: right;">0.419</td>
+<td style="text-align: right;">1.169</td>
+<td style="text-align: right;">-0.097</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">75th</td>
+<td style="text-align: right;">0.421</td>
+<td style="text-align: right;">1.074</td>
+<td style="text-align: right;">-0.146</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="node-centrality" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="node-centrality"><span class="header-section-number">3.2.2</span> Node Centrality</h3>
+<p>The identification of the top variance contributors and variance recipients remained stable across the different threshold levels, with European companies showing high variance contribution properties, and Asian companies maintaining the role of variance recipients. The top contributors and top recipients are reported in <a href="#tbl-robustness_net" class="quarto-xref">Table&nbsp;<span>3.3</span></a>.</p>
+<div class="cell">
+<div id="tbl-robustness_net" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-robustness_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.3: Top variance contributors and top variance recipients, based on the net strength metric
+</figcaption>
+<div aria-describedby="tbl-robustness_net-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ticker</th>
+<th style="text-align: right;">50</th>
+<th style="text-align: right;">25</th>
+<th style="text-align: right;">75</th>
+<th style="text-align: left;">Rank stability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">80.05</td>
+<td style="text-align: right;">73.05</td>
+<td style="text-align: right;">67.03</td>
+<td style="text-align: left;">Top transmitter</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">74.31</td>
+<td style="text-align: right;">62.66</td>
+<td style="text-align: right;">81.05</td>
+<td style="text-align: left;">Top transmitter</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">67.46</td>
+<td style="text-align: right;">53.17</td>
+<td style="text-align: right;">59.56</td>
+<td style="text-align: left;">Top transmitter</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">-49.49</td>
+<td style="text-align: right;">-62.15</td>
+<td style="text-align: right;">-32.07</td>
+<td style="text-align: left;">Top receiver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">-58.67</td>
+<td style="text-align: right;">-65.92</td>
+<td style="text-align: right;">-12.16</td>
+<td style="text-align: left;">Top receiver</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">-59.91</td>
+<td style="text-align: right;">-62.27</td>
+<td style="text-align: right;">-34.77</td>
+<td style="text-align: left;">Top receiver</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The eigenvector centrality rankings remained stable for the three networks, with a strong Spearman correlation of <span class="math inline">\(0.989\)</span> between the <span class="math inline">\(25^{th}\)</span> and <span class="math inline">\(50^{th}\)</span> quantile networks, and a correlation of <span class="math inline">\(0.97\)</span> between the <span class="math inline">\(50^{th}\)</span> and <span class="math inline">\(75^{th}\)</span> quantile networks. The classification of hubs and authorities held a consistency value of <span class="math inline">\(0.98\)</span> across thresholds, with 25 of the 27 companies maintaining the original designation, while only Tokio Marine &amp; Nichido Fire Insurance Co.&nbsp;(8766.T) and Hiscox Ltd.&nbsp;(HSX.L) saw their denomination change from hub to authority. As shown in <a href="#tbl-correlation_threshold" class="quarto-xref">Table&nbsp;<span>3.4</span></a>, betweenness correlation decreases at higher thresholds due to the sparser network topology, where peripheral nodes lose connectivity and fewer nodes can serve as bridges between the remaining clusters.</p>
+<div class="cell">
+<div id="tbl-correlation_threshold" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-correlation_threshold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.4: Spearman correlations of the network centrality measures and their respective p-values
+</figcaption>
+<div aria-describedby="tbl-correlation_threshold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;"><span class="math inline">\(\rho_{25,50}\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span>-value</th>
+<th style="text-align: right;"><span class="math inline">\(\rho_{50,75}\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span>-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Net</td>
+<td style="text-align: right;">0.993</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.829</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Betwenness</td>
+<td style="text-align: right;">0.735</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.743</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eigenvector</td>
+<td style="text-align: right;">0.989</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.970</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PageRank</td>
+<td style="text-align: right;">0.813</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.650</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hub</td>
+<td style="text-align: right;">0.989</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.971</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Authority</td>
+<td style="text-align: right;">0.980</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.855</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Community</td>
+<td style="text-align: right;">0.891</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-0.314</td>
+<td style="text-align: right;">0.111</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="community-structure" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="community-structure"><span class="header-section-number">3.2.3</span> Community Structure</h3>
+<p>Community detection showed the greatest sensitivity to threshold choice. The sparser network produced more fragmented communities, as QBE Insurance Group (QBE.AX) and Hiscox Ltd.&nbsp;(HSX.L) lost all connections and became isolated nodes. This would imply total independence from the system and no variance influence being received or transmitted from or to other nodes, resulting in a connected network of only 25 companies rather than the initial 27, changing the communities identified and the interconnecetions between them. However, as later presented, community identification resulted in a rather low separation, suggesting a tightly connected core. This finding shows that community detection is most subject to thresholding choice, consistent with the relatively low modularity score. The partition reshape under thinning because there are no strong natural clusters detectedm so the instability of community structure and the integration of the market are the same fact viewed from two different angles.</p>
+<p>Robustness analysis validates the <span class="math inline">\(50^{th}\)</span> percentile threshold and remains consistent across thresholds. The <span class="math inline">\(50^{th}\)</span> percentile provides an effective balance, avoiding noise of denser networks while preserving sufficient connectivity to maintain an interpretable community structure.</p>
+</section>
+</section>
+<section id="global-topology-measure" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="global-topology-measure"><span class="header-section-number">3.3</span> Global Topology Measure</h2>
+<p>We start by first analyzing the topology of the network, describing the structural stability of the connections, and identifying the core of the structure. To better understand the connections between nodes and the topology of the network, we provided a graphical representation in <a href="#fig-network_plot" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. The graph is represented using a Force-Directed algorithm, more specifically the Fruchterman-Reingold algorithm (<span class="citation" data-cites="FR1991">Fruchterman and Reingold (<a href="references.html#ref-FR1991" role="doc-biblioref">1991</a>)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-network_plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-network_plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-network_plot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-network_plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Plot of the network using the Fruchterman-Reingold algorithm. Node size is set using the Out-strength value
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="network-density" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="network-density"><span class="header-section-number">3.3.1</span> Network Density</h3>
+<p>Network Density is the ratio of the number of edges <span class="math inline">\(E\)</span> actually present over the number of maximum possible edges in the network. For a directed graph, the formula is: <span class="math display">\[ \rho = \frac{E}{N(N-1)} \]</span> where <span class="math inline">\(N\)</span> is the number of nodes. After applying the threshold to the original graph obtained by the Diebold-Yilmaz connectedness matrix approach, the number of edges reduced to 351, taking the density of the system to <span class="math inline">\(\rho = 0.5\)</span>, compared to the original density <span class="math inline">\(\rho = 1\)</span> of the full connected graph.</p>
+</section>
+<section id="average-path-length" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="average-path-length"><span class="header-section-number">3.3.2</span> Average Path Length</h3>
+<p>Average path length represents the average number of steps along the shortest paths for all possible pair of nodes in the network. <span class="math display">\[ L = \frac{1}{N(N-1)}\sum_{i \neq j}d(i,j) \]</span> where <span class="math inline">\(d(i,j)\)</span> is the geodesic distance (shortest path) between nodes <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. In a weighted network, the distance is often defined as the inverse of the weight <span class="math inline">\(1/w(i,j)\)</span>, implying that strong links creates short distances. This measure captures the efficiency of connectedness pathways: higher values indicate longer pathways, requiring variance contribution to pass through more nodes before reaching the whole system, while smaller values indicate a faster and more direct statistical linkages system-wide.</p>
+<p>The average path length of the network is <span class="math inline">\(L=0.394\)</span>, indicating relatively efficient connectedness across the network, where strong variance contribution relationships create short statistical distances across nodes. This relatively short path indicates a tight interconnected network structure, where statistical relationship span the system through few intermediary nodes. Economically, this is a fast-contagion, low-firewall property: a shock that reaches the whole system through few intermediaries, leaving little structural buffering between any firm and the rest of the market, showing characteristics that are feared by supervisors in crisis scenarios, where transmission is rapid and transmission is difficult to break.</p>
+</section>
+<section id="diameter" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="diameter"><span class="header-section-number">3.3.3</span> Diameter</h3>
+<p>The network diameter <span class="math inline">\(D\)</span> represents the longest shortest path between any pair of nodes, or in other words, it is the maximum geodesic distance in the network: <span class="math display">\[ D = \max_{i,j} d(i,j)\]</span> In weighted networks, distance is defined as the inverse of edge weight (<span class="math inline">\(d_{ij} = \frac{1}w_{ij}\)</span>), reflecting the intuition that stronger connections create shorter distances. Consequently, the diameter is measured in units of inverse weight rather than hop count, and can exceed the number of nodes when paths pass through weak connections.</p>
+<p>While the average path length captures typical transmission efficiency, diameter identifies the most peripheral node pairs and highlights the longest propagation distance. The network exhibits a diameter <span class="math inline">\(D = 1.187\)</span>, corresponding to the longest weighted shortest path between any two reinsurers. This metric, combined with the average path length, suggest a structure in which the core companies exhibit strong variance contribution relationships while peripheral nodes, although more statistically distant, remain connected through indirect pathways.</p>
+</section>
+<section id="assortativity" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="assortativity"><span class="header-section-number">3.3.4</span> Assortativity</h3>
+<p>Assortativity, also known as homophily, serves as a macroscopic descriptor of network topology, quantifying the preference for nodes to attach to other nodes that are similar in some way. It measures the degree of correlation between the properties of a pair of connected vertices. It is calculated with respect to node degree or strength, assessing, in this case, whether well-connected hubs tend to associate with other hubs, or whether they instead connect to smaller peripheral nodes. Following <span class="citation" data-cites="Yuan2021">Yuan, Yan, and Zhang (<a href="references.html#ref-Yuan2021" role="doc-biblioref">2021</a>)</span>, for weighted directed networks, the assortativity coefficient is defined as the weighted Pearson correlation coefficient: <span id="eq-assortativity"><span class="math display">\[
+    r_{\alpha,\beta} = \frac{\sum_{(i,j) \in E} w_{ij} \left(s_i^{(\alpha)} - \bar{s}_{\text{sou}}^{(\alpha)}\right) \left( s_{j}^{(\beta)} - \bar{s}_{\text{tar}}^{(\beta)}\right)}{W\sigma_{\text{sou}}^{(\alpha)}\sigma_{\text{tar}}^{(\beta)}}
+\tag{3.1}\]</span></span></p>
+<p>where <span class="math inline">\(w_{ij}\)</span> is the edge weight from node <span class="math inline">\(i\)</span> to node <span class="math inline">\(j\)</span>, <span class="math inline">\(W = \sum w_{ij}\)</span> is the total edge weight, <span class="math inline">\(s_i^{(\alpha)}\)</span> is the out-strength of source node <span class="math inline">\(i\)</span>, <span class="math inline">\(s_j^{(\beta)}\)</span> is the in-strength of target node <span class="math inline">\(j\)</span>, and <span class="math inline">\(\bar{s}\)</span> and <span class="math inline">\(\sigma\)</span> denote the edge-weight means and standard deviations of the source (<span class="math inline">\(sou\)</span>) and target (<span class="math inline">\(tar\)</span>) edges.</p>
+<p>For positive values of <span class="math inline">\(r\)</span>, the network exhibits assortativity mixing, which means that strong nodes tend to connect to other strong nodes, forming a dense cohesive core. For negative values of <span class="math inline">\(r\)</span>, the network exhibits disassortative mixing, in which hubs act as bridges. Using strength-based assortativity to account for edge weights, the network exhibits moderate disassortativity (<span class="math inline">\(r = -0.116\)</span>). This indicates that high-strength variance contributors preferentially connect to low-strength peripheral nodes rather than forming a dense interconnected core among themselves. This structure has important implications for systemic risk: variance contributions from major contributors are distributed throughout the network rather than remaining concentrated within the core. This architecture carries two opposing implications: a hub-and-spoke structure absorbs the failure of a random peripheral firm with little systemic effect, yet the distress of a hub such as Munich Re, Swiss Re, or AXA is broadcast efficiently across the periphery rather than bottled up within the core.</p>
+</section>
+</section>
+<section id="micro-prudential-analysis-node-centrality" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="micro-prudential-analysis-node-centrality"><span class="header-section-number">3.4</span> Micro-Prudential Analysis: Node Centrality</h2>
+<p>These metrics are the core of network analysis and are the keys to assessing the role of each reinsurer’s contribution to the system’s aggregate forecast error variance. In this section, we try to identify firms that can be considered systemically important firms (Systemically important financial institution - SIFI) and assess the influence that each reinsurer has on the whole system.</p>
+<section id="strength" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="strength"><span class="header-section-number">3.4.1</span> Strength</h3>
+<p>Strength is the sum of the weights of edges attached to a node. Since we are considering a directed network, this measure splits into In-Strength and Out-Strength.</p>
+<ul>
+<li>Out-Strength: <span class="math inline">\(S_{out}(i) =\sum_{j}\omega_{ji}\)</span> is used to identify the total contribution of node <span class="math inline">\(i\)</span> in explaining other nodes’ forecast error variance</li>
+<li>In-Strength: <span class="math inline">\(S_{in}(i) = \sum_{j}\omega_{ij}\)</span> is used to identify the total forecast error variance of node <span class="math inline">\(i\)</span> explained by other nodes</li>
+</ul>
+<p>High-Out strength values indicate that a firm is a major variance contributor, meaning that it explains substantial portion of other reinsurers forecast error variance, while high In-Strength values indicate that a firm is a major variance recipient, and its forecast error variance is largely explained by other companies changes. For the network <span class="math inline">\(G_{sparse}\)</span>, the largest variance contributor is the French reinsurer AXA XL (Ticker: CS.PA), with <span class="math inline">\(S_{out} = 137.627\)</span>, while the largest variance recipient is the American reinsurer W.R. Berkley Corp (Ticker: WRB) with <span class="math inline">\(S_{in} = 80.372\)</span>.</p>
+<div id="tbl-centrality_metrics" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-centrality_metrics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.5: Centrality Metrics Analysis
+</figcaption>
+<div aria-describedby="tbl-centrality_metrics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-centrality_metrics" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-centrality_metrics-1" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-centrality_metrics-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) In-Strength: variance recipients
+</figcaption>
+<div aria-describedby="tbl-centrality_metrics-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-centrality_metrics-1" class="do-not-create-environment caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ticker</th>
+<th style="text-align: right;">In</th>
+<th style="text-align: left;">Continent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">80.372</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">79.518</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: right;">75.611</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">74.801</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">74.167</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">74.055</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">71.607</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: right;">70.844</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">66.518</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">66.356</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">65.140</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">63.318</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: right;">62.436</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: right;">60.238</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">58.671</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">53.977</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">52.339</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">51.667</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">51.112</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">49.490</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">48.792</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">46.905</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">44.445</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">44.425</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: right;">37.544</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">5.046</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">2.566</td>
+<td style="text-align: left;">Australia</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-centrality_metrics" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-centrality_metrics-2" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-centrality_metrics-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Out-Strength: variance contributors
+</figcaption>
+<div aria-describedby="tbl-centrality_metrics-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-centrality_metrics-2" class="do-not-create-environment caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ticker</th>
+<th style="text-align: right;">Out</th>
+<th style="text-align: left;">Continent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">137.627</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">128.843</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">126.444</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">124.770</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">118.575</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">117.616</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">78.736</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">69.997</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">64.799</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">62.935</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">57.597</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: right;">55.395</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">54.745</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">53.073</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: right;">52.189</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">52.071</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: right;">51.815</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">35.534</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">31.885</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: right;">24.749</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">13.329</td>
+<td style="text-align: left;">Australia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: right;">10.247</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">6.612</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">2.380</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: left;">America</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-centrality_metrics-1" class="quarto-xref">Table&nbsp;<span>3.5 (a)</span></a> and <a href="#tbl-centrality_metrics-2" class="quarto-xref">Table&nbsp;<span>3.5 (b)</span></a> list in descending order, the In-strength and Out-strength, of the nodes composing the network. The first 6 variance contributors are located in Europe, while 4 companies (2 American and 2 Asian) have 0 out-strength (do not have outgoing edges), implying no contribution in explaining other reinsurers’ variance, but acting purely as variance receivers.</p>
+<p>To better assess the recipients and contributors of variance of the network’s nodes, the difference between the outgoing strength and the receiving strength, the net strength, was used: <span class="math display">\[S_{net} = S_{out} - S_{in}\]</span> Companies that have positive <span class="math inline">\(S_{net}\)</span> values are considered net variance distributors, while companies that have negative values are considered net variance recipients. <a href="#fig-net_strength" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> provides a graphical representation of the companies and their net weight <span class="math inline">\(S_{net}\)</span>. Again, variance contributors tend to be concentrated in Europe (purple bars), with 66% of companies with a positive net balance being based in Europe, and the remaining being distributed across Asian, America, and Australian companies (respectively green, red, and blue bars). The variance receiving companies (<span class="math inline">\(S_{net} &lt; 0\)</span>), are composed predominantly by Asian and American companies. This pattern maps cleanly onto the industrial organization of the sector: global underwriting capacity is concentrated in few European groups whose pricing and capital decisions set the market tone at the major renewals, so the market re-prices European firms first, while American companies sit further along the risk transfer chaing and therefore receive the signal.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-net_strength" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-net_strength-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-net_strength-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-net_strength-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Net strength balance for each ticker. Positive values indicate that the company is a net variance contributor, while negative values indicate that the firm’s forecast error variance is more explained by others than it contributes to explaining others
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="betweenness-centrality" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="betweenness-centrality"><span class="header-section-number">3.4.2</span> Betweenness Centrality</h3>
+<p>Betweenness centrality is the fraction of all shortest paths in the network that pass through a specific node, measuring the extent to which the node lies in the pathways connecting other node’s forecast error variance relationships. <span class="math display">\[C_B(v)=\sum_{i \neq v \neq j} \frac{\sigma_{ij}(v)}{\sigma_{ij}} \]</span> where <span class="math inline">\(\sigma_{ij}\)</span> is the total number of shortest paths from node <span class="math inline">\(i\)</span> to node <span class="math inline">\(j\)</span>, and <span class="math inline">\(\sigma_{ij}(v)\)</span> is the number of these paths that pass through <span class="math inline">\(v\)</span>. For weighted networks, the shortest paths <span class="math inline">\(\sigma_{ij}\)</span> are computed using the edge distances defined as the inverse of weights (<span class="math inline">\(d_{ij}=1/w_{ij}\)</span>), reflecting the interpretation that stronger variance contributions creates shorter statistical distances.</p>
+<p>This metric is used to identify nodes that function as bridges of the network, connecting two or more different clusters. High values of betweenness indicate that the firm occupies a structurally important position in the network’s connectedness topology, serving as a bridge between otherwise less-connected regions. Such firms lie on many of the shortest variance-contribution pathways between other node pairs. From a network perspective, this position suggests that these firm’s unexpected movements may be statistically relevant to explaining variance patterns across different regions of the network. The firm with the highest value is Assicurazioni Generali SpA (Ticker: G.MI), with a value of <span class="math inline">\(C_B = 51.043\)</span>, followed by Markel Corp (MKL) and Mapfre Reasseguros (MAP.MC), with respective values of <span class="math inline">\(39.338\)</span> and <span class="math inline">\(31.804\)</span>. The Italian reinsurer serves as the strongest bridge for variance patterns across the systems, and the high values for European reinsurers suggest a strong importance of the European market, serving as variance contributors themselves and as connectors for the variance recipients nodes, with Markel Corp.&nbsp;being the only non European company appearing with high betweenness value. The economic reading is that the maximum betweenness value is small in absolute terms, so there is no structural company whose removal would fragment the network. Contagion has many paths and is diffuse rather than reliant on single intermediary, in contrast with the banking sector, where a major interbank lender or a central counterparty can be “too-interconnected-to-fail” as a unique gateway.</p>
+</section>
+<section id="eigenvector-centrality" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="eigenvector-centrality"><span class="header-section-number">3.4.3</span> Eigenvector Centrality</h3>
+<p>Eigenvector centrality represents a measure of network embeddedness where a node is considered highly embedded if it is connected to other nodes that are themselves considered nested. This approach captures the inherent structure of the network, considering the value of a connection from the prominence of the counterpart involved.</p>
+<p>Mathematically, the concept is formalized through the spectral properties of the adjacency matrix <span class="math inline">\(A\)</span>. Let <span class="math inline">\(\lambda_1\)</span> denote the largest eigenvalue of <span class="math inline">\(A\)</span> and let <span class="math inline">\(\mathbf{x}\)</span> be its corresponding eigenvector satisfying <span class="math inline">\(A\mathbf{x} = \lambda_1 \mathbf{x}\)</span>. The eigenvector centrality of node <span class="math inline">\(i\)</span> is then defined as the <span class="math inline">\(i\)</span>-th component of <span class="math inline">\(\mathbf{x}\)</span>, denoted <span class="math inline">\(x_i\)</span>. Decomposing this to individual node level, the centrality score satisfies: <span class="math display">\[\lambda_1 x_i = \sum_{j}A_{ij}x_j\]</span> or equivalently: <span class="math display">\[x_i = \frac{1}{\lambda}\sum_{j}A_{ij}x_j\]</span> In the context of financial stability and systemic risk analysis, eigenvector centrality provides a metric to identify institutions that are “too connected to fail”. A high eigenvector centrality score indicates that a firm is embedded in the network’s core, with direct linkages to the most important nodes. Consequently, firms with high eigenvector centrality are embedded in pathways connecting the network’s most connected nodes, meaning that their idiosyncratic shocks are statistically linked to the movements of other embedded firms. Conversely, a firm that has low eigenvector score interacts mostly with the periphery of the network, interacting mainly with less embedded entities, and with a limited capability of explaining forecast error variance to the core nodes of the network.</p>
+<div class="cell">
+<div id="tbl-top_eigenvector" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-top_eigenvector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.6: Eigenvector values of the network nodes
+</figcaption>
+<div aria-describedby="tbl-top_eigenvector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ticker</th>
+<th style="text-align: right;">Eigenvector</th>
+<th style="text-align: left;">Continent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">0.380</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">0.356</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">0.355</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">0.352</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">0.344</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">0.329</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">0.205</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">0.202</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">0.183</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">0.175</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#tbl-top_eigenvector" class="quarto-xref">Table&nbsp;<span>3.6</span></a> provides the 10 highest values of the eigenvector centrality. AXA XL was the company with the highest score, with similar values (<span class="math inline">\(&gt; 0.3\)</span>) for 5 other companies based in Europe, supporting again the idea that European market explains the aggregate volatility movements of the system.</p>
+<p>It is interesting to note the high correlation ($= 0.926, <span class="math inline">\(p&lt;0.001\)</span>) of eigenvector values with the Net strength: this high positive correlation coefficient highlights the fact that the most influential hubs are also the nodes that contribute the most to the market’s aggregate volatility, suggesting a concentrated core of market risk. In markets with clear core-periphery topology, small peripheral firms connected exclusively to central hubs would exhibit high eigenvector centrality despite low strength. The absence of this pattern suggests that the global reinsurance market operates as a relatively homogeneous, densely interconnected system where the largest volatility contributors are also the most systemically embedded institutions. <a href="#fig-eigen_net_scatterplot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> provides a graphical representation of the correlation found for the nodes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-eigen_net_scatterplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-eigen_net_scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-eigen_net_scatterplot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eigen_net_scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Correlation between the net strength of nodes and the eigenvector measure
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In dense neutrally assortative networks (<span class="math inline">\(r \approx 0\)</span>), high eigenvector-strength correlation is typical because uniform mixing makes strength the primary determinant of centrality. In this network, the high correlation occurs despite disassortativity (<span class="math inline">\(r=-0.116\)</span>), suggesting that the hub-spoke structure amplifies rather than diminishes the importance of variance contribution magnitude. European variance contributors are embedded in the core both because of their high variance contribution magnitude and their connections to peripheral recipients, creating a reinforcing feedback where strength determines structural position.</p>
+</section>
+<section id="pagerank" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="pagerank"><span class="header-section-number">3.4.4</span> PageRank</h3>
+<p>PageRank is used to identify nodes importance based on its connections. It was originally designed for web search (the algorithm that laid the foundations of Google’s web search success), and is best interpreted as the “flow” of information that travels in the network (<span class="citation" data-cites="Brin1998">Brin and Page (<a href="references.html#ref-Brin1998" role="doc-biblioref">1998</a>)</span>). The PageRank algorithm differently accounts for the weighting of out-degree nodes. A node’s influence is divided equally among all its outbound links, therefore, a prestigious node that links to only a few other nodes confers higher importance to those neighbors than a prestigious nodes that connects to hundreds of nodes. Another distinction in the PageRank algorithm is the addition of a damping factor <span class="math inline">\(d\)</span>, usually set to 0.85, that transforms the adjacency matrix <span class="math inline">\(A\)</span> into a stochastic, irreducible, and aperiodic Google Matrix. These characteristics allow to effectively model a “random shock” moving through the graph, ensuring that the entire network is taken into account.<br>
+Mathematically it is represented as <span class="math display">\[ PR(i) = \frac{1 -d}{N} + d\sum_{j \in M(i)} \frac{PR(j)}{L(j)}\]</span> where <span class="math inline">\(M(i)\)</span> are nodes pointing to <span class="math inline">\(i\)</span>, and <span class="math inline">\(L(j)\)</span> is the out-degree of <span class="math inline">\(j\)</span>.</p>
+<p>While the eigenvector centrality identifies which nodes are connected to the core, the PageRank measure identifies which nodes receive the largest aggregate contributions from the system. The highest PageRank was observed for Markel Corp.&nbsp;(MKL), with a value of <span class="math inline">\(PR = 0.072\)</span>, followed by China Reinsurance Corp (1508.HK) and the US Everest Group (EG).</p>
+<p>These companies are reported in negative net values (recall <a href="#fig-net_strength" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>), and unsurprisingly also rank among the highest PageRank values, highlighting their tendency to receive variance contribution without proportionally contributing to others variance explanation. These firms act as “terminal nodes” in the variance contribution topology. Eigenvector-central firms are embedded in the network’s core structure, while PageRank-central firms reppresent primary recipients of aggregate variance contribution.</p>
+</section>
+<section id="hubs-and-authorities" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="hubs-and-authorities"><span class="header-section-number">3.4.5</span> Hubs and Authorities</h3>
+<p>Hubs and Authorities concept was introduced by Jon Kleinberg through the Hyperlink-Induced Topic Search (HITS) algorithm and serves as another measure to identify central nodes and the pathways of variance explanation relationships. Hubs and Authorities distinguishes between two roles within the variance relationship:</p>
+<ul>
+<li>Hubs: nodes that point to good authorities, they act as the main variance contributors<br>
+</li>
+<li>Authorities: nodes that are pointed to by good hubs. They are considered main receivers from the hubs.</li>
+</ul>
+<p>This creates a cycle of mutual reinforcement: a hub is valuable if it points to valuable authorities, while an authority is valuable if it is appointed by valuable hubs (<span class="citation" data-cites="Kleinberg1999">Kleinberg (<a href="references.html#ref-Kleinberg1999" role="doc-biblioref">1999</a>)</span>). Mathematically, this involves calculating the principal eigenvectors of both the adjacency matrix <span class="math inline">\(A\)</span> for the authorities and its transpose <span class="math inline">\(A^T\)</span> for the hubs.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-hits_scatterplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hits_scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-hits_scatterplot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hits_scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Scatterplot of the Hub scores (x-axis) and the Authority score (y-axis)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The elements in quadrant 1 of <a href="#fig-hits_scatterplot" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> are nodes that present high hub scores and high authority score, while the second quadrant is categorized by nodes that have high authority scores but low hub scores. As is possible to see, the upper right corner is constituted by only European companies, once again highlighting the major variance explanation that these companies have on the whole system. <a href="#fig-hits_network" class="quarto-xref">Figure&nbsp;<span>3.6</span></a> provides a representation of the network displaying the nodes according to their hubs or authorities categorization. Such distinction was made by subtracting the two scores obtained: for positive values, the node was classified as <em>Hubs</em>, meaning that these nodes act as intermediaries in variance contribution pathways, while negative values were classified as <em>Authorities</em> nodes, meaning that they are usually the primary recipients of explained variance.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-hits_network" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hits_network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-hits_network-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hits_network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Network plot classifying hubs and authorities
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="clustering-and-community-detection" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="clustering-and-community-detection"><span class="header-section-number">3.5</span> Clustering and Community Detection</h2>
+<section id="clustering-coefficient---transitivity" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="clustering-coefficient---transitivity"><span class="header-section-number">3.5.1</span> Clustering Coefficient - Transitivity</h3>
+<p>Transitivity is a structural metric that quantifies the degree to which nodes in a network tend to cluster together, measuring the prevalence of triadic closures. It specifically measures the probability that two neighbors of a given node are themselves connected, assessing the local cohesiveness of the network comparing the number of closed triangles to the number of connected triplets. Mathematically it is defined as <span class="math display">\[ C = \frac{\text{number of triangles connected to } i}{\text{number of triples centered on }i}\]</span> or more precisely <span class="math display">\[ C^{\omega}_i = \frac{1}{S_i(k_i-1)}\sum_{j,h}\frac{w_{ij} + w_{ih}}{2}a_{ij}a_{ih}a_{jh}\]</span> where <span class="math inline">\(S_i\)</span> is the strength of vertex <span class="math inline">\(i\)</span>, <span class="math inline">\(a\)</span> are elements of the adjacency matrix <span class="math inline">\(A\)</span>, <span class="math inline">\(k_i\)</span> is the vertex degree, and <span class="math inline">\(w_{ij}\)</span> are the weights <span class="citation" data-cites="igraph_package">Csárdi et al. (<a href="references.html#ref-igraph_package" role="doc-biblioref">2025</a>)</span>. The transitivity value for the network of reinsurers is relatively high at <span class="math inline">\(0.78%\)</span>, implying that the variance contributions flow through the dense local connection patterns, with multiple pathways linking neighboring nodes.</p>
+</section>
+<section id="community-detection" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="community-detection"><span class="header-section-number">3.5.2</span> Community Detection</h3>
+<p>Community detection offers a broader view of the concept that transitivity just introduced. It seeks to aggregate the local clusters identified into large, coherent clusters, known as communities. A community is typically defined as a subdivision of the network where nodes are more densely connected internally than the rest of the network.</p>
+<section id="modularity" class="level4" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="modularity"><span class="header-section-number">3.5.2.1</span> Modularity</h4>
+<p>Modularity score (<span class="citation" data-cites="Newman2006">Newman (<a href="references.html#ref-Newman2006" role="doc-biblioref">2006</a>)</span>), serves as the measure to identify the strength of the division of a network into modules, comparing the actual links within a community to the expected density if links were distributed randomly, but maintaining the same degree distribution. <span id="eq-modularity"><span class="math display">\[
+Q = \frac{1}{2m}\sum_{ij} \left( A_{ij}-\frac{k_i k_j}{2m} \right)\delta(c_i,c_j)
+\tag{3.2}\]</span></span> where <span class="math inline">\(\delta(c_i,c_j) = 1\)</span> if nodes <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are in the same community.</p>
+<p>Communities are detected by maximizing the modularity score <span class="math inline">\(Q\)</span>, and multiple algorithms can be used. In this analysis, we adopted the Louvain algorithm (<span class="citation" data-cites="Blondel_2008">Blondel et al. (<a href="references.html#ref-Blondel_2008" role="doc-biblioref">2008</a>)</span>), due to its high speed in identifying communities, even for large networks, and its efficiency and accuracy in achieving high modularity scores and correctly determining communities.</p>
+<p>To maximize modularity, Louvain’s algorithm functions through two phases: 1. In the first phase, the algorithm positions each node in its own community. It then examines a node and calculates the gain in modularity (<span class="math inline">\(\Delta Q\)</span>) that result from moving that node to the community of its neighbors. The node is therefore moved to the community that yields the highest modularity increase. This process is repeated for all nodes 2. The second phase consists in the aggregation of communities. Once a local maxima is reached, the network is collapsed, and each community found in the first phase of the iteration is considered as single nodes. The edges between the new single nodes are the sum of the weights of the edges between the constituent nodes in the original graph, while internal links within the community become self-loops in the new network</p>
+<p>These phases are iterated for all nodes composing the collapsed network until modularity no longer increases, obtaining the optimized value of <span class="math inline">\(Q\)</span>.</p>
+<p>Prior to maximizing modularity with the Louvain algorithm, the directed adjacency matrix was transformed into an undirected graph. Specifically, a single undirected edge was created for each pair of vertices connected by at least one directed link. This symmetrization step ensures compatibility with <a href="#eq-modularity" class="quarto-xref">Equation&nbsp;<span>3.2</span></a>, which is formulated for undirected networks.</p>
+<p>The Louvain algorithm therefore identified 3 different communities (reported in <a href="#tbl-louvain_community" class="quarto-xref">Table&nbsp;<span>3.7</span></a>). Algorithmic stability was verified by repeating the procedure across 10 independent runs with distinct random seeds; all runs returned the same community identification, confirming that the identified partition is unique and not randomly initialized. The modularity score reached a maximum value of <span class="math inline">\(Q=0.162\)</span>, which indicates relatively weak community structure. For reference, modularity scores above 0.3 are typically considered meaningful indicators of community division (<span class="citation" data-cites="Newman2006">Newman (<a href="references.html#ref-Newman2006" role="doc-biblioref">2006</a>)</span>), while values between 0.1 and 0.3 suggest only modest clustering tendencies.</p>
+<p>The primary finding is therefore that the global reinsurance market exhibits weak community structure. This result is consistent with the low network disassortativity (<span class="math inline">\(r= -0.116\)</span>) and short average path length (<span class="math inline">\(L = 0.394\)</span>) identified before, suggesting that the system behaves as a tightly integrated rather than isolated regional markets. A secondary descriptive observation, shows that the three detected communities show <em>partial</em> alignment with broad geographic groupings: community <em>1</em> includes mainly American companies, community <em>2</em> is composed predominantly of European based companies, and community <em>3</em>, includes three Japanese companies and the only Australian reinsurer. Given the low <span class="math inline">\(Q = 0.162\)</span>, this geographic pattern reflects a weak tendency for firms in similar time zones and regulatory environments to exhibit marginally higher co-movement.</p>
+<div class="cell">
+<div id="tbl-louvain_community" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-louvain_community-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.7: Membership of the community for each ticker
+</figcaption>
+<div aria-describedby="tbl-louvain_community-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Community</th>
+<th style="text-align: left;">Continent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">003690.KS</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACGL</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AXS</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRK.A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EG</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FFH.TO</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MKL</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RGA</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNR</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WRB</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0966.HK</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1508.HK</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6809.T</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HSX.L</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SCR.PA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SPNT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">America</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8630.T</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8725.T</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8766.T</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Asia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QBE.AX</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Australia</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-lovain_comm_network" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lovain_comm_network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-lovain_comm_network-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lovain_comm_network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Network plot highlighting the different communities detected using the Louvain algorithm
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To better assess this distinction, however, we introduce the measure of conductance that allows to quantify how well-separated a community is from the rest of the network. Lower level (<span class="math inline">\(&lt;0.2\)</span>) of conductance indicates that the community is better-defined with fewer external connections relative to internal ones, suggesting stronger cohesion within the community. Mathematically, for a weighted graph, it is defined as: <span id="eq-conductance"><span class="math display">\[
+    \Phi (C) = \frac{cut(C, \bar{C})}{\min(vol(C),vol(\bar{C}))}
+\tag{3.3}\]</span></span> where <span class="math inline">\(cut(C, \bar{C})\)</span> is the sum of the weights of the edges that have one endpoint in the community C and the other endpoint outside the community, <span class="math inline">\(vol(C)\)</span> is the volume of the community C, corresponding to the sum of the weights of the edges incident to nodes in C, and <span class="math inline">\(vol(\bar{C})\)</span> is the volume of the rest of the network, excluding community C.</p>
+<p>From <a href="#tbl-conductance" class="quarto-xref">Table&nbsp;<span>3.8</span></a> we can see the conductance level for each community. Since communities overlap (Community 1 includes several European firms and a South Korean and Community 2 includes a Japanese firm), the conductance scores are not particularly low. Community 1 exhibits the lowest conductance, suggesting marginally stronger internal cohesion, but the values are similar across all three communities and consistent with the globally integrated market structured identified by the low modularity score.</p>
+<div class="cell">
+<div id="tbl-conductance" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-conductance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.8: Conductance level for each community
+</figcaption>
+<div aria-describedby="tbl-conductance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Community</th>
+<th style="text-align: right;">Conductance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Community 1</td>
+<td style="text-align: right;">0.432</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Community 2</td>
+<td style="text-align: right;">0.411</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Community 3</td>
+<td style="text-align: right;">0.527</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="summary-and-key-findings" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="summary-and-key-findings"><span class="header-section-number">3.6</span> Summary and Key Findings</h2>
+<p>This chapter applied network analysis to the BVAR-GFEVD framework to identify potential systemically important reinsurers and define the network topology of the global reinsurance market. Some key findings emerged:</p>
+<ul>
+<li><strong>Network Structure</strong>: The global reinsurance network exhibits a short average path length (<span class="math inline">\(L=0.394\)</span>) and slight disassortative behavior (<span class="math inline">\(r = -0.116\)</span>), with a high total connectedness value (<span class="math inline">\(TC = 74.278\)</span>), indicating a tightly interconnected system where European companies tend to form hubs but still connect to Asian and American nodes, rather than forming isolated cores. <a href="#tbl-ch3_summary" class="quarto-xref">Table&nbsp;<span>3.9</span></a> reports the first 5 companies with the highest metrics analyzed;</li>
+<li><strong>Systemic Importance</strong>: European companies appeared to be the most significant variance contributors of the system, with AXA XL, Swiss Re, and Munich Re ranking highest in the centrality measures, while Asian companies emerged as variance recipients;</li>
+<li><strong>Community Detection</strong>: The Louvain algorithm yields <span class="math inline">\(Q=0.162\)</span>, indicating weak community structure and confirming that the global reinsurance market operates as an integrated system rather than a collection of regionally segmented markets. Three communities with partial geographic overlap are identified, but given the low modularity and the similar conductance values, this geographic pattern is a secondary descriptive observation rather than a structural finding;</li>
+<li><strong>Limitations</strong>: Some limitations of this workflow need to be addressed. First, the use of stock volatility poses a strong bias over short-term sentiment and does not serve as an insightful indicator for financial distress. A balance-sheet based analysis could have offered deeper and more accurate identification of potentially systemic reinsurers, at the expense of the number of observations available, due to the limited availability of balance sheet data. Second, the static analysis captures a stationary system which does not reflect the moments of crisis and the dynamic evolution of the system itself. In the following chapter we are going to address this issue, performing a dynamic analysis over the dataset and review the network topology and systemically important reinsurers during specific events. A single full-sample estimate yields only an average network and cannot reveal that connectedness spikes in crises as idiosyncratic risk give way to common factors; the static picture therefore understate tail-state systemic risk and cannot identify which firms become systemic specifically during a crisis. The next chapter, through the dynamic, rolling-window analysis, tries to address this limitation.</li>
+</ul>
+<div class="cell">
+<div id="tbl-ch3_summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch3_summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.9: Highest company for each metric
+</figcaption>
+<div aria-describedby="tbl-ch3_summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Rank</th>
+<th style="text-align: left;">Out-Strength</th>
+<th style="text-align: left;">In-Strength</th>
+<th style="text-align: left;">Net</th>
+<th style="text-align: left;">Eigenvector</th>
+<th style="text-align: left;">Betweenness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">WRB</td>
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">G.MI</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">MKL</td>
+<td style="text-align: left;">CS.PA</td>
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: left;">MKL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: left;">RGA</td>
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: left;">MAP.MC</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: left;">CB</td>
+<td style="text-align: left;">MAP.MC</td>
+<td style="text-align: left;">HNR1.DE</td>
+<td style="text-align: left;">MUV2.DE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">SREN.SW</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: left;">G.MI</td>
+<td style="text-align: left;">MUV2.DE</td>
+<td style="text-align: left;">CS.PA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<hr>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Blondel_2008" class="csl-entry" role="listitem">
+Blondel, Vincent D, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre. 2008. <span>“Fast Unfolding of Communities in Large Networks.”</span> <em>Journal of Statistical Mechanics: Theory and Experiment</em> 2008 (10): P10008. <a href="https://doi.org/10.1088/1742-5468/2008/10/p10008">https://doi.org/10.1088/1742-5468/2008/10/p10008</a>.
+</div>
+<div id="ref-Brin1998" class="csl-entry" role="listitem">
+Brin, Sergey, and Lawrence Page. 1998. <span>“The Anatomy of a Large-Scale Hypertextual Web Search Engine.”</span> <em>Computer Networks</em> 30: 107–17. <a href="https://snap.stanford.edu/class/cs224w-readings/Brin98Anatomy.pdf">https://snap.stanford.edu/class/cs224w-readings/Brin98Anatomy.pdf</a>.
+</div>
+<div id="ref-igraph_package" class="csl-entry" role="listitem">
+Csárdi, Gábor, Tamás Nepusz, Vincent Traag, Szabolcs Horvát, Fabio Zanini, Daniel Noom, Kirill Müller, David Schoch, and Maëlle Salmon. 2025. <em><span class="nocase">igraph</span>: Network Analysis and Visualization in r</em>. <a href="https://doi.org/10.5281/zenodo.7682609">https://doi.org/10.5281/zenodo.7682609</a>.
+</div>
+<div id="ref-Evans1996" class="csl-entry" role="listitem">
+Evans, J. D. 1996. <em>Straightforward Statistics for the Behavioral Sciences</em>. Thomson Brooks/Cole Publishing.
+</div>
+<div id="ref-FR1991" class="csl-entry" role="listitem">
+Fruchterman, Thomas M. J., and Edward M. Reingold. 1991. <span>“Graph Drawing by Force-Directed Placement.”</span> <em>Software: Practice and Experience</em> 21 (11): 1129–64. https://doi.org/<a href="https://doi.org/10.1002/spe.4380211102">https://doi.org/10.1002/spe.4380211102</a>.
+</div>
+<div id="ref-Kleinberg1999" class="csl-entry" role="listitem">
+Kleinberg, Jon M. 1999. <span>“Authoritative Sources in a Hyperlinked Environment.”</span> <em>J. ACM</em> 46 (5): 604–32. <a href="https://doi.org/10.1145/324133.324140">https://doi.org/10.1145/324133.324140</a>.
+</div>
+<div id="ref-Newman2006" class="csl-entry" role="listitem">
+Newman, M. E. J. 2006. <span>“Modularity and Community Structure in Networks.”</span> <em>Proceedings of the National Academy of Sciences</em> 103 (23): 8577–82. <a href="https://doi.org/10.1073/pnas.0601602103">https://doi.org/10.1073/pnas.0601602103</a>.
+</div>
+<div id="ref-Yuan2021" class="csl-entry" role="listitem">
+Yuan, Yelie, Jun Yan, and Panpan Zhang. 2021. <span>“Assortativity Measures for Weighted and Directed Networks.”</span> <em>Journal of Complex Networks</em> 9 (2): cnab017. <a href="https://doi.org/10.1093/comnet/cnab017">https://doi.org/10.1093/comnet/cnab017</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The transposition was necessary to comply with the usage of the R package <code>igraph</code>, used to perform the presented analysis.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter2.html" class="pagination-link" aria-label="Methodology and Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology and Data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter4.html" class="pagination-link" aria-label="Dynamic Network Analysis">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dynamic Network Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
